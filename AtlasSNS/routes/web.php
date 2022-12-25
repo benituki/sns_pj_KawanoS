@@ -38,3 +38,10 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
+//ルート定義（2022/12/25）追加
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
+
+Route::get('/post/create', [PostsController::class, 'create']);
+Route::post('/post', [PostsController::class, 'store']);
