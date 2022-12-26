@@ -22,10 +22,10 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="/public/images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+        <h1><a><img src="/public/images/atlas.png"></a></h1>
+            <div id="top">
+                <div id="top">
+                    <p>〇〇さん<img src="/public/images/icon1.png"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
