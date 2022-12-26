@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
     //
-    public function postValidates(Request $request)
-{
-  $request->validate([
-    'name' => 'required',
-    'age' => 'integer | between:0,150',
-    'sex' => ['max:1', 'regex:/^[男|女]+$/u'],
-  ];)
-  return view('sample.index',['msg'=>'OK']);
+    // 例)
+public function test(Request $request){
+  $rules = [
+// バリデーションルール定義
+'UserName' => ['required', 'min:2', 'max:12',]
+  ];
+// 引数の値がバリデートされればリダイレクト、されなければ引き続き処理の実行
+$this->validate($request, $rules);
 }
 }
 

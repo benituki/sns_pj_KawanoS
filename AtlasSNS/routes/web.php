@@ -39,5 +39,8 @@ Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+//ログアウト機能（2022/12/26）
+Route::get('/logout', 'Auth\LoginController@logout');
+
 //ルート定義（2022/12/25）追加
 Route::post('sample', 'FormController@postValidates');
