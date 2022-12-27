@@ -22,10 +22,11 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="/public/images/atlas.png"></a></h1>
+            //イメージ画像ヘッダーロゴトップリンク遷移
+        <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
             <div id="top">
                 <div id="top">
-                    <p>〇〇さん<img src="/public/images/icon1.png"></p>
+                    <p>〇〇さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
