@@ -10,8 +10,12 @@ class FormController extends Controller
     // 例)
 public function test(Request $request){
   $rules = [
-// バリデーションルール定義
-'UserName' => ['required', 'min:2', 'max:12',]
+    // バリデーションルール定義
+    //ユーザー登録機能
+    'UserName' => ['required', 'min:2', 'max:12',],
+    'MailAdress' => ['required', 'min:5', 'max:40'],
+    'PasswordConfirm' => ['required', 'alpha_desh', 'min:8', 'max:20', 'same:Password'],
+    'Password' => ['required', 'alpha_desh', 'min:8', 'max:20']
   ];
 // 引数の値がバリデートされればリダイレクト、されなければ引き続き処理の実行
 $this->validate($request, $rules);
