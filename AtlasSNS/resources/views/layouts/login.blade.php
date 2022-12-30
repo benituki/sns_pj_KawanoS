@@ -27,21 +27,17 @@
             <div id="top">
                 <div id="top">
                     <p>〇〇さん<img src="{{ asset('/images/icon1.png') }}" ></p>
-                <div>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
-                    <button type="button" class="menu-btn">
-                        <span class-"inn"></span>
-                    </button>
-
-                    <nav class="menu">
+                <div>
+                    
                         <ul>
                             <li><a href="/top">ホーム</a></li>
                             <li><a href="/profile">プロフィール</a></li>
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
-                    </nav>
-                    {{-- //アコーディオンメニュー終わり --}}
+                    
                 </div>
+                {{-- //アコーディオンメニュー終わり --}}
             </div>
     </header>
     <div id="row">
