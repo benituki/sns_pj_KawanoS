@@ -22,19 +22,27 @@
 <body>
     <header>
         <div id = "head">
-            //イメージ画像ヘッダーロゴトップリンク遷移
+            {{-- //イメージ画像ヘッダーロゴトップリンク遷移 --}}
         <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
             <div id="top">
                 <div id="top">
                     <p>〇〇さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                 <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+                    {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
+                    <button type="button" class="menu-btn">
+                        <span class-"inn"></span>
+                    </button>
+
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="/top">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </nav>
+                    {{-- //アコーディオンメニュー終わり --}}
+                </div>
             </div>
-        </div>
     </header>
     <div id="row">
         <div id="container">
@@ -59,7 +67,10 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    {{-- jQueryとつなげる（2022/12/30） --}}
+    <link rel="stylesheet" href="./css/style.css" media="screen and (max-width:768px)">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/resources/assets/js/script.js"></script>
 </body>
 </html>
