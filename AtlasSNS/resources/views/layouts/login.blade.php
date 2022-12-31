@@ -28,6 +28,24 @@
                 <div id="top">
                     <p>〇〇さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
+                    <div id="accordion" class="accordion-container">
+                        <h4 class="accordion-title js-accordion-title">Accordion Title 1</h4>
+                        <div class="accordion-content">
+                          <p>Accordion content 1</p>
+                        </div><!--/.accordion-content-->
+                      
+                        <h4 class="accordion-title js-accordion-title">Accordion Title 2</h4>
+                        <div class="accordion-content">
+                          <p>Accordion content 2</p>
+                        </div><!--/.accordion-content-->
+                      
+                        <h4 class="accordion-title js-accordion-title">Accordion Title 3</h4>
+                        <div class="accordion-content">
+                          <p>Accordion content 3</p>
+                        </div><!--/.accordion-content-->
+                      
+                      </div><!--/#accordion-->
+                      
                 <div>
                     
                         <ul>
@@ -64,9 +82,7 @@
     <footer>
     </footer>
     {{-- jQueryとつなげる（2022/12/30） --}}
-    <link rel="stylesheet" href="./css/style.css" media="screen and (max-width:768px)">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="/resources/assets/js/script.js"></script>
 </body>
 </html>
