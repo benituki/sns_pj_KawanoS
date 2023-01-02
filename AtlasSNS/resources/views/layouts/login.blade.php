@@ -28,34 +28,35 @@
                 <div id="top">
                     <p>〇〇さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
-                    <div id="accordion" class="accordion-container">
-                        <h4 class="accordion-title js-accordion-title">Accordion Title 1</h4>
-                        <div class="accordion-content">
-                          <p>Accordion content 1</p>
-                        </div><!--/.accordion-content-->
-                      
-                        <h4 class="accordion-title js-accordion-title">Accordion Title 2</h4>
-                        <div class="accordion-content">
-                          <p>Accordion content 2</p>
-                        </div><!--/.accordion-content-->
-                      
-                        <h4 class="accordion-title js-accordion-title">Accordion Title 3</h4>
-                        <div class="accordion-content">
-                          <p>Accordion content 3</p>
-                        </div><!--/.accordion-content-->
-                      
-                      </div><!--/#accordion-->
-                      
-                <div>
                     
+                    <div class="accordion">
+                        <input type="checkbox" id="accordion1" class="checkbox">
+                         <dl>
+                           <dt><label for="accordion1"></label></dt>
+                           <dd>
+                            <div>
+                                <ul>
+                                    <li><a href="/top">ホーム</a></li>
+                                    <li><a href="/profile">プロフィール</a></li>
+                                    <li><a href="/logout">ログアウト</a></li>
+                                </ul>
+                            
+                        </div>
+                           </dd>
+                         </dl>
+                       </div>
+                      {{-- //アコーディオンメニュー終わり --}}
+
+                      {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
+                {{-- <div>
                         <ul>
                             <li><a href="/top">ホーム</a></li>
                             <li><a href="/profile">プロフィール</a></li>
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
-                    
-                </div>
+                </div> --}}
                 {{-- //アコーディオンメニュー終わり --}}
+
             </div>
     </header>
     <div id="row">

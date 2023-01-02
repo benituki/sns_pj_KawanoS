@@ -22,72 +22,60 @@ header{
 }
 
 /* アコーディオンメニューCSS */
-.accordion-container {
-    position: relative;
-    width: 100%;
-    border: 1px solid #0079c1;
-    border-top: none;
-    outline: 0;
-    cursor: pointer
-  }
-  
-  .accordion-container .accordion-title {
-    display: block;
-    position: relative;
-    margin: 0;
-    padding: 0.625em 0.625em 0.625em 2em;
-    font-size: 1.25em;
-    font-weight: normal;
-    color: #fff;
-    background: #000;
-    cursor: pointer;
-  }
-  
-  .accordion-container .accordion-title:hover,
-  .accordion-container .accordion-title:active,
-  .accordion-container .content-entry.open .accordion-title {
-    background-color: #00aaa7;
-    color: white;
-  }
-  
-  .accordion-container .accordion-title:hover i:before,
-  .accordion-container .accordion-title:hover i:active,
-  .accordion-container .content-entry.open i {
-    color: white;
-  }
-  
-  .accordion-title{
-    position: relative;
-  }
-  
-  .accordion-title:after {
-    content: "";
-    position: absolute;
-    right: 25px;
-    top: 38%;
-    transition: all 0.2s ease-in-out;
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-top: solid 2px #fff;
-    border-right: solid 2px #fff;
-    -webkit-transform: rotate(135deg);
-    transform: rotate(135deg);
-  }
-  
-  .accordion-title.open:after {
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    top: 45%;
-  }
-  
-  .accordion-content {
-    display: none;
-    padding-left: 2.3125em;
-  }
-  
-  /* CSS for CodePen */
-  .accordion-container {
-    width: 300px;
-    margin: 1.875em auto;
-  }
+/*チェックボックスを消す*/
+.checkbox{
+  display: none;
+}
+ 
+/*アコーディオンの大きさと位置調整*/
+.accordion{
+  width: 600px;
+  margin: 0 auto 20px;
+}
+ 
+/*アコーディオンのラベルの設定*/
+.accordion dt{
+  /* background-color: #d3ffd8; */
+}
+ 
+.accordion dt label{
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+ 
+/*ラベル内の矢印の設定*/
+.accordion dt label::after{
+  content:'';
+  display: block;
+  border-left:7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0,-50%);
+  transition:.4s .4s;
+}
+ 
+/*表示される要素の基本設定*/
+.accordion dd{
+  height: 0;
+  transition:.4s;
+  overflow: hidden;
+  padding: 0 20px;
+  border: solid 2px transparent;
+}
+ 
+/*ラベル内の矢印のアニメーション設定*/
+.checkbox:checked ~ dl dt label::after{
+  transform: translate(0,-50%) rotate(-180deg);  
+}
+ 
+/*表示される要素のアニメーション設定*/
+.checkbox:checked ~ dl dd{
+  height: auto;
+  padding: 10px 20px;
+  /* border: solid 2px #d3ffd8; */
+}
