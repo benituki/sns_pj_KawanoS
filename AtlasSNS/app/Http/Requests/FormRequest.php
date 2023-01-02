@@ -26,9 +26,9 @@ class Request extends FormRequest
     {
         return [
             //
-            'UserName' => 'required|min:2|max:12',
-            'MailAdress' => 'required|min:5|max:40',
-            'PasswordConfirm' => 'required|alpha_desh|min:8|max:20|same:Password',
+            'username' => 'required|min:2|max:12',
+            'mail' => 'required|min:5|max:40',
+            'password-confirm' => 'required|alpha_desh|min:8|max:20|same:Password',
             'Password' => 'required|alpha_desh|min:8|max:20'
         ];
     }
