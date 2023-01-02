@@ -21,10 +21,14 @@ class Request extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
             //
+            'UserName' => 'required'|'min:2'|'max:12',
+            'MailAdress' => 'required'|'min:5'|'max:40',
+            'PasswordConfirm' => 'required'|'alpha_desh'|'min:8'|'max:20'|'same:Password',
+            'Password' => 'required'|'alpha_desh'|'min:8'|'max:20'
         ];
     }
 }

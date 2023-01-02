@@ -1,3 +1,6 @@
+$(function(){
+  $("div p").html("<span>変更する</span>");
+ });
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
 {/* // アコーディオンメニューjs(2022/12/30) */}
