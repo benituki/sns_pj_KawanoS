@@ -21,14 +21,21 @@ class Request extends FormRequest
      *
      * @return array
      */
+    // バリデーションルール（2023/01/02）
     public function rules(Request $request)
     {
         return [
             //
-            'UserName' => 'required'|'min:2'|'max:12',
-            'MailAdress' => 'required'|'min:5'|'max:40',
-            'PasswordConfirm' => 'required'|'alpha_desh'|'min:8'|'max:20'|'same:Password',
-            'Password' => 'required'|'alpha_desh'|'min:8'|'max:20'
+            'UserName' => 'required|min:2|max:12',
+            'MailAdress' => 'required|min:5|max:40',
+            'PasswordConfirm' => 'required|alpha_desh|min:8|max:20|same:Password',
+            'Password' => 'required|alpha_desh|min:8|max:20'
         ];
+    }
+
+    public function message(Request $request)
+    {
+                // エラーの内容を書く
+        return 'The validation error message.';
     }
 }
