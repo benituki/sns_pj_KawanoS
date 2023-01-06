@@ -26,7 +26,7 @@
         <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
             <div id="top">
                 <div id="top">
-                    <p>〇〇さん<img src="{{ asset('/images/icon1.png') }}" ></p>
+                    <p>{{$username}}さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
                     
                     <div class="accordion">
@@ -40,8 +40,7 @@
                                     <li><a href="/profile">プロフィール</a></li>
                                     <li><a href="/logout">ログアウト</a></li>
                                 </ul>
-                            
-                        </div>
+                            </div>
                            </dd>
                          </dl>
                        </div>
