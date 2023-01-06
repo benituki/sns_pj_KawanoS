@@ -8,7 +8,7 @@ body{
     /* 背景グラデーション */
     height:100vh;
     background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #e5ff00 0%, #53cdfd 100%);
+    background-image: linear-gradient(0deg, #e5ff00 50%, #53cdfd 100%);
     /* 背景グラデーション終わり */
 }
 

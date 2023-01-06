@@ -26,7 +26,7 @@
         <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
             <div id="top">
                 <div id="top">
-                    <p>{{$username}}さん<img src="{{ asset('/images/icon1.png') }}" ></p>
+                    <p>{{ Session::get('$username') }}さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
                     
                     <div class="accordion">
