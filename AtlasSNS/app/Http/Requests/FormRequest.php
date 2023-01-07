@@ -13,7 +13,7 @@ class Request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class Request extends FormRequest
      * @return array
      */
     // バリデーションルール（2023/01/02）
-    public function rules(Request $request)
+    public function rules()
     {
         return [
             //
@@ -33,9 +33,11 @@ class Request extends FormRequest
         ];
     }
 
-    public function message(Request $request)
+    public function message()
     {
                 // エラーの内容を書く
-        return 'The validation error message.';
+        return [
+            'The validation error message.'
+        ];
     }
 }
