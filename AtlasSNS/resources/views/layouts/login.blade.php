@@ -82,7 +82,7 @@
     <footer>
     </footer>
     {{-- jQueryとつなげる（2022/12/30） --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="/public/js/script.js"></script>
+    <script src="{{ asset('https://code.jquery.com/jquery-3.6.3.min.js') }}"></script>
+    <script src="{{ asset('/public/js/script.js') }}"></script>
 </body>
 </html>

@@ -89,14 +89,14 @@ class RegisterController extends Controller
         return view('auth.added');
     }
 
-    /**
-     * * 新ブログポストの保存
-     * *
-     * * @param  \Illuminate\Http\Request  $request
-     * * @return \Illuminate\Http\Response
-     * */
-    public function store(Request $request)
-    {
-        // ブログポストは有効
-    }
+//     /**
+//      * * 新ブログポストの保存
+//      * *
+//      * * @param  \Illuminate\Http\Request  $request
+//      * * @return \Illuminate\Http\Response
+//      * */
+//     public function store(Request $request)
+//     {
+//         // ブログポストは有効
+//     }
 }
