@@ -95,7 +95,9 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-            $this->validate($request, RegisterController);
+            //↓追（2023/01/09）
+            $this->validate($request, Register::$rulet);
+            //終わり
             $this->create($data);
             return redirect('added');
         }
