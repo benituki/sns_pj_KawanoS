@@ -37,7 +37,9 @@ class Request extends FormRequest
     {
                 // エラーの内容を書く
         return [
-            'The validation error message.'
+            'username.required' => ':attributeを入力してください。',
+            'username.min' => ':attributeは2文字以上で入力してください。',
+            'username.max' => ':attributeは12文字以下で入植してください。'
         ];
     }
 }
