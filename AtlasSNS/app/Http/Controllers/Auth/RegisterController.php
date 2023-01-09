@@ -99,9 +99,13 @@ class RegisterController extends Controller
             $this->validate($request, Register::$rulet);
             //終わり
             $this->create($data);
-            return redirect('added');
+            return redirect('added')
+            ->withErrors($request)
+            ->withInput();
+        } else {
+            return view('auth.register');
         }
-        return view('auth.register');
+        
     }
 
     public function added(){
