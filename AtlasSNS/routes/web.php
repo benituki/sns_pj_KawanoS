@@ -29,6 +29,7 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
+Route::get('/validate', 'App\Http\Requests@validate');
 Route::post('/validate', 'App\Http\Requests@validate');
 
 //ログイン中のページ
