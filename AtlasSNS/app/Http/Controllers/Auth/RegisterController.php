@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -58,17 +59,29 @@ class RegisterController extends Controller
             // 'mail' => 'required|string|email|max:255|unique:users',
             // 'password' => 'required|string|min:4|confirmed',
         ]);
+
+        //エラー画面（2022/01/10）
+        if ($data) {
+            //エラー発生時の処理
+            return redirect('/validate')
+            ->withErrors($data)
+            ->withInput();
+        }
+
+        
     }
 
-    public function message()
-    {
-                // エラーの内容を書く
-        return [
-            'username.required' => ':attributeを入力してください。',
-            'username.min' => ':attributeは2文字以上で入力してください。',
-            'username.max' => ':attributeは12文字以下で入植してください。'
-        ];
-    }
+    
+
+    // public function message()
+    // {
+    //             // エラーの内容を書く
+    //     return [
+    //         'username.required' => ':attributeを入力してください。',
+    //         'username.min' => ':attributeは2文字以上で入力してください。',
+    //         'username.max' => ':attributeは12文字以下で入植してください。'
+    //     ];
+    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -96,7 +109,7 @@ class RegisterController extends Controller
         if($request->isMethod('post')){
             $data = $request->input();
             //↓追（2023/01/09）
-            $this->validate($request, Register::$rulet);
+            $this->validator($data);
             //終わり
             $this->create($data);
             return redirect('added')
@@ -112,6 +125,7 @@ class RegisterController extends Controller
         return view('auth.added');
     }
 
+    
 //     /**
 //      * * 新ブログポストの保存
 //      * *
@@ -123,3 +137,4 @@ class RegisterController extends Controller
 //         // ブログポストは有効
 //     }
 }
+
