@@ -60,13 +60,13 @@ class RegisterController extends Controller
             // 'password' => 'required|string|min:4|confirmed',
         ]);
 
-        //エラー画面（2022/01/10）
-        if ($data) {
-            //エラー発生時の処理
-            return redirect('/validate')
-            ->withErrors($data)
-            ->withInput();
-        }
+        // //エラー画面（2022/01/10）
+        // if ($data) {
+        //     //エラー発生時の処理
+        //     return redirect('/added')
+        //     ->withErrors($data)
+        //     ->withInput();
+        // }
 
         
     }
@@ -112,11 +112,11 @@ class RegisterController extends Controller
             $this->validator($data);
             //終わり
             $this->create($data);
-            return redirect('added')
-            ->withErrors($request)
+            return redirect('/added')
+            ->withErrors($data)
             ->withInput();
         } else {
-            return view('auth.register');
+            return view('auth.register',['msg'=>'正しく入力されました。']);
         }
         
     }
