@@ -50,10 +50,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|min:2|max:12',
-            'mail' => 'required|min:5|max:40',
-            'password-confirm' => 'required|alpha_desh|min:8|max:20|same:Password',
-            'Password' => 'required|alpha_desh|min:8|max:20'
+            'username' => 'required | string | between:2,12',
+            'mail' => 'required | string | between:5,40 | unique:users |email:filter,dns',
+            'password-confirm' => 'required | string | alpha_num | between:8,20 | same:password',
+            'password' => 'required | alpha_num | between:8,20'
 
             // 'username' => 'required|string|max:255',
             // 'mail' => 'required|string|email|max:255|unique:users',
@@ -110,11 +110,11 @@ class RegisterController extends Controller
             $data = $request->input();
             //↓追（2023/01/09）
             $this->validator($data);
-            //終わり
-            $this->create($data);
             return redirect('/added')
             ->withErrors($data)
             ->withInput();
+            //終わり
+            $this->create($data);
         } else {
             return view('auth.register',['msg'=>'正しく入力されました。']);
         }
