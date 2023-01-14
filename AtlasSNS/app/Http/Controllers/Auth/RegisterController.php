@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-
+use Illuminate\View\ViewName;
 
 class RegisterController extends Controller
 {
@@ -68,20 +68,7 @@ class RegisterController extends Controller
         //     ->withInput();
         // }
 
-        
     }
-
-    
-
-    // public function message()
-    // {
-    //             // エラーの内容を書く
-    //     return [
-    //         'username.required' => ':attributeを入力してください。',
-    //         'username.min' => ':attributeは2文字以上で入力してください。',
-    //         'username.max' => ':attributeは12文字以下で入植してください。'
-    //     ];
-    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -106,17 +93,21 @@ class RegisterController extends Controller
     // }
 
     public function register(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->input();
+        if($request->isMethod('post')){ //POstで送られた時
+            $data = $request->input();//送られたデータを$dataに代入
             //↓追（2023/01/09）
-            $this->validator($data);
-            return redirect('/added')
-            ->withErrors($data)
-            ->withInput();
+            $validator=$this->validator($data);//validatorメソッドに移動
+
+            if ($validator->fails()) {
+                return redirect('/register')//registerに留まる
+                ->withErrors($validator)//エラーを持ってくる
+                ->withInput();
+              }
             //終わり
-            $this->create($data);
+            $this->create($data);//createメソッドに移動
+            return redirect('/added');//完了ページに移動する
         } else {
-            return view('auth.register',['msg'=>'正しく入力されました。']);
+            return view('auth.register');
         }
         
     }
