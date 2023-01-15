@@ -58,17 +58,27 @@ class RegisterController extends Controller
             // 'username' => 'required|string|max:255',
             // 'mail' => 'required|string|email|max:255|unique:users',
             // 'password' => 'required|string|min:4|confirmed',
+            
         ]);
 
-        // //エラー画面（2022/01/10）
-        // if ($data) {
-        //     //エラー発生時の処理
-        //     return redirect('/added')
-        //     ->withErrors($data)
-        //     ->withInput();
-        // }
-
+        return [
+            'username.required' => '名前を入力してください。',
+            'mail.required' => 'メールアドレスを入力してください。',
+            'password-confirm.required' => 'パスワードを入力してください。',
+            'password.required' => 'パスワードを入力してください。'
+        ];
     }
+
+    //エラーメッセージ（2023/01/15）
+    // public function messages(): array
+    // {
+    //     return [
+    //         'username.required' => '名前を入力してください。',
+    //         'mail.required' => 'メールアドレスを入力してください。',
+    //         'password-confirm.required' => 'パスワードを入力してください。',
+    //         'password.required' => 'パスワードを入力してください。'
+    //     ];
+    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -106,7 +116,7 @@ class RegisterController extends Controller
             $this->create($data);//createメソッドに移動
             return redirect('/added');//完了ページに移動する
         } else {
-            return view('auth.register');
+            return view('auth.register',['msg' => 'OK']);
         }
         
     }
