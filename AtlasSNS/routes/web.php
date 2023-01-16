@@ -37,10 +37,10 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','followsController@followList');
+Route::get('/follower-list','followsController@followerList');
 
 //ログアウト機能（2022/12/26）
 Route::get('/logout', 'Auth\LoginController@logout');
