@@ -61,12 +61,12 @@ class RegisterController extends Controller
             
         ]);
 
-        return [
+        return validator::make($data,[
             'username.required' => '名前を入力してください。',
             'mail.required' => 'メールアドレスを入力してください。',
             'password-confirm.required' => 'パスワードを入力してください。',
             'password.required' => 'パスワードを入力してください。'
-        ];
+        ]);
     }
 
     //エラーメッセージ（2023/01/15）
