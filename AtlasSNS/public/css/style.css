@@ -8,6 +8,12 @@ header{
     background:#186AC9;
 }
 
+/* フォロワーリストとユーザー検索ボタンの境界線 */
+#confirm{
+  border-bottom: 1px solid #000;
+  background: #f2f2f2;
+}
+
 /* main content */
 #row{
     display: flex;
@@ -79,3 +85,14 @@ header{
   padding: 10px 20px;
   /* border: solid 2px #d3ffd8; */
 }
+
+
+
+/* ユーザー検索ボタンの設置（2023/01/18）*/
+.btn{
+  color:#fff;
+  border-radius: 10px;  /* //要素の境界の外側の角を丸める */
+  padding: 10px;
+  background:#186AC9;
+}
+
