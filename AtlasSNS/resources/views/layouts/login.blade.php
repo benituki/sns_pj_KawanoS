@@ -29,7 +29,7 @@
                     <p><?php $data = Auth::user(); ?>さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
                     
-                    <div class="accordion">
+                    {{-- <div class="accordion">
                         <input type="checkbox" id="accordion1" class="checkbox">
                          <dl>
                            <dt><label for="accordion1"></label></dt>
@@ -43,17 +43,27 @@
                             </div>
                            </dd>
                          </dl>
-                       </div>
+                       </div> --}}
                       {{-- //アコーディオンメニュー終わり --}}
 
                       {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
-                {{-- <div>
+                      <div>
+                        <ul class="accordion">
+                            <li><a href="/top">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+                {{-- //アコーディオンメニュー終わり --}}
+
+                      {{-- //アコーディオンメニュー元素材 --}}
+                      {{-- <div>
                         <ul>
                             <li><a href="/top">ホーム</a></li>
                             <li><a href="/profile">プロフィール</a></li>
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
-                </div> --}}
+                    </div> --}}
                 {{-- //アコーディオンメニュー終わり --}}
 
             </div>
