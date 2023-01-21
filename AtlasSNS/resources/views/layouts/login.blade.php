@@ -68,7 +68,7 @@
 
                 {{-- ヘッダー/アコーディオンメニューの設置（2023/01/21） --}}
                 <nav>
-                    <li class="accordion">
+                    <li class="accordion"><a>test</a>
                         <ul>
                             <li><a href="/top">HOME</a></li>
                             <li><a href="/profile">プロフィール編集</a></li>
@@ -77,7 +77,14 @@
                     </li>
                 </nav>
                 {{-- ヘッダー/アコーディオンメニューの設置終わり（2023/01/21） --}}
-
+                <div>
+                    <a href="#" class="drawer">ドロワーデモ</a>
+                    <ul class="drawer-list">
+                        <li><a href="/top">HOME</a></li>
+                        <li><a href="/profile">プロフィール編集</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </div>
             </div>
     </header>
     <div id="row">

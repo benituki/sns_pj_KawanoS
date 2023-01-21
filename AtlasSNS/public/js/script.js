@@ -24,3 +24,9 @@ $(window).resize(function() {
 $(window).on('load',function(){
 	mediaQueriesWin();/* ドロップダウンの関数を呼ぶ*/
 });
+
+$ (function() {
+    $(".drawer").click (function() {
+      $(".drawer-list").slideToggle();
+    });
+  });
