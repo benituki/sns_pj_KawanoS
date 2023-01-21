@@ -26,7 +26,7 @@
         <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
             <div id="top">
                 <div id="top">
-                    <p><?php $data = Auth::user(); ?>さん<img src="{{ asset('/images/icon1.png') }}" ></p>
+                    <p>さん<img src="{{ asset('/images/icon1.png') }}" ></p>
                     {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
                     
                     {{-- <div class="accordion">
@@ -47,13 +47,13 @@
                       {{-- //アコーディオンメニュー終わり --}}
 
                       {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
-                      <div>
-                        <ul class="accordion">
+                      {{-- <div>
+                        <ul>
                             <li><a href="/top">ホーム</a></li>
                             <li><a href="/profile">プロフィール</a></li>
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 {{-- //アコーディオンメニュー終わり --}}
 
                       {{-- //アコーディオンメニュー元素材 --}}
@@ -65,6 +65,18 @@
                         </ul>
                     </div> --}}
                 {{-- //アコーディオンメニュー終わり --}}
+
+                {{-- ヘッダー/アコーディオンメニューの設置（2023/01/21） --}}
+                <nav>
+                    <li class="accordion">
+                        <ul>
+                            <li><a href="/top">HOME</a></li>
+                            <li><a href="/profile">プロフィール編集</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </li>
+                </nav>
+                {{-- ヘッダー/アコーディオンメニューの設置終わり（2023/01/21） --}}
 
             </div>
     </header>

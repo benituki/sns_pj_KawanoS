@@ -34,11 +34,11 @@ Route::post('/validate', 'App\Http\Requests@validate');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
-
+//プロフィール
 Route::get('/profile','UsersController@profile');
-
+//検索
 Route::get('/search','UsersController@search');
-
+//フォロワーリスト
 Route::get('/follow-list','followsController@followList');
 Route::get('/follower-list','followsController@followerList');
 
