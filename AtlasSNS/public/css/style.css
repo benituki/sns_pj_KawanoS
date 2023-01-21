@@ -42,44 +42,49 @@ header{
 /* ナビゲーション全体設定 */
 nav{
   background: #186AC9;
-  color: #fff;
-  text-align: center; /* 中央ぞろい */
+  color: #999;
+  text-align: center; 中央ぞろい
+}
+
+/*2階層目以降は横並びにしない*/
+nav ul ul{
+	display: block;
 }
 
 /* 下の改装のulや矢印の起点にするためliにrelativeを指定 */
 nav ul li{
-  position:relative;
+  position: relative;
 }
 
 /* ナビゲーションのリンク設定 */
 nav ul li a{
-  display:block;
-  text-decoration:none; /* テキストの装飾を行わない */
-  color:#999;
-  padding:20px 35px;
-  transition:all .3s; /* 変化するすべてのプロパティへの適用 */
+	display: block;
+  text-decoration: none; /* テキストの装飾を行わない */
+  color: #fff;
+  padding: 20px 35px;
+  transition: all .3s; /* 変化するすべてのプロパティへの適用 */
 }
 
 nav ul li li a{
-  padding:10px 35px;
+	padding:10px 35px;
 }
 
 nav ul li a:hover{
-  color:#fff;
+	color: #fff;	
 }
 
 /*==矢印の設定*/
 /*2階層目を持つliの矢印の設定*/
 nav ul li.accordion::before{
-  content:'';
-  position:absolute;
-  left:15px;
-  top:25px;
-  width:6px;
-  height:6px;
-  border-top:2px solid #999; /* 要素の上側の境界のプロパティをすべて設定します。 */
+	content:'';
+	position: absolute;
+	left:15px;
+	top:25px;
+	width:6px;
+	height:6px;
+  border-top: 2px solid #999; /* 要素の上側の境界のプロパティをすべて設定します。 */
   border-right:2px solid #999; /* 要素の右側の境界のプロパティをすべて設定します。 */
-  transform:rotate(135deg);
+  transform: rotate(135deg);
 }
 
 /*3階層目を持つliの矢印の設定*/
@@ -103,7 +108,7 @@ nav li.accordion ul{
 	top:62px;
 	z-index: 4;
   /* 形状の指定 */
-	background:#28BFE7;
+	background:#fff;
 	width:180px;
   /* はじめは非表示 */
 	visibility: hidden;
@@ -123,7 +128,7 @@ nav li.accordion ul li:active > ul{
 
 /* ナビゲーションaタグの形状 */
 nav li.accordion ul li a{
-  color:#fff;
+  color:#999;
   border-bottom:solid 1px rgba(255,255,255,0,6);
 }
 
@@ -133,7 +138,7 @@ nav li.accordion ul li:last-child a{
 
 nav li.accordion ul li a:hover,
 nav li.accordion ul li a:active{
-  background:#3577CA;
+  background:#00044a;
 }
 
 /*==768px以下の形状*/
@@ -178,6 +183,12 @@ nav ul li.accordion.active::before{
     transform: rotate(-45deg);
 }
 
+}
+
+.drawer-list {
+  display:none;
+  font-size: 15px;
+  z-index: 100;
 }
 
 
