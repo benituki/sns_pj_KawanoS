@@ -27,35 +27,6 @@
             <div id="top">
                 <div id="top">
                     <p>さん<img src="{{ asset('/images/icon1.png') }}" ></p>
-                    {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
-                    
-                    {{-- <div class="accordion">
-                        <input type="checkbox" id="accordion1" class="checkbox">
-                         <dl>
-                           <dt><label for="accordion1"></label></dt>
-                           <dd>
-                            <div>
-                                <ul>
-                                    <li><a href="/top">ホーム</a></li>
-                                    <li><a href="/profile">プロフィール</a></li>
-                                    <li><a href="/logout">ログアウト</a></li>
-                                </ul>
-                            </div>
-                           </dd>
-                         </dl>
-                       </div> --}}
-                      {{-- //アコーディオンメニュー終わり --}}
-
-                      {{-- //アコーディオンメニュー（2022/12/30）開始 --}}
-                      {{-- <div>
-                        <ul>
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </div> --}}
-                {{-- //アコーディオンメニュー終わり --}}
-
                       {{-- //アコーディオンメニュー元素材 --}}
                       {{-- <div>
                         <ul>

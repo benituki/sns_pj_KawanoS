@@ -5,26 +5,43 @@ html{
 }
 
 body{
+    
     /* 背景グラデーション */
     height:100vh;
     background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #e5ff00 50%, #53cdfd 100%);
+    background-image: linear-gradient(0deg, #e5ff00 20%, #0044ff 100%);
     /* 背景グラデーション終わり */
 }
 
-/* 中央寄せ */
-section{
-    /* background-color:#ccd8ff; */
-    padding:50px 0;
+header{
+    height: 10rem;
+    text-align: center;
+}
+
+/* ロゴ */
+header,h1{
+    text-align: center;
+}
+
+img{
+    width: 100px;
+    height: 50px;
+}
+/* ロゴ 終わり*/
+
+p,a{
+    color: #fff;
+    text-align: center;
 }
 
 div{
-    width:100px;
-    height:100px;
-    /* background-color:#4773ff; */
+    color: #fff;
+    width:250px;
+    height:250px;
+    background: rgba(0, 0, 0, 0.2);
     margin:0 auto;
-    /* 中央寄せ終わり */
-
+    padding:20px 0;
+    content: "";
     /* フォームのレイアウト */
     margin-bottom:20px;
 }
