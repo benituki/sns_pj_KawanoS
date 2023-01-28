@@ -3,11 +3,56 @@ html{
 }
 body{
 }
+
+/* リンクから― */
+a{
+  color: #fff;
+}
+
 /* header */
 header{
-    background:#186AC9;
-    display: flex;
+  background:#186AC9;
+  display: flex;
+    
+  position: fixed; /* ヘッダーを固定する */
+  top: 0; /* 上部から配置の基準位置を決める */
+  left: 0; /* 左から配置の基準位置を決める */
+  width: 100%; /* ヘッダーの横幅を指定する */
+  height: 50px; /* ヘッダーの高さを指定する */
+  padding: 10px; /* ヘッダーの余白を指定する(上下左右) */
 }
+
+header div{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+
+  
+}
+
+header img{
+  width: 50px;
+}
+
+h1 img{
+  width: 100px;
+}
+
+/* header終わり */
+
+/* ドロワー */
+.drawer-list {
+  display:none;
+  font-size: 25px;
+  z-index: 1;
+}
+
+.drawer-list a{
+  color: rgb(168, 168, 168);
+}
+
+/* ドロワー終わり */
 
 /* フォロワーリストとユーザー検索ボタンの境界線 */
 #confirm{
@@ -59,10 +104,6 @@ nav ul li a{
   color: #fff;
   padding: 20px 35px;
   transition: all .3s; /* 変化するすべてのプロパティへの適用 */
-}
-
-nav ul li li a{
-	padding:10px 35px;
 }
 
 nav ul li a:hover{
@@ -122,6 +163,7 @@ nav li.accordion ul li:active > ul{
   opacity: 1;
 }
 
+
 /* ナビゲーションaタグの形状 */
 nav li.accordion ul li a{
   color:#999;
@@ -150,7 +192,7 @@ nav li.accordion ul li a:active{
 	
 	nav li.accordion ul,
 	nav li.accordion ul ul{
-  	position: relative;
+  position: relative;
 	left:0;
 	top:0;
 	width:100%;
@@ -183,8 +225,7 @@ nav ul li.accordion.active::before{
 
 /* ナビゲーションドロップダウンのためのCSS　終わり（2023/01/21） */
 
-.drawer-list {
-  display:none;
-  font-size: 15px;
-  z-index: 100;
-}
+
+
+
+

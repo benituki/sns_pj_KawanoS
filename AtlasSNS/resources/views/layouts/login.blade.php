@@ -21,13 +21,23 @@
 </head>
 <body>
     <header>
-        <div id = "head">
+        <div id="head">
             {{-- //イメージ画像ヘッダーロゴトップリンク遷移 --}}
-        <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
-            <div id="top">
-                <div id="top">
-                    <p>さん<img src="{{ asset('/images/icon1.png') }}" ></p>
-                      {{-- //アコーディオンメニュー元素材 --}}
+            <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
+            <div id="users">
+                <div id="username">
+                    <p>さん</p>
+                    <div>
+                        <a class="drawer">ドロワーデモ</a>
+                        <ul class="drawer-list">
+                            <li><a href="/top">HOME</a></li>
+                            <li><a href="/profile">プロフィール編集</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="{{ asset('/images/icon1.png') }}" >
+                    {{-- //アコーディオンメニュー元素材 --}}
                       {{-- <div>
                         <ul>
                             <li><a href="/top">ホーム</a></li>
@@ -38,26 +48,20 @@
                 {{-- //アコーディオンメニュー終わり --}}
 
                 {{-- ヘッダー/アコーディオンメニューの設置（2023/01/21） --}}
-                <nav>
-                    <li class="accordion"><a>test</a>
+                {{-- <nav>
+                    <li class="accordion"><a>~さん</a>
                         <ul>
                             <li><a href="/top">HOME</a></li>
                             <li><a href="/profile">プロフィール編集</a></li>
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
                     </li>
-                </nav>
+                </nav> --}}
                 {{-- ヘッダー/アコーディオンメニューの設置終わり（2023/01/21） --}}
-                <div>
-                    <a href="#" class="drawer">ドロワーデモ</a>
-                    <ul class="drawer-list">
-                        <li><a href="/top">HOME</a></li>
-                        <li><a href="/profile">プロフィール編集</a></li>
-                        <li><a href="/logout">ログアウト</a></li>
-                    </ul>
-                </div>
             </div>
+        </div>
     </header>
+
     <div id="row">
         <div id="container">
             @yield('content')
