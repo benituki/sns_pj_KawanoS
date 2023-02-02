@@ -1,7 +1,9 @@
 @charset "utf-8";
 html{
+
 }
 body{
+  padding-top:100px;
 }
 
 /* リンクから― */
@@ -13,22 +15,15 @@ a{
 header{
   background:#186AC9;
   display: flex;
+  justify-content: space-around;
+
     
   position: fixed; /* ヘッダーを固定する */
   top: 0; /* 上部から配置の基準位置を決める */
   left: 0; /* 左から配置の基準位置を決める */
-  width: 100%; /* ヘッダーの横幅を指定する */
+  width: 98%; /* ヘッダーの横幅を指定する */
   height: 50px; /* ヘッダーの高さを指定する */
-  padding: 10px; /* ヘッダーの余白を指定する(上下左右) */
-}
-
-header div{
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;
-
-  
+  padding: 25px; /* ヘッダーの余白を指定する(上下左右) */
 }
 
 header img{
@@ -37,6 +32,12 @@ header img{
 
 h1 img{
   width: 100px;
+}
+
+#users {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
 }
 
 /* header終わり */
@@ -73,7 +74,9 @@ h1 img{
 #row{
     display: flex;
     flex-flow: row wrap;
+    z-index: 100;
     line-height: 2.0; /* 上下間隔開け */
+    
 }
 #container{
     flex: 0 0 80%;
@@ -182,6 +185,25 @@ nav li.accordion ul li a:active{
 /*==768px以下の形状*/
 
 @media screen and (max-width:768px){
+  header{
+    background:#186AC9;
+    display: flex;
+  
+    display: -webkit-flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-between;
+    vertical-align: middle;
+      
+    position: fixed; /* ヘッダーを固定する */
+    top: 0; /* 上部から配置の基準位置を決める */
+    left: 0; /* 左から配置の基準位置を決める */
+    width: 95%; /* ヘッダーの横幅を指定する */
+    height: 50px; /* ヘッダーの高さを指定する */
+    padding: 25px; /* ヘッダーの余白を指定する(上下左右) */
+  }
+
+
+
 	nav{
 		padding: 0;
 	}

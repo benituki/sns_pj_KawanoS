@@ -24,19 +24,24 @@
         <div id="head">
             {{-- //イメージ画像ヘッダーロゴトップリンク遷移 --}}
             <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
-            <div id="users">
-                <div id="username">
-                    <p>さん</p>
-                    <div>
-                        <a class="drawer">ドロワーデモ</a>
-                        <ul class="drawer-list">
-                            <li><a href="/top">HOME</a></li>
-                            <li><a href="/profile">プロフィール編集</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </div>
-                </div>
+        </div>
+        <div id="users">
+            <p>さん</p>
+            <div>
+                <a class="drawer">.</a>
+                <ul class="drawer-list">
+                    <li><a href="/top">HOME</a></li>
+                    <li><a href="/profile">プロフィール編集</a></li>
+                    <li><a href="/logout">ログアウト</a></li>
+                </ul>
+            </div>
+            <div id="usericon">
                 <img src="{{ asset('/images/icon1.png') }}" >
+            </div>
+        </div>
+        
+
+                
                     {{-- //アコーディオンメニュー元素材 --}}
                       {{-- <div>
                         <ul>
@@ -58,8 +63,6 @@
                     </li>
                 </nav> --}}
                 {{-- ヘッダー/アコーディオンメニューの設置終わり（2023/01/21） --}}
-            </div>
-        </div>
     </header>
 
     <div id="row">
