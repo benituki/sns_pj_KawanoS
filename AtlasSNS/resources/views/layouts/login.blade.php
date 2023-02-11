@@ -28,17 +28,10 @@
             </div>
             <div id="users">
                 <div>
-                    {{-- <a class="drawer">○○さん</a>
-                    <ul class="drawer-list">
-
-                        <li><a href="/top">HOME</a></li>
-                        <li><a href="/profile">プロフィール編集</a></li>
-                        <li><a href="/logout">ログアウト</a></li>
-                    </ul> --}}
-
+                    <p>○○さん</p>
                     <ul class="menu">
                         <li>
-                            <a href="">○○さん</a>
+                            <a href=""></a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 <li><a href="/profile">プロフィール編集</a></li>
@@ -46,40 +39,12 @@
                             </ul>
                         </li>
                     </ul>
-
-
                 </div>
                 <div id="usericon">
                     <img src="{{ asset('/images/icon1.png') }}" >
                 </div>
             </div>
         </div>
-
-
-
-
-                    {{-- //アコーディオンメニュー元素材 --}}
-                      {{-- <div>
-                        <ul>
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </div> --}}
-                {{-- //アコーディオンメニュー終わり --}}
-
-                {{-- ヘッダー/アコーディオンメニューの設置（2023/01/21） --}}
-                {{-- <nav>
-                    <li class="accordion"><a>~さん</a>
-                        <ul>
-                            <li><a href="/top">HOME</a></li>
-                            <li><a href="/profile">プロフィール編集</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </li>
-                </nav> --}}
-                {{-- ヘッダー/アコーディオンメニューの設置終わり（2023/01/21） --}}
-        
     </header>
 
     <div id="row">
