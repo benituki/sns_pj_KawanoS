@@ -26,6 +26,7 @@ header{
 .header-wrap{
   display: flex;
   justify-content: space-around;
+  position: sticky;
 }
 
 header img{
@@ -38,34 +39,110 @@ h1 img{
 
 #head{
   display: flex;
-  margin: 0px 50% 0px 0px;
+  margin: 0px 500px 0px 0px;
 }
 
 #users {
   display: flex;
-
 }
 
 /* header終わり */
 
 /* ドロワー */
-.drawer-list {
-  display:none;
-  font-size: 25px;
-  z-index: 1;
+.drawer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
-.drawer-list li{
-  margin: 10px 0;
+.drawer::after{
+  content: '>';
+  transform: rotate(90deg);
 }
-
-
 
 .drawer-list a{
   color: rgb(168, 168, 168);
+  padding: 10px;
 }
 
+.drawer-list {
+  display:none;
+  font-size: 15px;
+  z-index: 1;
+
+  max-width: 150px;
+  width: 100%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  /* ↓中央揃え */
+  text-align: center;
+  
+}
+
+.drawer-list > li{
+  padding: 10px;
+  display: block;
+  margin: 10px 0;
+}
+
+.drawer-list li:hover{
+  background-color: #00044a;
+  
+}
+
+.drawer-list li a:hover{
+  color: #fff;
+}
+
+.drawer-list ul.active {
+  display: block;
+}
 /* ドロワー終わり */
+
+/* YouTube見本 */
+/* main {
+  max-width: 150px;
+  width: 100%;
+  margin: 50px auto;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 20px;
+} */
+
+/* .menu ul {
+  display: none;
+} */
+
+.menu a {
+  transition: .3%;
+}
+/* ホバー */
+.menu ul a:hover {
+  background-color:#00044a;
+  color:#fff;
+}
+/* ホバー終わり */
+
+.menu {
+  max-width: 200px;
+}
+
+.menu > li > a {
+  display: block;
+  padding: 10px;
+}
+
+.menu > li > ul a{
+  padding: 10px;
+  display: block;
+  background-color: rgb(255, 255, 255);
+  color: rgb(124, 124, 124);
+}
+
+
+
+/* YouTube見本終わり */
 
 /* フォロワーリストとユーザー検索ボタンの境界線 */
 #confirm{
@@ -205,13 +282,7 @@ nav li.accordion ul li a:active{
     -webkit-justify-content: space-around;
     justify-content: space-between;
     vertical-align: middle;
-      
-    position: fixed; /* ヘッダーを固定する */
-    top: 0; /* 上部から配置の基準位置を決める */
-    left: 0; /* 左から配置の基準位置を決める */
-    width: 95%; /* ヘッダーの横幅を指定する */
-    height: 50px; /* ヘッダーの高さを指定する */
-    padding: 25px; /* ヘッダーの余白を指定する(上下左右) */
+
   }
 
 
