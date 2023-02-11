@@ -1,6 +1,6 @@
 @charset "utf-8";
 html{
-
+  overflow-y: scroll;
 }
 body{
   padding-top:100px;
@@ -14,16 +14,18 @@ a{
 /* header */
 header{
   background:#186AC9;
-  display: flex;
-  justify-content: space-around;
 
-    
   position: fixed; /* ヘッダーを固定する */
   top: 0; /* 上部から配置の基準位置を決める */
   left: 0; /* 左から配置の基準位置を決める */
-  width: 98%; /* ヘッダーの横幅を指定する */
+  width: 100%; /* ヘッダーの横幅を指定する */
   height: 50px; /* ヘッダーの高さを指定する */
   padding: 25px; /* ヘッダーの余白を指定する(上下左右) */
+}
+
+.header-wrap{
+  display: flex;
+  justify-content: space-around;
 }
 
 header img{
@@ -34,10 +36,14 @@ h1 img{
   width: 100px;
 }
 
+#head{
+  display: flex;
+  margin: 0px 50% 0px 0px;
+}
+
 #users {
   display: flex;
-  justify-content: space-between;
-  place-items: center;
+
 }
 
 /* header終わり */
@@ -48,6 +54,12 @@ h1 img{
   font-size: 25px;
   z-index: 1;
 }
+
+.drawer-list li{
+  margin: 10px 0;
+}
+
+
 
 .drawer-list a{
   color: rgb(168, 168, 168);
