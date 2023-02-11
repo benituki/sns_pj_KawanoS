@@ -39,80 +39,33 @@ h1 img{
 
 #head{
   display: flex;
-  margin: 0px 500px 0px 0px;
+  margin: 0px 550px 0px 0px;
 }
 
 #users {
   display: flex;
+  position: relative;
+  width: 30%;
 }
 
 /* header終わり */
 
-/* ドロワー */
-.drawer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+/* アコーディオンメニューはじめ */
+.menu {
+  z-index: 20;
 }
 
-.drawer::after{
-  content: '>';
-  transform: rotate(90deg);
-}
-
-.drawer-list a{
-  color: rgb(168, 168, 168);
-  padding: 10px;
-}
-
-.drawer-list {
-  display:none;
-  font-size: 15px;
-  z-index: 1;
-
-  max-width: 150px;
-  width: 100%;
-  margin: 50px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  /* ↓中央揃え */
-  text-align: center;
-  
-}
-
-.drawer-list > li{
-  padding: 10px;
-  display: block;
-  margin: 10px 0;
-}
-
-.drawer-list li:hover{
-  background-color: #00044a;
-  
-}
-
-.drawer-list li a:hover{
-  color: #fff;
-}
-
-.drawer-list ul.active {
-  display: block;
-}
-/* ドロワー終わり */
-
-/* YouTube見本 */
-/* main {
-  max-width: 150px;
-  width: 100%;
-  margin: 50px auto;
-  background-color: rgba(0, 0, 0, 0);
-  padding: 20px;
-} */
-
-/* .menu ul {
+.menu ul {
   display: none;
-} */
+  font-size:15px;
+  z-index: 20;
+  position: absolute;
+  text-align: center;
+}
+
+.menu ul.active{
+  display: block;
+}
 
 .menu a {
   transition: .3%;
@@ -124,13 +77,19 @@ h1 img{
 }
 /* ホバー終わり */
 
-.menu {
-  max-width: 200px;
+.menu > li > a {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
-.menu > li > a {
-  display: block;
-  padding: 10px;
+.menu > li > a::after {
+  content: '＞';
+  transform: rotate(90deg);
+}
+
+.menu > li > a.active::after{
+  transform: rotate(-90deg);
 }
 
 .menu > li > ul a{
@@ -140,9 +99,7 @@ h1 img{
   color: rgb(124, 124, 124);
 }
 
-
-
-/* YouTube見本終わり */
+/* アコーディオンメニュー終わり */
 
 /* フォロワーリストとユーザー検索ボタンの境界線 */
 #confirm{
@@ -163,7 +120,7 @@ h1 img{
 #row{
     display: flex;
     flex-flow: row wrap;
-    z-index: 100;
+    z-index: 1;
     line-height: 2.0; /* 上下間隔開け */
     
 }
@@ -175,157 +132,10 @@ h1 img{
     border-left: 1px solid #727272;
 }
 
-/* ナビゲーションドロップダウンのためのCSS（2023/01/21） */
-/* ナビゲーション全体設定 */
-nav{
-  background: #186AC9;
-  color: #999;
-  text-align: center; 
-/* 中央ぞろい */
-}
-
-/* 下の改装のulや矢印の起点にするためliにrelativeを指定 */
-nav ul li{
-  position: relative;
-}
-
-/* ナビゲーションのリンク設定 */
-nav ul li a{
-	display: block;
-  text-decoration: none; /* テキストの装飾を行わない */
-  color: #fff;
-  padding: 20px 35px;
-  transition: all .3s; /* 変化するすべてのプロパティへの適用 */
-}
-
-nav ul li a:hover{
-	color: #fff;	
-}
-
-/*==矢印の設定*/
-/*2階層目を持つliの矢印の設定*/
-nav ul li.accordion::before{
-	content:'';
-	position: absolute;
-	left:15px;
-	top:25px;
-	width:6px;
-	height:6px;
-  border-top: 2px solid #999; /* 要素の上側の境界のプロパティをすべて設定します。 */
-  border-right:2px solid #999; /* 要素の右側の境界のプロパティをすべて設定します。 */
-  transform: rotate(135deg);
-}
-
-/*3階層目を持つliの矢印の設定*/
-nav ul ul li.accordion::before{
-	content:'';
-	position: absolute;
-	left:6px;
-	top:17px;
-	width:6px;
-	height:6px;
-  border-top: 2px solid #fff;
-  border-right:2px solid #fff;
-  transform: rotate(45deg);
-}
-
-/*下の階層を持っているulの指定*/
-nav li.accordion ul{
-  /*絶対配置で位置を指定*/
-	position: absolute;
-	left:0;
-	top:62px;
-	z-index: 4;
-  /* 形状の指定 */
-	background:#fff;
-	width:180px;
-  /* はじめは非表示 */
-	visibility: hidden;
-	opacity: 0;
-  /* アニメーション設定 */
-  transition :all .3s;
-}
-
-/* hoverしたら表示 */
-nav li.accordion:hover > ul,
-nav li.accordion ul li:hover > ul,
-nav li.accordion:active > ul,
-nav li.accordion ul li:active > ul{
-  visibility: visible;
-  opacity: 1;
-}
-
-
-/* ナビゲーションaタグの形状 */
-nav li.accordion ul li a{
-  color:#999;
-  border-bottom:solid 1px rgba(255,255,255,0.6);
-}
-
-nav li.accordion ul li:last-child a{
-  border-bottom:none;
-}
-
-nav li.accordion ul li a:hover,
-nav li.accordion ul li a:active{
-  background:#00044a;
-}
 
 /*==768px以下の形状*/
 
 @media screen and (max-width:768px){
-  header{
-    background:#186AC9;
-    display: flex;
-  
-    display: -webkit-flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-between;
-    vertical-align: middle;
-
-  }
-
-
-
-	nav{
-		padding: 0;
-	}
-	
-	nav ul{
-		display: block;
-	}
-	
-	nav li.accordion ul,
-	nav li.accordion ul ul{
-  position: relative;
-	left:0;
-	top:0;
-	width:100%;
-	visibility:visible;/*JSで制御するため一旦表示*/
-	opacity:1;/*JSで制御するため一旦表示*/
-	display: none;/*JSのslidetoggleで表示させるため非表示に*/
-	transition:none;/*JSで制御するためCSSのアニメーションを切る*/
-}
-	
-nav ul li a{
-	border-bottom:1px solid #ccc;
-}
-
-/*矢印の位置と向き*/
-
-nav ul li.accordion::before{
-	left:20px;	
-}
-
-nav ul ul li.accordion::before{
-    transform: rotate(135deg);
-	left:20px;
-}
-    
-nav ul li.accordion.active::before{
-    transform: rotate(-45deg);
-}
-
 }
 
 /* ナビゲーションドロップダウンのためのCSS　終わり（2023/01/21） */

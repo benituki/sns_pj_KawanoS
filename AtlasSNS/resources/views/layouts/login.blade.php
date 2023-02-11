@@ -28,17 +28,17 @@
             </div>
             <div id="users">
                 <div>
-                    <a class="drawer">○○さん</a>
+                    {{-- <a class="drawer">○○さん</a>
                     <ul class="drawer-list">
 
                         <li><a href="/top">HOME</a></li>
                         <li><a href="/profile">プロフィール編集</a></li>
                         <li><a href="/logout">ログアウト</a></li>
-                    </ul>
+                    </ul> --}}
 
                     <ul class="menu">
                         <li>
-                            <a href="">親メニュー1</a>
+                            <a href="">○○さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 <li><a href="/profile">プロフィール編集</a></li>
@@ -81,21 +81,6 @@
                 {{-- ヘッダー/アコーディオンメニューの設置終わり（2023/01/21） --}}
         
     </header>
-
-            {{-- YouTube見本 --}}
-            {{-- <main>
-                <ul class="menu">
-                    <li>
-                        <a href="">親メニュー1</a>
-                        <ul>
-                            <li><a href="/top">HOME</a></li>
-                            <li><a href="/profile">プロフィール編集</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </main> --}}
-            {{-- YouTube見本終わり --}}
 
     <div id="row">
         <div id="container">
