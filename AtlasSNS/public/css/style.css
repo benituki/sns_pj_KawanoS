@@ -25,8 +25,9 @@ header{
 
 .header-wrap{
   display: flex;
-  justify-content: space-around;
-  position: sticky;
+  justify-content: space-between;
+
+  margin: 0px 50px;
 }
 
 header img{
@@ -39,26 +40,26 @@ h1 img{
 
 #head{
   display: flex;
-  margin: 0px 550px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 #users {
   display: flex;
   position: relative;
-  width: 30%;
+
 }
 
 /* header終わり */
 
 /* アコーディオンメニューはじめ */
 .menu {
-  z-index: 20;
+  z-index: 2;
 }
 
 .menu ul {
   display: none;
   font-size: 20px;
-  z-index: 20;
+  z-index: 2;
   position: absolute;
   text-align: center;
 
@@ -133,14 +134,19 @@ h1 img{
     flex: 0 0 80%;
 }
 #side-bar{
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
+
+  /* flex: 0 0 20%;  */
+  border-left: 2px solid #000000;
+  position: fixed;
+  right: 0;
+  width: 20%;
 }
 
 
 /*==768px以下の形状*/
 
 @media screen and (max-width:768px){
+
 }
 
 /* ナビゲーションドロップダウンのためのCSS　終わり（2023/01/21） */

@@ -28,10 +28,9 @@
             </div>
             <div id="users">
                 <div>
-                    <p>○○さん</p>
                     <ul class="menu">
                         <li>
-                            <a href=""></a>
+                            <a href="">○○さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 <li><a href="/profile">プロフィール編集</a></li>
