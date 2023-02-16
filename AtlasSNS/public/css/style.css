@@ -46,31 +46,38 @@ h1 img{
 #users {
   display: flex;
   position: relative;
-
+  z-index: 10;
 }
 
 /* header終わり */
 
 /* アコーディオンメニューはじめ */
 .menu {
-  z-index: 2;
+
 }
 
 .menu ul {
   display: none;
-  font-size: 20px;
-  z-index: 2;
+  font-size: 30px;
+  z-index: 20;
   position: absolute;
   text-align: center;
 
-  top: 140%;
+  /* top: 140%;
+  left: -80px;
+  width: 500px; */
+  margin: 40px 0px 0px -205px;
+  width: 380px;
 
-  font-weight: bold;
+  /* font-weight: bold; */
   border: solid 2px #00044a;
+  line-height: 2.5;
 }
 
 .menu ul.active{
   display: block;
+  position: absolute;
+  z-index: 20;
 }
 
 .menu a {
@@ -103,6 +110,9 @@ h1 img{
   display: block;
   background-color: rgb(255, 255, 255);
   color: rgb(124, 124, 124);
+  border-bottom: 1px solid #00044a;
+  height: 70px;
+  
 }
 
 /* アコーディオンメニュー終わり */
@@ -126,7 +136,7 @@ h1 img{
 #row{
     display: flex;
     flex-flow: row wrap;
-    z-index: 1;
+
     line-height: 2.0; /* 上下間隔開け */
     
 }
@@ -135,11 +145,12 @@ h1 img{
 }
 #side-bar{
 
-  /* flex: 0 0 20%;  */
-  border-left: 2px solid #000000;
+  flex: 0 0 20%; 
+  /* border-left: 2px solid #000000; */
+  /* position: fixed;
   position: fixed;
-  right: 0;
-  width: 20%;
+  right: 0%;
+  width: 20%; */
 }
 
 
