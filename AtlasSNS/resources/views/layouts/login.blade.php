@@ -55,7 +55,7 @@
                 <p>〇〇さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>{{ Auth::user()->follows()->count() }}</p>
+                <p></p>
                 </div>
                 <p class="btn"><a href="{{ asset('/follow-list') }}">フォローリスト</a></p>
                 <div>
