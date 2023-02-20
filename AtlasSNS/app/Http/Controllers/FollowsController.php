@@ -14,9 +14,4 @@ class FollowsController extends Controller
         return view('follows.followerList');
     }
 
-    public function following()
-    {
-        $users = User::withCount('posts')->take(5)->get();
-        dd($users);
-    }
 }
