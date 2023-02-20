@@ -6,6 +6,22 @@ body{
   padding-top:100px;
 }
 
+/* フォーム始まり */
+textarea{
+  font-size: 20px;
+  border: none;
+  resize:none;
+  width:1000px;
+  height:200px;
+  outline: none;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+/* フォーム終わり */
+
 /* リンクから― */
 a{
   color: #fff;
