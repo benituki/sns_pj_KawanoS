@@ -11,12 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 // Route::get('/home', 'HomeController@index')->name('home');
 
-//Auth::routes();
+Auth::routes();
 
 
 //ログアウト中のページ
@@ -34,6 +34,7 @@ Route::post('/validate', 'App\Http\Requests@validate');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::post('/top','PostsController@index');
 //プロフィール
 Route::get('/profile','UsersController@profile');
 //検索
@@ -47,3 +48,5 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 //ルート定義（2022/12/25）追加
 Route::post('sample', 'FormController@postValidates');
+
+
