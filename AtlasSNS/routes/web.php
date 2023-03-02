@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Auth::routes();
+
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// //ログイン状態
+// Route::
 
 
 //ログアウト中のページ
@@ -34,7 +38,9 @@ Route::post('/validate', 'App\Http\Requests@validate');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
-Route::post('/top','PostsController@index');
+//投稿用メソッド移動用ルート
+Route::post('/top','PostsController@tweet')->name('post.tweet');
+
 //プロフィール
 Route::get('/profile','UsersController@profile');
 //検索

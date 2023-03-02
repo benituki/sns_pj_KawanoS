@@ -3,12 +3,12 @@
 @section('content')
 <img src="{{ asset('/images/icon1.png') }}" >
 
-{{ Form::open(['action' => 'PostsController@index']) }}
+{{ Form::open(['url' => 'http://127.0.0.1:8000/top']) }}
 @csrf
 {{ csrf_field() }}
 
 {{ Form::textarea('nate', null, ['class' => 'form-control', 'cols' => '150', 'rows' => '10', 'placeholder' => "投稿内容を入力してください。"])}}
-{{ Form::submit('', ['class'=>'btn btn-primary btn-block']) }}
+{{ Form::submit('投稿', ['class'=>'btn btn-primary btn-block']) }}
 
 {{ Form::close() }}
 

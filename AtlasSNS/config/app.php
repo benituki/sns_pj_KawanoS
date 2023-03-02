@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // ↓この1行を追加してください
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*

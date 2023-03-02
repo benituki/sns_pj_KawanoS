@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 //
 use Illuminate\Http\Request;
 
+//追加
+use App\Post;
+use App\User;
+
 class PostsController extends Controller
 {
     //
@@ -35,4 +39,14 @@ class PostsController extends Controller
         //プロぐポストのバリエーションと保存コート。。。
     }
 
+    //投稿用メソッド新規作成
+    public function tweet(Request $request)
+    {
+        $post = $request->input('newPost');
+        post::create([
+            'post' => $post,
+            'user_id' => 'id'
+        ]);
+        return redirect('index');
+    }
 }
