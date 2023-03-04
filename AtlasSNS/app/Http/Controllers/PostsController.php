@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 
+use Illuminate\Support\Facades\Auth;
+
 class PostsController extends Controller
 {
     //
@@ -42,11 +44,15 @@ class PostsController extends Controller
     //投稿用メソッド新規作成
     public function tweet(Request $request)
     {
+        // dd($request);
         $post = $request->input('newPost');
-        post::create([
+        // 参考サイト↓https://qiita.com/ucan-lab/items/a7441bff64ff1f173c10
+        $id = Auth::id();
+        Post::create([
             'post' => $post,
-            'user_id' => 'id'
+            //ログインしているユーザーのID↓
+            'user_id' => $id,
         ]);
-        return redirect('index');
+        return redirect('/top');
     }
 }

@@ -39,7 +39,7 @@ Route::post('/validate', 'App\Http\Requests@validate');
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 //投稿用メソッド移動用ルート
-Route::post('/top','PostsController@tweet')->name('post.tweet');
+Route::post('/tweet','PostsController@tweet')->name('post.tweet');
 
 //プロフィール
 Route::get('/profile','UsersController@profile');
