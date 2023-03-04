@@ -40,6 +40,8 @@ Route::post('/validate', 'App\Http\Requests@validate');
 Route::get('/top','PostsController@index');
 //投稿用メソッド移動用ルート
 Route::post('/tweet','PostsController@tweet')->name('post.tweet');
+//投稿内容更新
+Route::post('post/{id}/update-form', 'PostsController@updateForm');
 
 //プロフィール
 Route::get('/profile','UsersController@profile');
