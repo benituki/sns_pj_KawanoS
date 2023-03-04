@@ -44,6 +44,7 @@ class PostsController extends Controller
     //投稿用メソッド新規作成
     public function tweet(Request $request)
     {
+        //↓ここまでの内容が実行できているか確認のため「dd()」
         // dd($request);
         $post = $request->input('newPost');
         // 参考サイト↓https://qiita.com/ucan-lab/items/a7441bff64ff1f173c10
