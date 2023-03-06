@@ -17,7 +17,9 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        return view('posts.index');
+        $list = Post::get();
+        return view('posts.index',['list'=>$list]);
+        // return view('posts.index');
     }
     //バリエーションコントローラー作成（2022/12/25）追加↓
     /**
@@ -55,5 +57,14 @@ class PostsController extends Controller
             'user_id' => $id,
         ]);
         return redirect('/top');
+    }
+
+    //投稿表示
+    // public function articles
+
+    //投稿編集メソッド
+    public function update($id){
+
+
     }
 }
