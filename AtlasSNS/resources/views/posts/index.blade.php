@@ -14,25 +14,21 @@
 {{ Form::close() }}
 
 {{-- 呟き表示 --}}
+
 {{ Form::open(['url' => '/update-form'])}}
 <div class="container">
-    <h2 class="page-header">投稿一覧</h2>
     <table class='table table-hover'>
-        <tr>
-            <th>投稿No</th>
-            <th>投稿内容</th>
-            <th>投稿日時</th>
-        </tr>
         @foreach ($list as $list)
         <tr>
-            <td>{{ $list->id }}</td>
+
             <td>{{ $list->post }}</td>
             <td>{{ $list->created_at }}</td>
+            {{ FOrm::button('更新',['type' => 'submit', 'class' => 'btn btn-outline-success btn-lg']) }}
         </tr>
         @endforeach
+
     </table>
 </div>
-{{ FOrm::button('更新',['type' => 'submit', 'class' => 'btn btn-outline-success btn-lg']) }}
 {{ Form::close() }}
 
 

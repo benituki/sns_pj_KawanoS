@@ -59,12 +59,23 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    //投稿表示
-    // public function articles
-
     //投稿編集メソッド
-    public function update($id){
-
-
+    public function updeteForm($id)
+    {
+        $post = Post::where('id', $id)->first();
+        return view('posts.updateForm', ['post'=>$post]);
     }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+
+        Post::where('id', $id)->update(['post' => $up_post]);
+
+        return redirect('index');
+    }
+    
+    //post.phpとのリレーション
+
 }
