@@ -75,7 +75,5 @@ class PostsController extends Controller
 
         return redirect('index');
     }
-    
-    //post.phpとのリレーション
 
 }
