@@ -53,3 +53,8 @@ for (let i = 0; i < parentMenu.length; i++) {
 }
 
 // アコーディオンメニュー終わり
+
+//編集画面モーダル
+$(function(){ // if document is ready
+	alert('hello world')
+  });

@@ -17,7 +17,8 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        $list = Post::get();
+        // $list = Post::get();
+        $list = post::with(['user'])->get();
         return view('posts.index',['list'=>$list]);
         // return view('posts.index');
     }

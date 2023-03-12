@@ -28,8 +28,10 @@ class User extends Authenticatable
     ];
 
     //1対多リレーション（１）
-    public function user(){
-        return $this->belongsTo('App\User');
-      }
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 
 }
+

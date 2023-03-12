@@ -12,8 +12,9 @@ class Post extends Model
     ];
 
     //1体多リレーション（多）
-     public function posts()
-     {
-        return $this->hasMany('App\User');
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }
+
