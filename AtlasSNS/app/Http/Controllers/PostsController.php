@@ -18,9 +18,12 @@ class PostsController extends Controller
     //
     public function index(){
         // $list = Post::get();
-        $list = post::with(['user'])->get();
-        return view('posts.index',['list'=>$list]);
+        // $list = post::with(['user'])->get();
+        // return view('posts.index',['list'=>$list]);
         // return view('posts.index');
+
+        $post = Post::with('user')->find(1);
+        return $post;
     }
     //バリエーションコントローラー作成（2022/12/25）追加↓
     /**

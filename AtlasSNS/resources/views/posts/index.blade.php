@@ -18,11 +18,11 @@
 {{ Form::open(['url' => '/update-form'])}}
 <div class="container">
     <table class='table table-hover'>
-        @foreach ($list as $list)
+        @foreach ($post as $post)
         <tr>
 
-            <td>{{ $list->post }}</td>
-            <td>{{ $list->created_at }}</td>
+            <td>{{ $post->post }}</td>
+            <td>{{ $post->created_at }}</td>
             {{-- 投稿の編集button --}}
             <div class="content">
                 <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">編集</a>
