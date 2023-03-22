@@ -22,8 +22,8 @@ class PostsController extends Controller
         // return view('posts.index',['list'=>$list]);
         // return view('posts.index');
 
-        $post = Post::with('user')->find(1);
-        return $post;
+        $list = Post::with('User')->GET();
+        return view('posts.index', [$list => 'list']);
     }
     //バリエーションコントローラー作成（2022/12/25）追加↓
     /**

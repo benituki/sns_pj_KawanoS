@@ -18,11 +18,11 @@
 {{ Form::open(['url' => '/update-form'])}}
 <div class="container">
     <table class='table table-hover'>
-        @foreach ($post as $post)
+        @foreach ($list as $list)
         <tr>
-
-            <td>{{ $post->post }}</td>
-            <td>{{ $post->created_at }}</td>
+            <td>{{ $list->username }}</td>
+            <td>{{ $list->post }}</td>
+            <td>{{ $list->created_at }}</td>
             {{-- 投稿の編集button --}}
             <div class="content">
                 <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">編集</a>
@@ -30,20 +30,20 @@
             {{ FOrm::button('更新',['type' => 'submit', 'class' => 'btn btn-outline-success btn-lg']) }}
         </tr>
         @endforeach
-        {{-- モーダル --}}
-        <div class="modal js-modal">
-            <div class="modal__bg js-modal-close"></div>
-            <div class="modal__content">
-                <form action="" method="">
-                    <textarea name="" class="modal__post"></textarea>
-                    <input type="hidden" name="" class="modal_id" value="">
-                    <input type="submit" value="更新">
-                    {{ csrf_field() }}
-                </form>
-                <a class="js-modal-close" href="">閉じる</a>
-            </div>
-        </div>
     </table>
+    {{-- モーダル --}}
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <form action="" method="">
+                <textarea name="" class="modal_post"></textarea>
+                <input type="hidden" name="" class="modal_id" value="">
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+            </form>
+            <a class="js-modal-close" href="">閉じる</a>
+        </div>
+    </div>
 </div>
 {{ Form::close() }}
 

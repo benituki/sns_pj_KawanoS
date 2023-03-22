@@ -30,7 +30,7 @@
                 <div>
                     <ul class="menu">
                         <li>
-                            <a href="">{{ $list->username }}さん</a>
+                            <a href="">さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 <li><a href="/profile">プロフィール編集</a></li>
@@ -70,7 +70,7 @@
     <footer>
     </footer>
     {{-- jQueryとつなげる（2022/12/30） --}}
-    <script src="{{ asset('https://code.jquery.com/jquery-3.6.3.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
