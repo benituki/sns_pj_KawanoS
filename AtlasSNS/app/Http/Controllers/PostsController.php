@@ -22,7 +22,7 @@ class PostsController extends Controller
         // return view('posts.index',['list'=>$list]);
         // return view('posts.index');
 
-        $list = Post::with('User')->GET();
+        $list = Post::with('User')->GET('id');
         return view('posts.index', [$list => 'list']);
     }
     //バリエーションコントローラー作成（2022/12/25）追加↓
