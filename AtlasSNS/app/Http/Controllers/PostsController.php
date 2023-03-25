@@ -22,9 +22,18 @@ class PostsController extends Controller
         // return view('posts.index',['list'=>$list]);
         // return view('posts.index');
 
-        $list = Post::with('User')->GET('id');
-        return view('posts.index', [$list => 'list']);
+        $list = Post::with('user')->get();
+        // ddd($list);
+        // with「一緒に」「～と」
+        // Post、User　テーブル
+        // get()内はカラム名※ただし情報が今回多いため必要なし
+        // Post、Userモデルの情報を取得する。
+        return view('posts.index', ['list' => $list]);
+        // posts.index（フォルダ名,index.blade.phpが格納されているフォルダ名が「posts」）
+        //list「キー」、$list「値」
+        // posts.indexと一緒に$listを画面に表示する。
     }
+
     //バリエーションコントローラー作成（2022/12/25）追加↓
     /**
      * 新ブログポスト作成フォームの表示
