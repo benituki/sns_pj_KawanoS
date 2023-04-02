@@ -17,11 +17,6 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        // $list = Post::get();
-        // $list = post::with(['user'])->get();
-        // return view('posts.index',['list'=>$list]);
-        // return view('posts.index');
-
         $list = Post::with('user')->get();
         // ddd($list);
         // with「一緒に」「～と」
