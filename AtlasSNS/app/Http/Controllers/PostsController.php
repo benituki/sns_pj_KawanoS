@@ -68,10 +68,10 @@ class PostsController extends Controller
     }
 
     //投稿編集メソッド
-    public function updeteForm($id)
+    public function Form($id)
     {
         $post = Post::where('id', $id)->first();
-        return view('posts.updateForm', ['post'=>$post]);
+        return view('posts.index', ['post'=>$post]);
     }
 
     public function update(Request $request)
