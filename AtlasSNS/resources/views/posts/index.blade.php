@@ -15,7 +15,7 @@
 
 {{-- 呟き表示 --}}
 
-{{ Form::open(['url' => '/update-form'])}}
+{{ Form::open(['url' => '/{id}/update-form'])}}
 <div class="container">
     <table class='table table-hover'>
         @foreach ($list as $list)
