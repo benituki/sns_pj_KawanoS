@@ -70,8 +70,8 @@ class PostsController extends Controller
     //投稿編集メソッド
     public function Form($id)
     {
-        $post = Post::where('id', $id)->first();
-        return view('posts.index', ['post'=>$post]);
+        $list = Post::where('id', $id)->first();
+        return view('posts.index', ['list'=>$list]);
     }
 
     public function update(Request $request)
