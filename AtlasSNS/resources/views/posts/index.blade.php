@@ -35,12 +35,14 @@
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
+            {{-- フォームタグ --}}
             <form action="" method="">
                 <textarea name="" class="modal_post"></textarea>
                 <input type="hidden" name="" class="modal_id" value="">
                 <input type="submit" value="更新">
                 {{ csrf_field() }}
             </form>
+            {{-- フォーム終わり --}}
             <a class="js-modal-close" href="">閉じる</a>
         </div>
     </div>
