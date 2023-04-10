@@ -68,12 +68,6 @@ class PostsController extends Controller
     }
 
     //投稿編集メソッド
-    public function Form($id)
-    {
-        $list = Post::where('id', $id)->first();
-        return view('posts.index', ['list'=>$list]);
-    }
-
     public function update(Request $request)
     {
         $id = $request->input('id');

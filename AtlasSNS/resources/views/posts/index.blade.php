@@ -36,9 +36,10 @@
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
             {{-- フォームタグ --}}
-            <form action="" method="">
-                <textarea name="" class="modal_post"></textarea>
-                <input type="hidden" name="" class="modal_id" value="">
+            {{-- method->方法，方式；筋道，秩序 --}}
+            <form action="{action('PostsController@update')}" method="$request">
+                <textarea name="post" class="modal_post"></textarea>
+                <input type="hidden" name="post_id" class="modal_id" value="">
                 <input type="submit" value="更新">
                 {{ csrf_field() }}
             </form>
