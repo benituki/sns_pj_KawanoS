@@ -41,7 +41,7 @@ Route::get('/top','PostsController@index');
 //投稿用メソッド移動用ルート
 Route::post('/tweet','PostsController@tweet')->name('post.tweet');
 //投稿内容更新
-Route::post('/{post_id}/update-form', 'PostsController@update');
+Route::post('/update-form', 'PostsController@update');
 
 //プロフィール
 Route::get('/profile','UsersController@profile');

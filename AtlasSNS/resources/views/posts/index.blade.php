@@ -37,7 +37,7 @@
         <div class="modal__content">
             {{-- フォームタグ --}}
             {{-- method->方法，方式；筋道，秩序 --}}
-            <form action="{action('PostsController@update')}" method="$request">
+            <form action="/update-form" method="$request">
                 <textarea name="post" class="modal_post"></textarea>
                 <input type="hidden" name="post_id" class="modal_id" value="">
                 <input type="submit" value="更新">
