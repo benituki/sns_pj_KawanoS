@@ -37,7 +37,7 @@
         <div class="modal__content">
             {{-- フォームタグ --}}
             {{-- method->方法，方式；筋道，秩序 --}}
-            <form action="/update-form" method="GET">
+            <form action="/update-form" method="POST">
                 <textarea name="upPost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
                 <input type="submit" value="更新">
