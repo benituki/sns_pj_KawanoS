@@ -15,7 +15,7 @@
 
 {{-- 呟き表示 --}}
 
-{{ Form::open(['url' => '/{id}/update-form'])}}
+{{-- {{ Form::open(['url' => '/{id}/update-form'])}} --}}
 <div class="container">
     <table class='table table-hover'>
         @foreach ($list as $list)
@@ -37,9 +37,9 @@
         <div class="modal__content">
             {{-- フォームタグ --}}
             {{-- method->方法，方式；筋道，秩序 --}}
-            <form action="/update-form" method="$request">
-                <textarea name="post" class="modal_post"></textarea>
-                <input type="hidden" name="post_id" class="modal_id" value="">
+            <form action="/update-form" method="GET">
+                <textarea name="upPost" class="modal_post"></textarea>
+                <input type="hidden" name="id" class="modal_id" value="">
                 <input type="submit" value="更新">
                 {{ csrf_field() }}
             </form>
@@ -50,7 +50,7 @@
 
     
 </div>
-{{ Form::close() }}
+{{-- {{ Form::close() }} --}}
 
 
 @endsection

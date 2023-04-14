@@ -75,7 +75,7 @@ class PostsController extends Controller
 
         Post::where('id', $id)->update(['post' => $up_post]);
 
-        return redirect('index');
+        return redirect('update-form');
     }
 
 }
