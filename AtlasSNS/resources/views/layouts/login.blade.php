@@ -30,7 +30,7 @@
                 <div>
                     <ul class="menu">
                         <li>
-                            <a href="">さん</a>
+                            <a href="">{{ $list->user->username }}さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 <li><a href="/profile">プロフィール編集</a></li>
@@ -52,7 +52,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>さんの</p>
+                <p>{{ $list->user->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p></p>

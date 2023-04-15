@@ -18,7 +18,7 @@ class PostsController extends Controller
     //
     public function index(){
         $list = Post::with('user')->get();
-        // ddd($list);
+        // dd($list);
         // with「一緒に」「～と」
         // Post、User　テーブル
         // get()内はカラム名※ただし情報が今回多いため必要なし
@@ -75,7 +75,7 @@ class PostsController extends Controller
 
         Post::where('id', $id)->update(['post' => $up_post]);
 
-        return redirect('update-form');
+        return redirect('/top');
     }
 
 }
