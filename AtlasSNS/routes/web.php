@@ -24,6 +24,9 @@
 
 
 //ログアウト中のページ
+
+use App\Http\Controllers\PostsController;
+
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
@@ -43,6 +46,9 @@ Route::post('/tweet','PostsController@tweet')->name('post.tweet');
 //投稿内容更新
 Route::post('/update-form', 'PostsController@update');
 Route::get('/update-form', 'PostsController@update');
+//削除
+Route::post('/post/{{$list->id}}/delete', 'PostsController@delete');
+Route::get('/post/{{$list->id}}/delete', 'PostsController@delete');
 
 //プロフィール
 Route::get('/profile','UsersController@profile');

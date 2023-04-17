@@ -24,9 +24,8 @@
             {{-- 投稿の編集button --}}
             <div class="content">
                 <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">編集</a>
-                <a class="btn btn-danger" href="" post="{{ $list->post }}" post_id="{{ $list->id }}" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">削除</a>
+                <a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">削除</a>
             </div>
-            {{-- {{ FOrm::button('更新',['type' => 'submit', 'class' => 'js-modal-open']) }} --}}
         </tr>
         @endforeach
     </table>

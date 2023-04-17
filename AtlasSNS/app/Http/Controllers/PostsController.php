@@ -78,4 +78,21 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
+    // 削除用メソッド
+    // public function delete(Request $request)
+    // {
+    //     $id = $request->input('id');
+    //     $up_post = $request->input('upPost');
+
+    //     Post::where('id', $id)->delete(['post' => $up_post]);
+
+    //     return redirect('/top');
+    // }
+
+    public function delete($id)
+    {
+        Post::where('id', $id)->delete();
+        return redirect('index');
+    }
+
 }
