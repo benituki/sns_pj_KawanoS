@@ -47,8 +47,8 @@ Route::post('/tweet','PostsController@tweet')->name('post.tweet');
 Route::post('/update-form', 'PostsController@update');
 Route::get('/update-form', 'PostsController@update');
 //削除
-Route::post('/post/{{$list->id}}/delete', 'PostsController@delete');
-Route::get('/post/{{$list->id}}/delete', 'PostsController@delete');
+Route::post('/post/{id}/delete', 'PostsController@delete');
+Route::get('/post/{id}/delete', 'PostsController@delete');
 
 //プロフィール
 Route::get('/profile','UsersController@profile');
