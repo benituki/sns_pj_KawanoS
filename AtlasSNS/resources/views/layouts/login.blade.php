@@ -30,7 +30,7 @@
                 <div>
                     <ul class="menu">
                         <li>
-                            <a href="">{{ $list->user->username }}さん</a>
+                            <a href=""><?php $user = Auth::user(); ?>{{ $user->username }}さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 <li><a href="/profile">プロフィール編集</a></li>
@@ -52,7 +52,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ $list->user->username }}さんの</p>
+                <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p></p>

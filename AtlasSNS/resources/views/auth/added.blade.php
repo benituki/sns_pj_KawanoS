@@ -5,7 +5,7 @@
 {!! Form::open() !!}
 
 <div id="clear">
-  <p>さん</p>
+  <p><?php $user = Auth::user(); ?>{{ $user->username }}さんさん</p>
   <p>ようこそ！AtlasSNSへ！</p>
   <p>ユーザー登録が完了しました。</p>
   <p>早速ログインをしてみましょう。</p>
