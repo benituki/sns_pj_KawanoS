@@ -29,37 +29,17 @@ class PostsController extends Controller
         // posts.indexと一緒に$listを画面に表示する。
     }
 
-    //バリエーションコントローラー作成（2022/12/25）追加↓
-    /**
-     * 新ブログポスト作成フォームの表示
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
-    {
-        return view('post.create');
-    }
-
-    /**
-     * 新しいブログポストの保存
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //プロぐポストのバリエーションと保存コート。。。
-    }
 
     //投稿用メソッド新規作成
-    public function tweet(Request $request)
+    public function tweet(Request $request)//投稿（textarea）から情報を読み込む
     {
         //↓ここまでの内容が実行できているか確認のため「dd()」
         // dd($request);
-        $post = $request->input('newPost');
+        $post = $request->input('newPost');// $○○やメソッドは名前を自由にできる（※個別名などは分かりずらくなる可能性がある。）
         // 参考サイト↓https://qiita.com/ucan-lab/items/a7441bff64ff1f173c10
-        $id = Auth::id();
+        $id = Auth::id();//Auth(日本語名：認証)ログインをしているユーザー情報を取得する。
         Post::create([
+            // ''内はカラム！カラムに$を入れる。
             'post' => $post,
             //ログインしているユーザーのID↓
             'user_id' => $id,

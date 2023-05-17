@@ -53,8 +53,7 @@ Route::get('/post/{id}/delete', 'PostsController@delete');
 //プロフィール
 Route::get('/profile','UsersController@profile');
 //検索
-Route::get('/search','UsersController@search');
-Route::get('/', [PostController::class, 'search'])->name('posts.index');
+Route::get('/search','UsersController@search')->name('posts.index');
 //フォロワーリスト
 Route::get('/follow-list','followsController@followList');
 Route::get('/follower-list','followsController@followerList');

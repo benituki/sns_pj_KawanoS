@@ -14,7 +14,7 @@ class UsersController extends Controller
     // 検索
     public function search(Request $request){
         return view('users.search');
-         // キーワード受け取り
+        // //  キーワード受け取り
         //  $keyword = $request->input('keyword');
 
         //  // クエリ生成
@@ -37,18 +37,13 @@ class UsersController extends Controller
         $query = Post::query();
 
         if(!empty($keyword)) {
-            $query->where('title', 'LIKE', "%{$keyword}%")
-                ->orWhere('author', 'LIKE', "%{$keyword}%");
+            $query->where('title', 'LIKE', "%.$keyword.%")
+                ->orWhere('name', 'like', "%.$keyword.");
         }
 
         $posts = $query->get();
 
-        return view('index', compact('posts', 'keyword'));
+        return view('search', compact('posts', 'keyword'));
     }
 
-// 検索
-    // public function search(Request $request)
-    // {
-       
-    // }
 }
