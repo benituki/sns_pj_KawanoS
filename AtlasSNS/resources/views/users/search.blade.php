@@ -3,13 +3,6 @@
 @section('content')
 <h1>検索</h1>
 
-{{-- <div>
-    <form action="{{ route('posts.index') }}" method="GET">
-        <input type="text" name="keyword" value="">
-        <input type="submit" value="検索">
-    </form>
-</div> --}}
-
 <form method="GET" action="{{ route('posts.index')}}">
     <input type="search" placeholder="ユーザー名を入力" name="search" value="@if (isset( $search )) {{ $search }} @endif">
     <div>
@@ -21,12 +14,6 @@
         </button>
     </div>
 </form>
-
-{{-- @foreach($users as $user)
-<a href="{{ route('users.show', ['user_id' => $user->id]) }}">
-    {{ $users->username }}
-</a>
-@endforeach --}}
 
 @foreach($users as $user)
     <a href="{{ route('users.show', ['user_id' => $user->id]) }}">
