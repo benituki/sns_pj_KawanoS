@@ -54,6 +54,8 @@ Route::get('/post/{id}/delete', 'PostsController@delete');
 Route::get('/profile','UsersController@profile');
 //検索
 Route::get('/search','UsersController@search')->name('posts.index');
+Route::get('/users/{user_id}', 'UserController@show')->name('users.show');
+
 //フォロワーリスト
 Route::get('/follow-list','followsController@followList');
 Route::get('/follower-list','followsController@followerList');

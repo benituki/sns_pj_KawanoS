@@ -3,21 +3,35 @@
 @section('content')
 <h1>検索</h1>
 
-<div>
+{{-- <div>
     <form action="{{ route('posts.index') }}" method="GET">
         <input type="text" name="keyword" value="">
         <input type="submit" value="検索">
     </form>
-</div>
+</div> --}}
 
-{{-- @foreach ($list as $list)
-<tr>
-    <tb><a href="{{ rotue('posts.show' ,$list)}}">{{ $list->title }}</a></tb>
-    <tb>{{ $list->author }}</tb>
-</tr>
-@empty
-<tb>No posts!!</tb>
-@endforelse --}}
+<form method="GET" action="{{ route('posts.index')}}">
+    <input type="search" placeholder="ユーザー名を入力" name="search" value="@if (isset( $search )) {{ $search }} @endif">
+    <div>
+        <button type="submit">検索</button>
+        <button>
+            <a href="{{ route('posts.index') }}" class="text-white">
+            クリア
+            </a>
+        </button>
+    </div>
+</form>
 
+{{-- @foreach($users as $user)
+<a href="{{ route('users.show', ['user_id' => $user->id]) }}">
+    {{ $users->username }}
+</a>
+@endforeach --}}
+
+@foreach($users as $user)
+    <a href="{{ route('users.show', ['user_id' => $user->id]) }}">
+        {{ $user->username }}
+    </a>
+@endforeach
 
 @endsection
