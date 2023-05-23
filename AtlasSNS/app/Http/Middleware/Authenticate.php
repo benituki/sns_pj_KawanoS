@@ -22,13 +22,13 @@ class Authenticate extends Middleware
     }
 
     //ログイン後に表示するページにアクセス制限をかける
-    public function handle($request, Closure $next)
-    {
-        if (Auth::check()) {
-            return $next($request);
-        }
+    // public function handle($request, Closure $next)
+    // {
+    //     if (Auth::check()) {
+    //         return $next($request);
+    //     }
 
-        return redirect('/login');
-    }
+    //     return redirect('/login');
+    // }
 }
 

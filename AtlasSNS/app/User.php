@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Post;
+use App\tweets;
 
 class User extends Authenticatable
 {
@@ -34,5 +35,9 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function tweets()
+    {
+        return $this->hasMany(Tweets::class);
+    }
 }
 
