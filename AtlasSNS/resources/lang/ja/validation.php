@@ -26,7 +26,7 @@ return [
     'between'              => [
         'numeric' => 'The :attribute must be between :min and :max.',
         'file'    => 'The :attribute must be between :min and :max kilobytes.',
-        'string'  => 'The :attribute must be between :min and :max characters.',
+        'string'  => ':attribute :min から :max で登録',
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
@@ -38,7 +38,7 @@ return [
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
     'dimensions'           => 'The :attribute has invalid image dimensions.',
     'distinct'             => 'The :attribute field has a duplicate value.',
-    'email'                => 'The :attribute must be a valid email address.',
+    'email'                => ':attribute登録できないアドレスです。',
     'exists'               => 'The selected :attribute is invalid.',
     'file'                 => 'The :attribute must be a file.',
     'filled'               => 'The :attribute field must have a value.',
@@ -121,6 +121,10 @@ return [
         'mail' => 'メールアドレス',
         'password' => 'パスワード',
         'password-confirm' => 'パスワード'
+    ],
+
+    'must be between' => [
+        'mail' => '値にする必要がある'
     ],
 
 ];
