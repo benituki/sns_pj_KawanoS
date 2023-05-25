@@ -121,8 +121,10 @@ class RegisterController extends Controller
         
     }
 
-    public function added(){
-        return view('auth.added');
+    public function added(Request $request){
+        $id = $request->input('id');
+        $user = User::find($id);
+        return view('auth.added', ['users' => $user]);
     }
 
     
