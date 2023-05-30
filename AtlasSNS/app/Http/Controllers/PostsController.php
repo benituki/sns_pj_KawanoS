@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 //追加
 use App\Post;
 use App\User;
-use App\Models\Tweet;
+
 
 use Illuminate\Support\Facades\Auth;
 
@@ -29,12 +29,12 @@ class PostsController extends Controller
         //list「キー」、$list「値」
         // posts.indexと一緒に$listを画面に表示する。
 
-        $user = Auth::user();
-        $tweets = $user->tweet()->where('is_private', false)->get();
+        // $user = Auth::user();
+        // $tweets = $user->tweet()->where('is_private', false)->get();
 
-        foreach ($user->followings as $following) {
-            $tweets = $tweets->concat($following->tweets()->where('is_private', false)->get());
-        }
+        // foreach ($user->followings as $following) {
+        //     $tweets = $tweets->concat($following->tweets()->where('is_private', false)->get());
+        // }
     }
 
 

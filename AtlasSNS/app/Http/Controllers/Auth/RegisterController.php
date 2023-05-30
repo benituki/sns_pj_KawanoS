@@ -123,8 +123,8 @@ class RegisterController extends Controller
 
     public function added(Request $request){
         $id = $request->input('id');
-        $user = User::find($id);
-        return view('auth.added', ['users' => $user]);
+        $users = User::find($id);
+        return view('auth.added', ['users' => $users]);
     }
 
     
