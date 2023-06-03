@@ -54,10 +54,6 @@ class RegisterController extends Controller
             'mail' => 'required|string|between:5,40|unique:users|email:filter,dns',
             'password-confirm' => 'required|string|alpha_num|between:8,20|same:password',
             'password' => 'required|alpha_num|between:8,20'
-
-            // 'username' => 'required|string|max:255',
-            // 'mail' => 'required|string|email|max:255|unique:users',
-            // 'password' => 'required|string|min:4|confirmed',
             
         ]);
 
@@ -101,12 +97,13 @@ class RegisterController extends Controller
     // public function registerForm(){
     //     return view("auth.register");
     // }
-
+    // 登録ボタンを押した際の処理
     public function register(Request $request){
         if($request->isMethod('post')){ //POstで送られた時
             $data = $request->input();//送られたデータを$dataに代入
             //↓追（2023/01/09）
             $validator=$this->validator($data);//validatorメソッドに移動
+            $username=$request->input('username');
             if ($validator->fails()) {
                 return redirect('/register')//registerに留まる
                 ->withErrors($validator)//エラーを持ってくる
@@ -114,7 +111,7 @@ class RegisterController extends Controller
             }
             //終わり
             $this->create($data);//createメソッドに移動
-            return redirect('/added');//完了ページに移動する
+            return redirect('/added') -> with('username', $username);//完了ページに移動する
         } else {
             return view('auth.register',['msg' => 'OK']);
         }
@@ -123,8 +120,8 @@ class RegisterController extends Controller
 
     public function added(Request $request){
         $id = $request->input('id');
-        $users = User::find($id);
-        return view('auth.added', ['users' => $users]);
+        $user = User::find($id);
+        return view('auth.added', compact('user'));
     }
 
     
