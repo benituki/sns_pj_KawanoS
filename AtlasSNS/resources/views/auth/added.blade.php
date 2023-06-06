@@ -5,7 +5,10 @@
 {!! Form::open() !!}
 
 <div id="clear">
-  <p>{{ $users->username }}</p>
+  @if ($user)
+  {{-- ↓$userからusernameを引っ張り出す --}}
+  <p>{{ $user->username }}</p>
+  @endif
   <p>ようこそ！AtlasSNSへ！</p>
   <p>ユーザー登録が完了しました。</p>
   <p>早速ログインをしてみましょう。</p>
