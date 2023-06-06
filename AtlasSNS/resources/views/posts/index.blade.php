@@ -17,7 +17,7 @@
     <table class='table table-hover'>
         @foreach ($list as $list)
         <tr>
-            <td>{{ $list->user->username }}</td>
+            <td><?php $user = Auth::user(); ?>{{ $user->username }}</td>
             <td>{{ $list->post }}</td>
             <td>{{ $list->created_at }}</td>
             {{-- 投稿の編集button --}}
