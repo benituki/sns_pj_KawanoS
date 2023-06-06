@@ -65,17 +65,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    //エラーメッセージ（2023/01/15）
-    // public function messages(): array
-    // {
-    //     return [
-    //         'username.required' => '名前を入力してください。',
-    //         'mail.required' => 'メールアドレスを入力してください。',
-    //         'password-confirm.required' => 'パスワードを入力してください。',
-    //         'password.required' => 'パスワードを入力してください。'
-    //     ];
-    // }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -99,32 +88,36 @@ class RegisterController extends Controller
     // }
     // 登録ボタンを押した際の処理
     public function register(Request $request){
-        if($request->isMethod('post')){ //POstで送られた時
-            $data = $request->input();//送られたデータを$dataに代入
-            //↓追（2023/01/09）
-            $validator=$this->validator($data);//validatorメソッドに移動
-            $username=$request->input('username');
-            if ($validator->fails()) {
-                return redirect('/register')//registerに留まる
-                ->withErrors($validator)//エラーを持ってくる
-                ->withInput();
+        if($request->isMethod('post')){ // POSTで送信された場合
+            $data = $request->input(); // 送信されたデータを$dataに代入
+
+            // バリデーションを行う
+            // ↓$dateが持ってきたusernameやpassなどを$validatorが確認。
+             $validator = $this->validator($data);
+            //↓usernameを変数にかける。
+             $username = $request->input('username');
+
+             if ($validator->fails()) { //validatorが確認した内容の中に不適合な記述があった場合下記の処理になる
+                return redirect('/register') //新規入力画面に戻る
+                    ->withErrors($validator) //バリデーションのエラーメッセージ
+                    ->withInput(); //入力された値。エラー箇所は空欄になり、問題ない記述は記述されたまま。
             }
-            //終わり
-            $this->create($data);//createメソッドに移動
-            return redirect('/added') -> with('username', $username);//完了ページに移動する
+
+            $this->create($data); // ユーザーを作成する
+            return redirect('/added')->with('username', $username); //完了ページにリダイレクトする、完了した際、usernameを/addedに引き渡す。
         } else {
-            return view('auth.register',['msg' => 'OK']);
+            return view('auth.register', ['msg' => 'OK']); //GETリクエストの場合は登録フォーム(auth.register)を表示
         }
-        
     }
 
     public function added(Request $request){
-        $id = $request->input('id');
-        $user = User::find($id);
-        return view('auth.added', compact('user'));
+        $username = $request->session()->get('username'); //sessionに保存されているusernameを取得する。
+        $user = User::where('username', $username)->first(); //User::ユーザーモデルを呼び出す。usernameを検索し取得する。検索出来たら最初の値を出す。
+
+        return view('auth.added', compact('user')); // ユーザー情報を表示するビュー（auth.added）に$userを渡す
     }
 
-    
+
 //     /**
 //      * * 新ブログポストの保存
 //      * *

@@ -41,9 +41,6 @@ Route::get('/validate', 'App\Http\Requests@validate');
 Route::post('/validate', 'App\Http\Requests@validate');
 
 // ログイン制限
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
