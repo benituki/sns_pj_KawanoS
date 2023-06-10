@@ -5,7 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Post;
-use App\tweets;
+use App\Follow;
+
+
 
 class User extends Authenticatable
 {
@@ -35,9 +37,20 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    // ユーザーが呟いた呟きを取得できるようにする
+    // 'hasMany'メソッドを使用してリレーションを設定する。
     public function tweets()
     {
-        return $this->hasMany(Tweets::class);
+        return $this->hasMany(Post::class);
+    }
+
+    // フォロワーユーザーのつぶやきを取得する
+    public function Follow()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'followed_id', 'follower_id');
+        // フォロワーユーザーのつぶやきを取得する
+        $followers = Auth::user()->followers;
+        $tweets = Tweet::whereIn('user_id', $followers->pluck('id'))->orWheres('users_id', Auth::id())->get();
     }
 }
 

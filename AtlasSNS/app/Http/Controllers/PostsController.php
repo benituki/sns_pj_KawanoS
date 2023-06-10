@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 //追加
 use App\Post;
 use App\User;
+use App\Models\tweets;
+
 
 
 use Illuminate\Support\Facades\Auth;
@@ -28,13 +30,6 @@ class PostsController extends Controller
         // posts.index（フォルダ名,index.blade.phpが格納されているフォルダ名が「posts」）
         //list「キー」、$list「値」
         // posts.indexと一緒に$listを画面に表示する。
-
-        // $user = Auth::user();
-        // $tweets = $user->tweet()->where('is_private', false)->get();
-
-        // foreach ($user->followings as $following) {
-        //     $tweets = $tweets->concat($following->tweets()->where('is_private', false)->get());
-        // }
     }
 
 
@@ -46,6 +41,14 @@ class PostsController extends Controller
         $post = $request->input('newPost');// $○○やメソッドは名前を自由にできる（※個別名などは分かりずらくなる可能性がある。）
         // 参考サイト↓https://qiita.com/ucan-lab/items/a7441bff64ff1f173c10
         $id = Auth::id();//Auth(日本語名：認証)ログインをしているユーザー情報を取得する。
+
+        // 下記追加（2023/06/10）
+        $user = Auth::user();
+        $user->tweets()->create([
+            'post' => $post,
+        ]);
+        // 上記追加（2023/06/10）
+
         Post::create([
             // ''内はカラム！カラムに$を入れる。
             'post' => $post,
@@ -54,6 +57,8 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+
+    // フォロワーユーザーのつぶやきを取得する
 
     //投稿編集メソッド
     public function update(Request $request)
@@ -71,6 +76,11 @@ class PostsController extends Controller
     {
         Post::where('id', $id)->delete();
         return redirect('/top');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
