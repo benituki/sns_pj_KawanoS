@@ -35,38 +35,44 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
-// ログインユーザー名ルート
 
 Route::get('/validate', 'App\Http\Requests@validate');
 Route::post('/validate', 'App\Http\Requests@validate');
 
 // ログイン制限
+Route::group(['middleware' => ['auth','verified']], function(){
+    //ログイン中のページ
+    Route::get('/top','PostsController@index');
+    
+    //投稿用メソッド移動用ルート
+    Route::post('/tweet','PostsController@tweet')->name('post.tweet');
+    
+    //投稿内容更新
+    Route::post('/update-form', 'PostsController@update');
+    Route::get('/update-form', 'PostsController@update');
 
-//ログイン中のページ
-Route::get('/top','PostsController@index');
-//投稿用メソッド移動用ルート
-Route::post('/tweet','PostsController@tweet')->name('post.tweet');
-//投稿内容更新
-Route::post('/update-form', 'PostsController@update');
-Route::get('/update-form', 'PostsController@update');
-//削除
-Route::post('/post/{id}/delete', 'PostsController@delete');
-Route::get('/post/{id}/delete', 'PostsController@delete');
+    //削除
+    Route::post('/post/{id}/delete', 'PostsController@delete');
+    Route::get('/post/{id}/delete', 'PostsController@delete');
 
-//プロフィール
-Route::get('/profile','UsersController@profile');
-//検索
-Route::get('/search','UsersController@search')->name('posts.index');
-Route::get('/users/{user_id}', 'UserController@show')->name('users.show');
+    //プロフィール
+    Route::get('/profile','UsersController@profile');
 
-//フォロワーリスト
-Route::get('/follow-list','followsController@followList');
-Route::get('/follower-list','followsController@followerList');
+    //検索
+    Route::get('/search','UsersController@search')->name('posts.index');
+    Route::get('/users/{user_id}', 'UserController@show')->name('users.show');
 
-//ログアウト機能（2022/12/26）
-Route::get('/logout', 'Auth\LoginController@logout');
+    //フォロワーリスト
+    Route::get('/follow-list','followsController@followList');
+    Route::get('/follower-list','followsController@followerList');
 
-//ルート定義（2022/12/25）追加
-Route::post('sample', 'FormController@postValidates');
+    //ログアウト機能（2022/12/26）
+    Route::get('/logout', 'Auth\LoginController@logout');
+
+    //ルート定義（2022/12/25）追加
+    Route::post('sample', 'FormController@postValidates');
+
+});
+
 
 
