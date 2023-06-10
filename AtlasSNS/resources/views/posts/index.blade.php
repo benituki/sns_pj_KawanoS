@@ -17,7 +17,8 @@
     <table class='table table-hover'>
         @foreach ($list as $list)
         <tr>
-            <td><?php $user = Auth::user(); ?>{{ $user->username }}</td>
+            {{-- 下記メモ　$listにあるのはPostモデル。Userモデルとリレーションされているため一度userを入力することによってPostモデルにないusernameを表示することができる。 --}}
+            <td>{{ $list->user->username }}</td>
             <td>{{ $list->post }}</td>
             <td>{{ $list->created_at }}</td>
             {{-- 投稿の編集button --}}
