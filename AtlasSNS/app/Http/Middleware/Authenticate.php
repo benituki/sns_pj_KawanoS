@@ -15,9 +15,12 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     // ユーザーが認証されていない場合にリダイレクトするパスを返す。
     {
+        // if (! $request->expectsJson()) {
+        //     // 引数として受け取った$requestオブジェクトがJSONを期待していない場合にloginルートへリダイレクト先を返す
+        //     return route('login');
+        // }
         if (! $request->expectsJson()) {
-            // 引数として受け取った$requestオブジェクトがJSONを期待していない場合にloginルートへリダイレクト先を返す
-            return route('login');
+            return redirect('/login');
         }
     }
 

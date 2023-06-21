@@ -16,15 +16,15 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
-    {
-        if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
-        }
+    // public function handle($request, Closure $next, $guard = null)
+    // {
+    //     if (Auth::guard($guard)->check()) {
+    //         return redirect(RouteServiceProvider::HOME);
+    //     }
 
-        return $next($request);
+    //     return $next($request);
 
-    }
+    // }
 
 //     public function handle($request, Closure $next, $guard = null)
 // {
@@ -34,4 +34,15 @@ class RedirectIfAuthenticated
 
 //     return redirect('/login');
 // }
+
+public function handle($request, Closure $next, $guard = null)
+{
+    if (Auth::guard($guard)->check()) {
+        return redirect('/top');
+    }
+
+    return $next($request);
+}
+
+
 }

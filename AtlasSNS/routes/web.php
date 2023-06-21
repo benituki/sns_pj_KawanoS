@@ -27,8 +27,8 @@
 
 use App\Http\Controllers\PostsController;
 
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/login', 'Auth\LoginController@login');
+// Route::get('/login', 'Auth\LoginController@login');
+// Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
@@ -40,10 +40,22 @@ Route::get('/validate', 'App\Http\Requests@validate');
 Route::post('/validate', 'App\Http\Requests@validate');
 
 // ログイン制限
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/top', function () {
+        return view('top');
+    });
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/login', function () {
+        return redirect('/top');
+    });
+});
 Route::group(['middleware' => ['auth','verified']], function(){
     //ログイン中のページ
-    Route::get('/top','PostsController@index');
-    
+    // Route::get('/top','PostsController@index');
+
     //投稿用メソッド移動用ルート
     Route::post('/tweet','PostsController@tweet')->name('post.tweet');
     
