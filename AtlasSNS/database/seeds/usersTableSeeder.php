@@ -11,7 +11,7 @@ class usersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //ダミーユーザー
         DB::table('users')->insert([
             'username' => 'test',
             'mail' => 'test@test',

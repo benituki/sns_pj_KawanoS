@@ -43,10 +43,10 @@ class PostsController extends Controller
         $id = Auth::id();//Auth(日本語名：認証)ログインをしているユーザー情報を取得する。
 
         // 下記追加（2023/06/10）
-        $user = Auth::user();
-        $user->tweets()->create([
-            'post' => $post,
-        ]);
+        // $user = Auth::user();
+        // $user->tweets()->create([
+        //     'post' => $post,
+        // ]);
         // 上記追加（2023/06/10）
 
         Post::create([

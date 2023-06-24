@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth','verified']], function(){
 
     //投稿用メソッド移動用ルート
     Route::post('/tweet','PostsController@tweet')->name('post.tweet');
-    
+
     //投稿内容更新
     Route::post('/update-form', 'PostsController@update');
     Route::get('/update-form', 'PostsController@update');
