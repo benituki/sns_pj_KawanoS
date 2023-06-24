@@ -33,7 +33,6 @@ class RedirectIfAuthenticated
 //     }
 
 //     return redirect('/login');
-// }
 
 public function handle($request, Closure $next, $guard = null)
 {
