@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Post;
 
 
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,14 +36,14 @@ class User extends Authenticatable
     }
 
     //フォロワーフォロー取得
-    public function follows()
+ public function followers()
     {
-        return $this->belongsToMany(User::class, 'follows', 'following_id', 'user_id');
+        return $this->hasMany(Follow::class, 'followed_id');
     }
 
-    public function followers()
+    public function following()
     {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_id');
+        return $this->hasMany(Follow::class, 'user_id');
     }
 }
 
