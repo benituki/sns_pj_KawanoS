@@ -24,16 +24,15 @@ class FollowsController extends Controller
     //     return back()->with('success', 'ユーザーのフォローを解除しました。');
     // }
 
-    public function followers(User $user)
+    public function followerList(User $users)
     {
-        $followers = $user->followers;
-        return view('followers', compact('followers'));
+        $followers = $users->followers;
+        return view('/follows/followerList', compact('followers'));
     }
 
-    public function following(User $user)
+    public function followList(User $users)
     {
-        $following = $user->following;
-        return view('following', compact('following'));
+        $following = $users->following;
+        return view('/follows/followList', compact('following'));
     }
-
 }
