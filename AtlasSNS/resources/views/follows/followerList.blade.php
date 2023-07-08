@@ -23,8 +23,8 @@
 <!-- followers.blade.php -->
 <h1>Followers</h1>
 <ul>
-    @foreach($followers as $follower)
-        <li>{{ $follower->name }}</li>
+    @foreach($followers as $followers)
+        <li>{{ $follower->username }}</li>
     @endforeach
 </ul>
 
