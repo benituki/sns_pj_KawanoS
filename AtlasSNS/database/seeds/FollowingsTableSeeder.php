@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class FollowingsTableSeeder extends Seeder
@@ -24,5 +25,6 @@ class FollowingsTableSeeder extends Seeder
             $following->following_user_id = $following_values['following_user_id'];
             $following->save();
         }
+        
     }
 }

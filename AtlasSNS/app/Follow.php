@@ -11,5 +11,9 @@ class Follow extends Model
     public function user(){
         return $this->belongsTo(\App\User::class, 'id');
     }
+
+    protected $table = 'follows';
 }
 // 上記のコードはfollowモデルの定義を示している。
+
+

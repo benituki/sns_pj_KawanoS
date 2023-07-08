@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>フォロワーリスト</h1>
-@foreach ($followers as $follower)
+{{-- @foreach ($followers as $follower)
     <div>
         <p>{{ $follower->name }}</p>
         @if ($follower->is_following)
@@ -18,4 +18,13 @@
             </form>
         @endif
     </div>
-@endforeach
+@endforeach --}}
+
+<!-- followers.blade.php -->
+<h1>Followers</h1>
+<ul>
+    @foreach($followers as $follower)
+        <li>{{ $follower->name }}</li>
+    @endforeach
+</ul>
+

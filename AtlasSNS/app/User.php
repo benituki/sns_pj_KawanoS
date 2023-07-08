@@ -36,14 +36,18 @@ class User extends Authenticatable
     }
 
     //フォロワーフォロー取得
-    public function followers()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'user_id');
-    }
+    protected $table = 'users';
 
+    // ユーザーがフォローしている人のリレーション
     public function following()
     {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'followed_id');
+        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'following_id');
+    }
+
+    // ユーザーをフォローしている人のリレーション
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'following_id', 'follower_id');
     }
 }
 
