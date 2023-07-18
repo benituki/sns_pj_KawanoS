@@ -45,7 +45,6 @@ class UsersController extends Controller
             'users' => $users,
             'search' => $search,
         ]);
-
     }
 
 }

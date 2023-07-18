@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use App\Post;
 
 
@@ -41,13 +42,13 @@ class User extends Authenticatable
     // ユーザーがフォローしている人のリレーション
     public function following()
     {
-        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'following_id');
+        return $this->belongsToMany(\App\User::class, 'follows', 'followed_id', 'following_id');
     }
 
     // ユーザーをフォローしている人のリレーション
     public function followers()
     {
-        return $this->belongsToMany(User::class, 'follows', 'following_id', 'follower_id');
+        return $this->belongsToMany(\App\User::class, 'follows', 'following_id', 'followed_id');
     }
 }
 

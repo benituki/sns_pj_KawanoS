@@ -26,6 +26,7 @@
 //ログアウト中のページ
 
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\followsController;
 
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
@@ -66,10 +67,24 @@ Route::group(['middleware' => ['auth','verified']], function(){
     //検索
     Route::get('/search','UsersController@search')->name('posts.index');
     Route::get('/users/{user_id}', 'UserController@show')->name('users.show');
+    // フォロー登録、解除(2023/07/15)
+    // Route::post('/follow/{user}', 'followsController@follow')->name('follow');
+    // Route::post('/un_follow/{user}', 'followsController@un_follow')->name('un_follow');
+    // Route::group(['middleware' => 'auth'], function () {
+    //     Route::post('/follow/{userId}', [ followsController::class, 'store']);
+    // });
+
+    // Route::group(['middleware' => 'auth'], function () {
+    //     Route::post('/follow/{userId}', [ followsController::class, 'store']);
+    //     //追加
+    //     Route::post('/follow/{userId}/destroy', [ followsController::class, 'destroy']);
+    // });
+
+    Route::post('/follow/{user}', 'FollowsController@follow')->name('follow');
 
     //フォローリスト
-    Route::get('/follow-list','followsController@followList');
-    Route::get('/follower-list','followsController@followerList');
+    Route::get('/follow-list','FollowsController@followList');
+    Route::get('/follower-list','FollowsController@followerList');
 
     //ログアウト機能（2022/12/26）
     Route::get('/logout', 'Auth\LoginController@logout');
