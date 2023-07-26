@@ -41,7 +41,7 @@
   </head>
   <body>
     <!-- ユーザー一覧の表示とフォローボタン -->
-    @foreach($users as $user)
+    @foreach($users as $users)
     <div>
       <div>{{$users->username}}</div>
       <button onclick="follow({{ $users->id }})">フォローする</button>
