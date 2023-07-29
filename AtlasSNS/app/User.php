@@ -40,15 +40,14 @@ class User extends Authenticatable
     protected $table = 'users';
 
     // ユーザーがフォローしている人のリレーション
+    // ※修正する。
+    // 多：多　→３テーブル
+    // フォロー図テーブルが仲介
+    // フォローボタンの切り替えのためである。フォローボタン機能自体はリレーション
     public function following()
     {
-        return $this->belongsToMany(\App\User::class, 'follows', 'followed_id', 'following_id');
+        return $this->belongsToMany(\App\User::class, 'follows', 'id', 'following_id');
     }
 
-    // ユーザーをフォローしている人のリレーション
-    public function followers()
-    {
-        return $this->belongsToMany(\App\User::class, 'follows', 'following_id', 'followed_id');
-    }
 }
 
