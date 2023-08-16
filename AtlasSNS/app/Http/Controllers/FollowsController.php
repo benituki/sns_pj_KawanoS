@@ -23,12 +23,25 @@ class FollowsController extends Controller
     }
 
     // フォロー登録（2023/07/15）
-    public function follow(User $following_id)
-    {
-        Auth::users()->follows()->attach($following_id);
-        return back();
+    // public function follow(User $following_id)
+    // {
+    //     Auth::users()->follows()->attach($following_id);
+    //     return back();
 
+    // }
+
+    public function toggleFollow($id)
+{
+    $users = User::findOrFail($id);
+    $loggedInUser = Auth::users();
+
+    if ($loggedInUser->following->contains($id)) {
+        $loggedInUser->following()->detach($id);
+    } else {
+        $loggedInUser->following()->attach($id);
     }
 
+    return redirect()->back();
+}
 
 }

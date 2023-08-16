@@ -44,9 +44,14 @@ class User extends Authenticatable
     // 多：多　→３テーブル
     // フォロー図テーブルが仲介
     // フォローボタンの切り替えのためである。フォローボタン機能自体はリレーション
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+    }
+
     public function following()
     {
-        return $this->belongsToMany(\App\User::class, 'follows', 'id', 'following_id');
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
     }
 
 }

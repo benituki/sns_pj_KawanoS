@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth','verified']], function(){
     
     // フォローボタン
     Route::post('/follow/{id}', 'FollowsController@follow');
+    Route::post('/follow/{id}', 'FollowsController@toggleFollow')->middleware('auth');
 
     //フォローリスト
     Route::get('/follow-list','FollowsController@followList');
