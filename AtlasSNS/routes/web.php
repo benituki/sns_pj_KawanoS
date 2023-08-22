@@ -69,8 +69,11 @@ Route::group(['middleware' => ['auth','verified']], function(){
     Route::get('/users/{user_id}', 'UserController@show')->name('users.show');
     
     // フォローボタン
-    Route::post('/follow/{id}', 'FollowsController@follow');
-    Route::post('/follow/{id}', 'FollowsController@toggleFollow')->middleware('auth');
+// ユーザーをフォローする
+Route::post('/follow/{id}', 'FollowsController@follow')->name('follow');
+// ユーザーのフォローを解除する
+Route::post('/un_follow/{id}', 'FollowsController@un_follow')->name('un_follow');
+
 
     //フォローリスト
     Route::get('/follow-list','FollowsController@followList');

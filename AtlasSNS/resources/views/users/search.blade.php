@@ -24,20 +24,40 @@
     <div>
         <div>{{ $users->username }}</div>
         {{-- JavaScript --}}
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
         {{-- onclickではなく別の方法でuseridを送る。ヒント（投稿削除機能） --}}
         {{-- <button class="follow-button" data-user-id="{{ $users->id }}">フォローする</button> --}}
         {{-- 下記追加 --}}
         {{-- <button class="follow-button" data-user-id="{{ $users->id }}" data-following="{{ Auth::users()->following->contains($users->id) ? 'true' : 'false' }}">
             {{ Auth::users()->following->contains($users->id) ? 'フォロー解除' : 'フォローする' }}
         </button> --}}
-        <form action="/follow/{{ $users->id }}" method="POST">
+
+        {{-- フォローした矢解除はデータで保存しているためJavaScriptでは難しい（） --}}
+        {{-- IF文 1ボタン→データ→えｔ--}}
+        {{-- <form action="/follow/{{ $users->id }}" method="POST">
             @csrf
             <button class="follow-button" type="submit">
                 {{ Auth::users()->following->contains($users->id) ? 'フォロー解除' : 'フォローする' }}
             </button>
-        </form>
+        </form> --}}
         {{--　上記追加 --}}
+
+        {{-- 下記追加（IF文） --}}
+        @if($following)
+        {{-- フォロー解除ボタン --}}
+        <form action="{{ route('un_follow', ['id' => $users->id]) }}" method="POST">
+            @csrf
+            <button type="submit">フォロー解除</button>
+        </form>
+    @else
+        {{-- フォローボタン --}}
+        <form action="{{ route('follow', ['id' => $users->id]) }}" method="POST">
+            @csrf
+            <button type="submit">フォローする</button>
+        </form>
+    @endif
+    
+        {{-- 上記追加（IF分） --}}
     </div>
     @endforeach
 
