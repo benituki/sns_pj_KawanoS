@@ -47,4 +47,10 @@ class UsersController extends Controller
         ]);
     }
 
+    // フォローボタン
+    public function follow(User $users)
+    {
+        Auth::users()->following()->attach($users);
+        return response()->json(['message' => 'フォローしました']);
+    }
 }
