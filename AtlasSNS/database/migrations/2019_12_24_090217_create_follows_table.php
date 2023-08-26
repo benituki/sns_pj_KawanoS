@@ -25,6 +25,19 @@ class CreateFollowsTable extends Migration
             // 'updated_at'というタイムスタンプカラムを作成。レコードが更新された時の日付を格納するために使用される。defaultメソッドを使用してカラムのｄフォルト値としてDB::rawメソッドを介して「current_timestamp on update current_timestamp」というデータベース固有の構文を指定しています。これにより、レコードが更新されたときに自動的に現在の日時が設定されます。
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
         });
+
+        Schema::create('follows', function (Blueprint $table) {
+            $table->unsignedBigInteger('follower_id');
+            $table->unsignedBigInteger('following_id');
+            $table->timestamps();
+    
+            // 主キーが複合キーの場合、以下のように定義します
+            $table->primary(['follower_id', 'following_id']);
+    
+            // 外部キー制約の定義
+            $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('following_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

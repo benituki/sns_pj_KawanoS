@@ -22,34 +22,33 @@ class FollowsController extends Controller
         return view('/follows/followList', compact('following'));
     }
 
-    // フォロー登録（2023/07/15）
-    public function follow(User $users)
+    public function follow($id)
     {
-        Auth::users()->following()->attach($users);
-        return back();
+        // ログイン中のユーザーを取得
+        $loggedInUser = Auth::users();
 
+        // フォローするユーザーを取得
+        $userToFollow = User::find($id);
+
+        // フォロー関係を保存
+        $loggedInUser->following()->attach($userToFollow);
+
+        return redirect()->back(); // フォロー後に元のページに戻る
     }
 
-    // // フォロー解除（2023/07/15）
-    public function un_follow(User $users)
+    public function un_follow($id)
     {
-        Auth::users()->following()->detach($users);
-        return back();
+        // ログイン中のユーザーを取得
+        $loggedInUser = Auth::users();
+
+        // フォロー解除するユーザーを取得
+        $userToUn_follow = User::find($id);
+
+        // フォロー関係を解除
+        $loggedInUser->following()->detach($userToUn_follow);
+
+        return redirect()->back(); // フォロー解除後に元のページに戻る
     }
-
-
-    public function store($userId)
-    {
-        Auth::users()->follows()->attach($userId);
-        return;
-    }
-
-    public function destroy($userId)
-    {
-        Auth::users()->follows()->detach($userId);
-        return;
-    }
-
 
 
 }
