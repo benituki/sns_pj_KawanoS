@@ -20,7 +20,7 @@
   </head>
   <body>
     <!-- ユーザー一覧の表示とフォローボタン -->
-    @foreach($users as $user)
+    @foreach($users as $users)
     <div>
         <div>{{ $users->username }}</div>
         {{-- 下記追加（IF文） --}}
