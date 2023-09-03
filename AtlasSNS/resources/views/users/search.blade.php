@@ -23,48 +23,33 @@
     @foreach($users as $user)
     <div>
         <div>{{ $users->username }}</div>
-        {{-- JavaScript --}}
-        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-        {{-- onclickではなく別の方法でuseridを送る。ヒント（投稿削除機能） --}}
-        {{-- <button class="follow-button" data-user-id="{{ $users->id }}">フォローする</button> --}}
-        {{-- 下記追加 --}}
-        {{-- <button class="follow-button" data-user-id="{{ $users->id }}" data-following="{{ Auth::users()->following->contains($users->id) ? 'true' : 'false' }}">
-            {{ Auth::users()->following->contains($users->id) ? 'フォロー解除' : 'フォローする' }}
-        </button> --}}
-
-        {{-- フォローした矢解除はデータで保存しているためJavaScriptでは難しい（） --}}
-        {{-- IF文 1ボタン→データ→えｔ--}}
-        {{-- <form action="/follow/{{ $users->id }}" method="POST">
-            @csrf
-            <button class="follow-button" type="submit">
-                {{ Auth::users()->following->contains($users->id) ? 'フォロー解除' : 'フォローする' }}
-            </button>
-        </form> --}}
-        {{--　上記追加 --}}
-
         {{-- 下記追加（IF文） --}}
-        @if($following)
+      
+        {{-- @if($search) と @else：Bladeテンプレート内の条件文を表します。$search という変数の値を評価し、その値に応じて表示するコンテンツを切り替えます。$search が真（true）の場合、@if ブロック内のコードが実行され、それ以外の場合は @else ブロック内のコードが実行されます。 --}}
         {{-- フォロー解除ボタン --}}
+        {{-- フォロー解除ボタンを表示するためのフォーム要素を開始します。このフォームは、route('un_follow') に対して POST リクエストを送信します。['id' => $users->id] はルートのパラメーターとしてユーザーIDを渡します。 --}}
         <form action="{{ route('un_follow', ['id' => $users->id]) }}" method="POST">
+            {{-- <form> 要素：HTMLフォームを定義しています。フォームはユーザーがデータを送信するためのコンテナです。 --}}
+                {{-- action="{{ route('un_follow', ['id' => $users->id]) }}"：フォームが送信されたときに実行されるアクションを指定しています。route ヘルパーを使用して、特定のルート（un_follow ルート）にアクセスするためのURLを生成しています。['id' => $users->id] はルートに渡されるパラメーターを指定しており、$users->id の値が id パラメーターとしてルートに渡されます。 --}}
+                {{-- method="POST"：フォームデータを送信するHTTPメソッドを指定しています。この場合、データはHTTP POST メソッドを使用して送信されます。 --}}
             @csrf
+            {{-- @csrf：Cross-Site Request Forgery（CSRF）攻撃からの保護を提供するためのBladeディレクティブです。これにより、フォームから送信されたデータが正当なものであることが確認されます。 --}}
             <button type="submit">フォロー解除</button>
+            {{-- <button type="submit">フォロー解除</button>：フォロー解除ボタンまたはフォローボタンです。ユーザーはこのボタンをクリックしてフォロー解除またはフォローを実行します。 --}}
+            {{-- したがって、このコードは、$search 変数の値に応じてフォローボタンまたはフォロー解除ボタンを表示し、それをクリックすることで対応するアクションが実行されるフォームを生成します。フォームはCSRF攻撃から保護されており、ユーザーがボタンをクリックすることでフォロー操作がサーバーに送信されます。 --}}
         </form>
-    @else
+
         {{-- フォローボタン --}}
         <form action="{{ route('follow', ['id' => $users->id]) }}" method="POST">
             @csrf
             <button type="submit">フォローする</button>
         </form>
-    @endif
+
     
         {{-- 上記追加（IF分） --}}
     </div>
     @endforeach
 
   </body>
-
-  {{-- ボタン。 --}}
-
-  {{-- フォロー機能 --}}
 
 @endsection
