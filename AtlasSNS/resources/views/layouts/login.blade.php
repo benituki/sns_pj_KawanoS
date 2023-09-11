@@ -56,6 +56,7 @@
                 <div>
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->following->count() }}</p>
+                {{-- 現在ログインしているユーザーを認証ー＞ログインしているユーザーの ’following’リレーションを呼び出しー＞リストの要素数を数える。つまりカウントである。--}}
                 </div>
                 <p class="btn"><a href="{{ asset('/follow-list') }}">フォローリスト</a></p>
                 <div>
