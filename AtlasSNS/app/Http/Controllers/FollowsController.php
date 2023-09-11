@@ -62,5 +62,7 @@ class FollowsController extends Controller
         return redirect()->back();  // フォロー解除後に元のページに戻る
     }
 
+    
+
 
 }
