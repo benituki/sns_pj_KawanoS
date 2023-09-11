@@ -7,12 +7,7 @@ use App\User;
 
 class Follow extends Model
 {
-    //リレーションシップ
-    public function user(){
-        return $this->belongsTo(User::class, 'id');
-    }
 
-    protected $table = 'follows';
 
 
 }
