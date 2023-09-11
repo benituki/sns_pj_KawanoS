@@ -61,5 +61,26 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
     }
 
+    // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        // 下記はGTPによって検索したものである。処理によるエラーが発生、読み込み不可能のためスクール内にて意味を再認識するようにする。
+        // return $this->following->contains($users);
+        return (boolean) $this->following()->where('followed_id', $user_id)->first(['followed_id']);
+
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $user_id)
+    {
+        return (boolean) $this->followers()->where('following_id', $user_id)->first(['followed_id']);
+    }
+    
+    // $this->follows()///リレーションにアクセスする
+    // リレーションにアクセスし、リレーション内でカラムが指定された（一致するレコード）を検索条件とし指定する（フォロー関係を検索している。）→検索条件に一致する最初のレコード（取得するカラムを指定している。）
+    // boolean->真偽値,（真か偽か）
+    // whereメソッド→DBクエリをフィルタリングするためのもの、特定の条件を設定するもの。
+    // 
+
 }
 
