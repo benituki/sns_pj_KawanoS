@@ -24,6 +24,7 @@
     <div>
          {{-- 下記追加（IF文） --}}
         <div>{{ $users->username }}</div>
+        <img src="{{ $users->icon_url }}" alt="User Icon">
         @if(Auth::user()->isFollowing($users->id))
          {{-- @if($search) と @else：Bladeテンプレート内の条件文を表します。$search という変数の値を評価し、その値に応じて表示するコンテンツを切り替えます。$search が真（true）の場合、@if ブロック内のコードが実行され、それ以外の場合は @else ブロック内のコードが実行されます。 --}}
          {{-- フォロー解除ボタン --}}

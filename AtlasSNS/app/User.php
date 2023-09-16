@@ -79,9 +79,19 @@ class User extends Authenticatable
     // リレーションにアクセスし、リレーション内でカラムが指定された（一致するレコード）を検索条件とし指定する（フォロー関係を検索している。）→検索条件に一致する最初のレコード（取得するカラムを指定している。）
     // boolean->真偽値,（真か偽か）
     // whereメソッド→DBクエリをフィルタリングするためのもの、特定の条件を設定するもの。
-    // 
-
-
+    
+    // ユーザーアイコン
+    public function getIconUrlAttribute()
+    // get接頭辞とAttribute接尾辞を持つ特定の構文に従って名前が付けられている。
+    {
+        if($this->icon){
+            return asset($this->icon);
+        }
+        // アイコンが設定されている場合asset()ヘルパー関数を使用してアイコンのURLを生成して返している。
+        
+        // デフォルトのアイコンのURLをかえる
+        return asset('/images/icon1.png');
+    }
 
 }
 
