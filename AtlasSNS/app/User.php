@@ -36,8 +36,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    //フォロワーフォロー取得
-    protected $table = 'users';
+
 
     // ユーザーがフォローしている人のリレーション
     // ※修正する。
@@ -81,6 +80,8 @@ class User extends Authenticatable
     // boolean->真偽値,（真か偽か）
     // whereメソッド→DBクエリをフィルタリングするためのもの、特定の条件を設定するもの。
     // 
+
+
 
 }
 

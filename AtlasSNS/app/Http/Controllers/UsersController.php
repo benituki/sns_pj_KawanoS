@@ -28,6 +28,7 @@ class UsersController extends Controller
         // クエリビルダ
         $query = User::query();
         // もし検索フォームのキーワードが入力されたら
+        // User::query:'User'モデルに対してクエリを行うための新しいクエリビルダインスタンスを作成する。
         if ($search) {
             // 全角スペースを半角に変換
             $spaceConversion = mb_convert_kana($search, 's');

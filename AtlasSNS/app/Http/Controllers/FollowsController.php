@@ -9,18 +9,32 @@ use Illuminate\Support\Facades\Auth;
 class FollowsController extends Controller
 {
     // フォロワーリスト用
-    public function followerList(User $id)
+    // public function followerList(User $id)
+    // {
+    //     $followers = $id->followers;
+    //     return view('/follows/followerList', compact('followers'));
+    // }
+    public function followerList()
+{
+    $user = auth()->user(); // ログインユーザーを取得
+    $followers = $user->followers; // フォロワーのユーザーを取得
+    return view('follows.followerList', compact('followers'));
+}
+
+    // フォロー一覧
+    public function followList()
     {
-        $followers = $id->followers;
-        return view('/follows/followerList', compact('followers'));
+        $user = auth()->user(); // ログインユーザーを取得
+        $following = $user->following; // フォロー中のユーザーを取得
+        return view('follows.followList', compact('following'));
     }
 
     // フォローリスト用
-    public function followList(User $id)
-    {
-        $following = $id->following;
-        return view('/follows/followList', compact('following'));
-    }
+    // public function followList(User $id)
+    // {
+    //     $following = $id->following;
+    //     return view('/follows/followList', compact('following'));
+    // }
 
     public function follow($id)
     {

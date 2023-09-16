@@ -76,8 +76,10 @@ Route::group(['middleware' => ['auth','verified']], function(){
 
 
     //フォローリスト
-    Route::get('/follow-list','FollowsController@followList');
-    Route::get('/follower-list','FollowsController@followerList');
+    Route::get('/follow-list', 'FollowsController@followList')->name('follow.list');
+    // フォロワーリスト
+    Route::get('/follower-list', 'FollowsController@followerList')->name('follower.list');
+
 
     //ログアウト機能（2022/12/26）
     Route::get('/logout', 'Auth\LoginController@logout');
