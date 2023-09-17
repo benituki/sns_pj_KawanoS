@@ -12,3 +12,5 @@
     @endforeach
 </ul>
 @endsection
+
+{{-- フォローユーザー呟き --}}

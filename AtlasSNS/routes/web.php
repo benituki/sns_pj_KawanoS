@@ -87,6 +87,9 @@ Route::group(['middleware' => ['auth','verified']], function(){
     //ルート定義（2022/12/25）追加
     Route::post('sample', 'FormController@postValidates');
 
+
+    Route::get('/followed-tweets', 'FollowsController@followedTweets')->name('followed.tweets');
+
 });
 
 
