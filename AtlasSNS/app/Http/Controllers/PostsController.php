@@ -11,9 +11,6 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Models\tweets;
-
-
-
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
@@ -34,24 +31,60 @@ class PostsController extends Controller
 
 
     //投稿用メソッド新規作成
-    public function tweet(Request $request)//投稿（textarea）から情報を読み込む
-    {
-        //↓ここまでの内容が実行できているか確認のため「dd()」
-        // dd($request);
-        $post = $request->input('newPost');// $○○やメソッドは名前を自由にできる（※個別名などは分かりずらくなる可能性がある。）
-        // 参考サイト↓https://qiita.com/ucan-lab/items/a7441bff64ff1f173c10
-        $id = Auth::id();//Auth(日本語名：認証)ログインをしているユーザー情報を取得する。
+    // public function tweet(Request $request)//投稿（textarea）から情報を読み込む
+    // {
+    //     //↓ここまでの内容が実行できているか確認のため「dd()」
+    //     // dd($request);
+    //     $post = $request->input('newPost');// $○○やメソッドは名前を自由にできる（※個別名などは分かりずらくなる可能性がある。）
+    //     // 参考サイト↓https://qiita.com/ucan-lab/items/a7441bff64ff1f173c10
+    //     $id = Auth::id();//Auth(日本語名：認証)ログインをしているユーザー情報を取得する。
 
-        Post::create([
-            // ''内はカラム！カラムに$を入れる。
-            'post' => $post,
-            //ログインしているユーザーのID↓
-            'user_id' => $id,
-        ]);
-        return redirect('/top');
-    }
+    //     Post::create([
+    //         // ''内はカラム！カラムに$を入れる。
+    //         'post' => $post,
+    //         //ログインしているユーザーのID↓
+    //         'user_id' => $id,
+    //     ]);
+    //     return redirect('/top');
+    // }
 
-    // フォロワーユーザーのつぶやきを取得する
+    // フォロー、フォロワーユーザーのつぶやきを取得する
+    public function showTimeline()
+{
+    $user = Auth::user(); // 現在ログインしているユーザーを取得
+
+    // フォローユーザーとフォロワーユーザーのIDを取得
+    $followingIds = $user->following->pluck('id'); // フォローユーザーのIDを取得
+    $followerIds = $user->followers->pluck('id'); // フォロワーユーザーのIDを取得
+
+    // フォローユーザーとフォロワーユーザーのツイートを取得
+    $followingTweets = Post::whereIn('user_id', $followingIds)
+        ->latest() // 最新のツイートから取得
+        ->paginate(10); // ページネーションを設定して10件ずつ表示
+
+    $followerTweets = Post::whereIn('user_id', $followerIds)
+        ->latest()
+        ->paginate(10);
+
+    // タイムラインビューに取得したツイートデータを渡す
+    return view('timeline', compact('followingTweets', 'followerTweets'));
+}
+
+public function tweet(Request $request)
+{
+    $post = $request->input('newPost'); // フォームから新しいツイートの内容を取得
+    $user = Auth::user(); // 現在ログインしているユーザーを取得
+
+    // Postモデルを使用して新しいツイートをデータベースに保存
+    Post::create([
+        'post' => $post, // ツイートの内容
+        'user_id' => $user->id, // ユーザーIDを紐付け
+    ]);
+
+    // ツイートが投稿されたらトップページにリダイレクト
+    return redirect('/top');
+}
+    
 
     //投稿編集メソッド
     public function update(Request $request)
