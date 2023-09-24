@@ -79,10 +79,6 @@ Route::group(['middleware' => ['auth','verified']], function(){
     Route::get('/follow-list', 'FollowsController@followList')->name('follow.list');
     // フォロワーリスト
     Route::get('/follower-list', 'FollowsController@followerList')->name('follower.list');
-    // tweet
-    // web.php
-    Route::get('/timeline', 'PostsController@showTimeline')->name('timeline');
-
 
 
     //ログアウト機能（2022/12/26）
