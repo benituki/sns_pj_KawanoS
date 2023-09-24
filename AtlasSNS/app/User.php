@@ -93,5 +93,7 @@ class User extends Authenticatable
         return asset('/images/icon1.png');
     }
 
+    
+
 }
 

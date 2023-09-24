@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
@@ -49,18 +50,6 @@ class FollowsController extends Controller
         // back()：back() メソッドは、ユーザーを前のURLに戻すための便利な方法です。これにより、現在のリクエストのリファラ（リクエストが発生した前のURL）にリダイレクトされます。一般的に、ユーザーがフォームを送信した後や、あるアクションを実行した後に元のページに戻るのに使用されます。
     }
 
-
-    public function followedTweets()
-    {
-        $users = auth()->user(); // 現在ログインしているユーザーを取得
-        $followedTweets = $users->following()->latest()->paginate(10);
-    
-        return view('tweets.followed_tweets', compact('followedTweets'));
-    }
-    
-
-
-
     public function un_follow($id)
     {
         // ログイン中のユーザーを取得
@@ -75,5 +64,6 @@ class FollowsController extends Controller
         return redirect()->back();  // フォロー解除後に元のページに戻る
     }
 
+    
 
 }
