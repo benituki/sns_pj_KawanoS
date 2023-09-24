@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
 {
-    // フォローリスト
+    // フォロワーリスト
     public function followerList()
 {
     $user = auth()->user(); // ログインユーザーを取得
@@ -17,14 +17,39 @@ class FollowsController extends Controller
     return view('follows.followerList', compact('followers'));
 }
 
-    // フォロー一覧
-    public function followList()
-    {
-        $user = auth()->user(); // ログインユーザーを取得
-        $following = $user->following; // フォロー中のユーザーを取得
-        return view('follows.followList', compact('following'));
-    }
+    // フォローリスト
+    // viewが一緒なら、一つにまとめる。
+    // public function followList()
+    // {
+    //     $user = auth()->user(); // ログインユーザーを取得
+    //     $following = $user->following; // フォロー中のユーザーを取得
 
+
+    //     $follow_id = Auth::user()->following()->pluck('followed_id');
+    //     // フォローユーザーのtweet表示
+    //     // リレーション、一緒に表示させる。postテーブルとuserテーブル両方を表示させたい。
+    //     $follow_tweet = Post::with('user')->whereIn('user_id', $follow_id)->get();
+
+        
+
+    //     return view('follows.followList', compact('following'));
+    // }
+
+    public function followList()
+{
+    $user = auth()->user(); // ログインユーザーを取得
+    $following = $user->following; // フォロー中のユーザーを取得
+
+    $follow_ids = Auth::user()->following()->pluck('followed_id')->toArray();
+    
+    // フォローユーザーのツイートを取得
+    $follow_tweets = Post::with('user')
+        ->whereIn('user_id', $follow_ids)
+        ->latest() // 最新のツイートから取得
+        ->paginate(10); // ページネーションを設定して10件ずつ表示
+
+    return view('follows.followList', compact('following', 'follow_tweets'));
+}
 
     public function follow($id)
     {
@@ -64,6 +89,6 @@ class FollowsController extends Controller
         return redirect()->back();  // フォロー解除後に元のページに戻る
     }
 
-    
+
 
 }
