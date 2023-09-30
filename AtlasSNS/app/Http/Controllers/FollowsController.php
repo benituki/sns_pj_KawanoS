@@ -14,27 +14,20 @@ class FollowsController extends Controller
 {
     $user = auth()->user(); // ログインユーザーを取得
     $followers = $user->followers; // フォロワーのユーザーを取得
-    return view('follows.followerList', compact('followers'));
+
+    $follower_ids = $followers->pluck('id')->toArray();
+
+    $follower_tweets = Post::with('user')
+        ->whereIn('user_id', $follower_ids)
+        ->latest()
+        ->paginate(10);
+
+
+    return view('follows.followerList', compact('followers', 'follower_tweets'));
 }
 
     // フォローリスト
     // viewが一緒なら、一つにまとめる。
-    // public function followList()
-    // {
-    //     $user = auth()->user(); // ログインユーザーを取得
-    //     $following = $user->following; // フォロー中のユーザーを取得
-
-
-    //     $follow_id = Auth::user()->following()->pluck('followed_id');
-    //     // フォローユーザーのtweet表示
-    //     // リレーション、一緒に表示させる。postテーブルとuserテーブル両方を表示させたい。
-    //     $follow_tweet = Post::with('user')->whereIn('user_id', $follow_id)->get();
-
-        
-
-    //     return view('follows.followList', compact('following'));
-    // }
-
     public function followList()
 {
     $user = auth()->user(); // ログインユーザーを取得
