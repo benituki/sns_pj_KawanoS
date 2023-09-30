@@ -24,7 +24,6 @@
         <li>
             <img src="{{ $follower->icon_url }}" alt="{{ $follower->username }}">
         </li>
-        <p>名前：{{ $follower->username }}</p>
     @endforeach
 </ul>
 
