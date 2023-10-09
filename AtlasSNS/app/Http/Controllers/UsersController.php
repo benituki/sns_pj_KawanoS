@@ -12,8 +12,37 @@ use App\User;
 class UsersController extends Controller
 {
     //
-    public function profile(){
+    public function profile(Request $request){
         return view('users.profile');
+
+        $rules = [
+            'username' => 'required|string|max:255',
+            'mail' => 'required|string|email|max:255|unique:users,email,' . auth()->user()->id,
+            'password' => 'nullable|string|min:8|confirmed',
+            'bio' => 'nullable|string|max:255',
+            'images' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
+        $request->validate($rules);
+
+        // プロフィール情報の更新
+        $user = auth()->user();
+        $user->name = $request->input('username');
+        $user->email = $request->input('mail');
+        $user->bio = $request->input('bio');
+
+        if ($request->has('password')) {
+            $user->password = Hash::make($request->input('password'));
+        }
+    
+        if ($request->hasFile('images')) {
+            // アップロードされたプロフィール画像の処理を追加
+            $iconPath = $request->file('images')->store('images', 'public');
+            $user->icon_url = asset('storage/' . $iconPath);
+        }
+    
+        $user->save();
+    
+        return redirect()->route('profile')->with('success', 'プロフィールが更新されました');
     }
 
     public function search(Request $request) {
