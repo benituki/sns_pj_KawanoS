@@ -1,0 +1,9 @@
+diff a/AtlasSNS/routes/web.php b/AtlasSNS/routes/web.php	(rejected hunks)
+@@ -62,6 +62,7 @@
+     Route::get('/post/{id}/delete', 'PostsController@delete');
+ 
+     //プロフィール
++    Route::get('/profile','UsersController@profile')->name('profile');
+ 
+     //検索
+     Route::get('/search','UsersController@search')->name('posts.index');

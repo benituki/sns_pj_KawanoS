@@ -8,12 +8,12 @@
 
     <div class="form-group">
         <label for="name">user name</label>
-        <input type="text" name="name" id="username" value="{{ old('name', auth()->user()->username) }}">
+        <input type="text" name="name" id="username" value="{{ old('username', auth()->user()->username) }}">
     </div>
 
     <div class="form-group">
         <label for="email">mail adress</label>
-        <input type="email" name="email" id="mail" value="{{ old('email', auth()->user()->mail) }}">
+        <input type="email" name="email" id="mail" value="{{ old('mail', auth()->user()->mail) }}">
     </div>
 
     <div class="form-group">

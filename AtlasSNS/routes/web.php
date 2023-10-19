@@ -62,7 +62,10 @@ Route::group(['middleware' => ['auth','verified']], function(){
     Route::get('/post/{id}/delete', 'PostsController@delete');
 
     //プロフィール
-    Route::get('/profile','UsersController@profile')->name('profile');
+    // Route::post('/profile','UsersController@profile')->name('profile');
+    // Route::get('/profile','UsersController@profile')->name('profile');
+    Route::put('/profile', 'UsersController@profile')->name('profile');
+    Route::get('/profile', 'UsersController@profile')->name('profile');
 
     //検索
     Route::get('/search','UsersController@search')->name('posts.index');
