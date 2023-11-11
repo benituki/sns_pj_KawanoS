@@ -29,7 +29,7 @@ class Request extends FormRequest
             'username' => 'required|min:2|max:12',
             'mail' => 'required|min:5|max:40',
             'password-confirm' => 'required|alpha_desh|min:8|max:20|same:Password',
-            'Password' => 'required|alpha_desh|min:8|max:20'
+            'assword' => 'required|alpha_desh|min:8|max:20'
         ];
     }
 
