@@ -10,19 +10,24 @@ use Illuminate\Http\Request;
 //追加
 use App\Post;
 use App\User;
-use App\Models\tweets;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
     //
     public function index(){
-        $list = Post::with('user')->get();
-        // dd($list);
+        $users =  Auth::user();
+        $followingUserIds = $users->following()->pluck('followed_id')->push($users->id);
+        // フォローユーザーと自身のtweetのみの表示
+        $list = Post::with('user')
         // with「一緒に」「～と」
         // Post、User　テーブル
         // get()内はカラム名※ただし情報が今回多いため必要なし
         // Post、Userモデルの情報を取得する。
+        ->whereIn('user_id', $followingUserIds)
+        ->orderBy('created_at', 'desc')
+        ->get();
+        
         return view('posts.index', ['list' => $list]);
         // posts.index（フォルダ名,index.blade.phpが格納されているフォルダ名が「posts」）
         //list「キー」、$list「値」
@@ -48,11 +53,6 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    // フォロー、フォロワーユーザーのつぶやきを取得する
-
-
-
-    
 
     //投稿編集メソッド
     public function update(Request $request)
