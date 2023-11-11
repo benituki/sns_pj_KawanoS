@@ -1,19 +1,3 @@
-{{-- @extends('layouts.login')
-
-@section('content')
-<h1>フォローリスト</h1>
-<h1>Following</h1>
-<ul>
-    @foreach($following as $follower)
-        <li>
-            <img src="{{ $follower->icon_url }}" alt="{{ $follower->username }}">
-            {{ $follower->username }}
-        </li>
-        <p>名前：{{ $follower->username }}</p>
-        <p>投稿内容：{{ $follower->post }}</p>
-    @endforeach
-</ul> --}}
-
 @extends('layouts.login')
 
 @section('content')
@@ -22,7 +6,7 @@
 <ul>
     @foreach($following as $follower)
         <li>
-            <img src="{{ $follower->icon_url }}" alt="{{ $follower->username }}">
+            <img src="/storage/{{$follower->images}}" alt="{{ $follower->username }}">
         </li>
     @endforeach
 </ul>

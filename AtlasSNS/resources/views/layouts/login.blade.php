@@ -30,17 +30,18 @@
                 <div>
                     <ul class="menu">
                         <li>
-                            <a href=""><?php $user = Auth::user(); ?>{{ $user->username }}さん</a>
+                            <a href=""><?php $users = Auth::user(); ?>{{ $users->username }}さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
-                                <li><a href="/profile">プロフィール編集</a></li>
+                                {{-- <li><a href="/profile">プロフィール編集</a></li> --}}
+                                <li><a class="dropdown-item" href="{{route('profile')}}"><span class="text-primary">プロフィール編集</span></a></li>
                                 <li><a href="/logout">ログアウト</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
                 <div id="usericon">
-                    <img src="{{ asset('/images/icon1.png') }}" >
+                    <img src="/storage/{{$users->images}}">
                 </div>
             </div>
         </div>

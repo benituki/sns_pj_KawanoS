@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<img src="{{ asset('/images/icon1.png') }}" >
+<?php $users = Auth::user(); ?><img src="/storage/{{$users->images}}">
 
 {{-- 投稿フォーム --}}
 {{ Form::open(['url' => '/tweet']) }}
@@ -17,15 +17,21 @@
     <table class='table table-hover'>
         @foreach ($list as $list)
         <tr>
+            <td>
+                <img src="/storage/{{$list->user->images}}" alt="User Icon">
+            </td>
             {{-- 下記メモ　$listにあるのはPostモデル。Userモデルとリレーションされているため一度userを入力することによってPostモデルにないusernameを表示することができる。 --}}
             <td>{{ $list->user->username }}</td>
             <td>{{ $list->post }}</td>
             <td>{{ $list->created_at }}</td>
             {{-- 投稿の編集button --}}
+            @if ($list->user_id === Auth::id())
+            {{-- 自分のtweetのみ、変更可能にする --}}
             <div class="content">
-                <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">編集</a>
-                <a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">削除</a>
+                <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="{{ asset('images/edit.png') }}"></a>
+                <a href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash-h.png') }}"></a>
             </div>
+            @endif
         </tr>
         @endforeach
     </table>

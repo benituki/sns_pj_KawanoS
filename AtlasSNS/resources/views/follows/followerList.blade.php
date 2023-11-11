@@ -5,7 +5,7 @@
 <ul>
     @foreach($followers as $follower)
         <li>
-            <img src="{{ $follower->icon_url }}" alt="{{ $follower->username }}">
+            <img src="/storage/{{$follower->images}}" alt="{{ $follower->username }}">
         </li>
     @endforeach
 </ul>
