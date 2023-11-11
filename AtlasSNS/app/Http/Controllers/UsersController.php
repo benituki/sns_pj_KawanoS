@@ -5,50 +5,49 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // 下記はuse文が不足していたため追加。
 use Illuminate\Support\Facades\Auth;
+Use Illuminate\Validation\Rule;
 //
 use APP\Post;
 use App\User;
 
 class UsersController extends Controller
 {
-
-    public function edit()
+    // プロフィール編集画面表示
+    public function show()
     {
-        return view('profile');
+        $users = Auth::user();
+        return view('users/profile', ['users' => $users]);
     }
-        //
-        public function profile(Request $request){
-            return view('users.profile');
-    
-            $rules = [
-                'username' => 'required|string|max:255',
-                'mail' => 'required|string|email|max:255|unique:users,email,' . auth()->user()->id,
-                'password' => 'nullable|string|min:8|confirmed',
-                'bio' => 'nullable|string|max:255',
-                'images' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            ];
-            $request->validate($rules);
-    
-            // プロフィール情報の更新
-            $user = auth()->user();
-            $user->username = $request->input('username');
-            $user->mail = $request->input('mail');
-            $user->bio = $request->input('bio');
-    
-            if ($request->has('password')) {
-                $user->password = Hash::make($request->input('password'));
-            }
-        
-            if ($request->hasFile('images')) {
-                // アップロードされたプロフィール画像の処理を追加
-                $iconPath = $request->file('images')->store('images', 'public');
-                $user->icon_url = asset('storage/' . $iconPath);
-            }
-        
-            $user->save();
-        
-            return redirect()->route('profile.edit')->with('success', 'プロフィールが更新されました');
+
+    // プロフィール編集編集機能
+    public function profileUpdate(Request $request, User $users)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'mail' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
+            'password' => 'min:8|max:20',
+            'password-confirm' => 'min:8|max:20|same:password',
+            'bio' => 'max:150',
+            'images' => 'image|mimes:jpeg,png,gif,svg'
+        ]);
+
+        $users = Auth::user();
+        $users->username = $request->input('username');
+        $users->mail = $request->input('mail');
+        $users->password = bcrypt($request->input('password'));
+        $users->bio = $request->input('bio');
+
+        $images = $request->images;
+        // 
+        if($images->isValid()){
+            $filePath = $images->store('public/images');
+            $users->images = str_replace('public/', '', $filePath);
         }
+        
+        $users->save();
+
+        return redirect()->route('top')->with('users', $users);
+    }
 
     public function search(Request $request) {
         $search = $request->input('search');

@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth','verified']], function(){
     });
 
     //ログイン中のページ
-    Route::get('/top','PostsController@index');
+    Route::get('/top','PostsController@index')->name('top');
 
     //投稿用メソッド移動用ルート
     Route::post('/tweet','PostsController@tweet')->name('post.tweet');
@@ -61,11 +61,10 @@ Route::group(['middleware' => ['auth','verified']], function(){
     Route::post('/post/{id}/delete', 'PostsController@delete');
     Route::get('/post/{id}/delete', 'PostsController@delete');
 
-    //プロフィール
-    // Route::post('/profile','UsersController@profile')->name('profile');
-    // Route::get('/profile','UsersController@profile')->name('profile');
-    Route::put('/profile', 'UsersController@profile')->name('profile');
-    Route::get('/profile', 'UsersController@profile')->name('profile');
+    //プロフィール画面
+    Route::get('/profile', 'UsersController@show')->name('profile');
+    //プロフィール編集
+    Route::put('/profile', 'UsersController@profileUpdate')->name('profile_edit');
 
     //検索
     Route::get('/search','UsersController@search')->name('posts.index');
