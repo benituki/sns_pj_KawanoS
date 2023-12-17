@@ -30,7 +30,7 @@
                 <div>
                     <ul class="menu">
                         <li>
-                            <a href=""><?php $users = Auth::user(); ?>{{ $users->username }}さん</a>
+                            <a href=""><?php $users = Auth::user(); ?>{{ $users->username }} さん</a>
                             <ul>
                                 <li><a href="/top">HOME</a></li>
                                 {{-- <li><a href="/profile">プロフィール編集</a></li> --}}
@@ -55,18 +55,16 @@
             <div id="confirm">
                 <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>{{ Auth::user()->following->count() }}</p>
+                <p>フォロー数 {{ Auth::user()->following->count() }}名</p>
                 {{-- 現在ログインしているユーザーを認証ー＞ログインしているユーザーの ’following’リレーションを呼び出しー＞リストの要素数を数える。つまりカウントである。--}}
                 </div>
-                <p class="btn"><a href="{{ asset('/follow-list') }}">フォローリスト</a></p>
+                <a href="{{ asset('/follow-list') }}" class="btn">フォローリスト</a>
                 <div>
-                <p>フォロワー数</p>
-                <p>{{ Auth::user()->followers->count() }}名</p>
+                <p>フォロワー数 {{ Auth::user()->followers->count() }}名</p>
                 </div>
-                <p class="btn"><a href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
+                <a href="{{ asset('/follower-list') }}" class="btn">フォロワーリスト</a>
             </div>
-            <p class="btn"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
+            <a href="{{ asset('/search') }}" class="btn-search">ユーザー検索</a>
         </div>
     </div>
     <footer>
