@@ -38,6 +38,10 @@ class PostsController extends Controller
     //投稿用メソッド新規作成
     public function tweet(Request $request)//投稿（textarea）から情報を読み込む
     {
+        $request->validate([
+            'newPost' => 'required|string|min:1|max:150',
+        ]);
+
         //↓ここまでの内容が実行できているか確認のため「dd()」
         // dd($request);
         $post = $request->input('newPost');// $○○やメソッドは名前を自由にできる（※個別名などは分かりずらくなる可能性がある。）
@@ -50,7 +54,7 @@ class PostsController extends Controller
             //ログインしているユーザーのID↓
             'user_id' => $id,
         ]);
-        return redirect('/top');
+        return redirect('/top')->with('error', '投稿に失敗しました。');
     }
 
 
