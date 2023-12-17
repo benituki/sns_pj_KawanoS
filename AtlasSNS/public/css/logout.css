@@ -1,54 +1,133 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
-    
-    /* 背景グラデーション */
-    height:100vh;
+body {
+    height: 100vh;
     background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #e5ff00 20%, #0044ff 100%);
-    /* 背景グラデーション終わり */
+    background-image: linear-gradient(0deg, #E2DA50 20%, #2384DE 65%);
+    position: relative;
 }
 
-header{
-    height: 10rem;
+header {
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header h1 {
     text-align: center;
 }
 
-
-
-/* ロゴ */
-header,h1{
-    text-align: center;
+img {
+    width: 200px;
+    height: 80px;
 }
 
-img{
-    width: 100px;
+p, a, h2 {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+a {
+    font-size: 20px;
+}
+
+.heading-container {
+    max-width: 400px; /* 例として最大幅を指定 */
+    font-size: 25px;
+    font-weight: bold;
+    margin: 30px;
+}
+
+
+
+
+.text-danger{
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.form-group, #clear {
+    color: #fff;
+    width: 60%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px; /* 追加: 上下の余白を確保 */
+    box-sizing: border-box; /* 追加: paddingを要素のサイズに含める */
+}
+
+.form-item {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.form-item label {
+    display: block; /* labelをブロック要素に変更 */
+    margin-bottom: 5px; /* labelとtextの間にマージンを追加 */
+    text-align: left; /* 左寄せに設定 */
+}
+
+.submit-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    margin: 0 0 0 auto;
+    font-weight: bold;
+    border: 2px solid #ED3A50;
+    background: #ED3A50;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.submit-button:hover {
+    color: #ED3A50;
+    background: #fff;
+}
+
+p.btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    margin: auto;
+    padding: 1rem 2rem; /* 調整: パディングを狭める */
+    border: 2px solid #ED3A50;
+    background: #ED3A50;
+    color: #fff;
+    border-radius: 100vh;
+    transition: 0.5s;
+}
+
+p.btn:hover {
+    color: #ED3A50;
+    background: #fff;
+}
+
+input {
+    font-size: 15px;
+    width: 300px;
     height: 50px;
-}
-/* ロゴ 終わり*/
-
-p,a{
-    color: #fff;
-    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-div{
-    color: #fff;
-    width:250px;
-    height:250px;
-    background: rgba(0, 0, 0, 0.2);
-    margin:0 auto;
-    padding:20px 0;
-    content: "";
-    /* フォームのレイアウト */
-    margin-bottom:20px;
-}
-
-label,input{
-    display:block;
-  }
-  /* フォームのレイアウト終わり */
