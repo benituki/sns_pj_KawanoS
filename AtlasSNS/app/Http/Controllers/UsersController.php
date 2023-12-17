@@ -13,12 +13,14 @@ use App\User;
 class UsersController extends Controller
 {
     // プロフィール編集画面表示
-    public function show()
+    public function show(User $user = null)
     {
-        $users = Auth::user();
-        return view('users/profile', ['users' => $users]);
+        // もしユーザーが指定されていない場合は、ログインユーザーを使用
+        $user = $user ?: Auth::user();
+    
+        return view('users.profile', compact('user'));
     }
-
+    
     // プロフィール編集編集機能
     public function profileUpdate(Request $request, User $users)
     {
@@ -48,7 +50,7 @@ class UsersController extends Controller
 
         return redirect()->route('top')->with('users', $users);
     }
-
+    
     public function search(Request $request) {
         $search = $request->input('search');
         // ログインユーザーのIDを取得
@@ -82,4 +84,6 @@ class UsersController extends Controller
         // ビューにusersとsearchを変数として渡す
         return view('users.search', compact('users', 'search'));
     }
+
+
 }
