@@ -1,37 +1,23 @@
 @charset "utf-8";
 html{
   overflow-y: scroll;
+  overflow-x:hidden;
+}
+html::-webkit-scrollbar{
+  display:none;
 }
 body{
-  padding-top:100px;
+  /* padding-top:100%; */
 }
-
-/* フォーム始まり */
-textarea{
-  font-size: 20px;
-  border: none;
-  resize:none;
-  width:1000px;
-  height:200px;
-  outline: none;
-}
-
-input[type=text]:focus {
-  outline: none;
-}
-
-/* フォーム終わり */
 
 /* リンクから― */
 a{
   color: #fff;
 }
 
-/* header */
+/* ヘッダー */
 header{
   background:#186AC9;
-
-  position: fixed; /* ヘッダーを固定する */
   top: 0; /* 上部から配置の基準位置を決める */
   left: 0; /* 左から配置の基準位置を決める */
   width: 100%; /* ヘッダーの横幅を指定する */
@@ -65,7 +51,7 @@ h1 img{
   z-index: 10;
 }
 
-/* header終わり */
+/* ヘッダー終わり */
 
 /* アコーディオンメニューはじめ */
 .menu {
@@ -75,19 +61,20 @@ h1 img{
 .menu ul {
   display: none;
   font-size: 30px;
-  z-index: 20;
+  /* z-index: 20; */
   position: absolute;
   text-align: center;
 
-  /* top: 140%;
-  left: -80px;
-  width: 500px; */
-  margin: 40px 0px 0px -205px;
+  top: 50px;
+  left: -40px;
+  width: 500px;
+  margin: 25px 0px 0px -70px;
   width: 380px;
 
-  /* font-weight: bold; */
   border: solid 2px #00044a;
   line-height: 2.5;
+
+  background-color: #ffffff;
 }
 
 .menu ul.active{
@@ -102,7 +89,7 @@ h1 img{
 /* ホバー */
 .menu ul a:hover {
   background-color:#00044a;
-  color:#fff;
+  color:#ffffff;
 }
 /* ホバー終わり */
 
@@ -110,6 +97,7 @@ h1 img{
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  font-size: 30px;
 }
 
 .menu > li > a::after {
@@ -128,7 +116,10 @@ h1 img{
   color: rgb(124, 124, 124);
   border-bottom: 1px solid #00044a;
   height: 70px;
-  
+}
+
+.menu > li > ul > li{
+  display: block;
 }
 
 /* アコーディオンメニュー終わり */
@@ -136,26 +127,62 @@ h1 img{
 /* フォロワーリストとユーザー検索ボタンの境界線 */
 #confirm{
   border-bottom: 1px solid #000;
-  background: #f2f2f2;
+  max-width: 800px; /* デザインに合わせて幅を調整 */
+  margin: 0 auto;
+  padding: 40px;
 }
 
 /* ユーザー検索ボタンの設置（2023/01/18）*/
-.btn{
+.btn,
+.btn-search{
+  font-size: 15px;
   color:#fff;
   border-radius: 10px;  /* //要素の境界の外側の角を丸める */
-  padding: 5px;
+  padding: 10px;
   background:#186AC9;
   text-align: center; /* 中央ぞろえ */
 }
 
+/* サイドバー */
+#side-bar {
+  border-left: 1px solid #000; /* 左側に境界線を追加 */
+  }
+
+.btn{
+  display: block;
+  margin: 0 0 0 auto;
+  width: 150px;
+}
+
+/* 中央寄せ */
+.btn-search {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 150px;
+  }
+
+.btn:hover,
+.btn-search:hover{
+  color:#fff;
+  border-radius: 10px;  /* //要素の境界の外側の角を丸める */
+  padding: 10px;
+  background:#419aff;
+  text-align: center; /* 中央ぞろえ */
+}
+
+
 /* main content */
 #row{
     display: flex;
-    flex-flow: row wrap;
-
     line-height: 2.0; /* 上下間隔開け */
-    
 }
+
+#row p{
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #container{
     flex: 0 0 80%;
 }
@@ -171,16 +198,10 @@ h1 img{
 
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
 .content{
-  margin: 0 auto;
-  padding: 40px;
+  /* margin: 0 auto;
+  padding: 40px; */
 }
-.modal{
-  display: none;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
+
 .modal__bg{
   background: rgba(0,0,0,0.8);
   height: 100vh;
@@ -199,19 +220,288 @@ h1 img{
 
 .js-modal-open{
   color: #000;
+  width: 60px; /* 画像のサイズに合わせて調整 */
+  height: 60px; /* 画像のサイズに合わせて調整 */
+  background: url('/images/edit.png') center/cover;
+  overflow: hidden;
 }
-
-
-
-/*==768px以下の形状*/
-
-@media screen and (max-width:768px){
-
-}
-
 /* ナビゲーションドロップダウンのためのCSS　終わり（2023/01/21） */
 
 
+/* フォーム始まり */
+
+/* textareaのスタイル */
+textarea {
+  font-size: 20px;    /* フォントサイズを20ピクセルに設定 */
+  border: none;       /* ボーダーなし */
+  resize: none;       /* リサイズ不可 */
+  width: 75%;         /* 幅を80%に設定 */
+  min-height: 20%;  /* 最小高さを200ピクセルに設定 */
+  outline: none;      /* アウトライン（枠）なし */
+  margin: 20px 0;     /* 上下に20ピクセルの余白を設定 */
+}
+
+textarea::-webkit-scrollbar{
+  display:none;
+}
+
+/* フォーカス時にinput要素のアウトラインを非表示にする */
+input[type=text]:focus {
+  outline: none;
+}
+
+/* 投稿ボタンのスタイル */
+.custom-image-button {
+  max-height: 120px;  /* 最大高さを100ピクセルに設定 */
+  width: auto;        /* 幅を自動調整 */
+  margin: 0 auto;     /* 中央寄せ */
+}
+
+/* ユーザーアイコンとフォームの親要素 */
+.user-form-container {
+  display: flex;      /* Flexboxを使用して子要素を横並びにする */
+  align-items: center; /* 垂直方向の中央揃え */
+  margin-left: 100px;
+}
+
+/* フォームとユーザーアイコンの絶対位置指定 */
+.user-form-container img {
+  margin-right: 20px; /* ユーザーアイコンとフォームの間隔を調整 */
+}
+
+.user-form-container form {
+  position: relative; /* 相対位置指定 */
+  width: 100%;        /* 幅100% */
+}
+
+/* 境界線のスタイル */
+.form-divider {
+  width: 100%;        /* 幅を100%に設定 */
+  height: 10px;       /* 高さを10ピクセルに設定 */
+  background-color: #ccc; /* 背景色を灰色に設定 */
+}
+
+/* フォーム終わり */
+
+/* ツイートリストのコンテナ */
+.container {
+  /* max-width: 800px; */
+   /* デザインに合わせて幅を調整 */
+  /* margin: 0 auto; */
+  /* padding: 40px; */
+}
+
+.container img{
+  width: 60px;
+}
+
+table{
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 各ツイート行のスタイル */
+.table-hover tr {
+  border-bottom: 1px solid #ccc; 
+  /* ツイート間にボーダーを追加 */
+
+}
+
+/* ツイートコンテンツのスタイル */
+.table-hover td {
+  padding: 20px;
+  text-align: center; /* ツイート内容を中央寄せにする */
+}
+
+/* 編集、削除用ボタン　始まり */
+.actions {
+  display: flex;
+  /* justify-content: space-between;  */
+  /* アクションボタンを横に均等に配置 */
+}
+
+.icon-box{
+  width: 60px; /* 画像をコンテナに合わせて表示 */
+  height: 60px; /* 画像をコンテナに合わせて表示 */
+}
+
+.icon-box-trash {
+  width: 60px; /* 画像のサイズに合わせて調整 */
+  height: 60px; /* 画像のサイズに合わせて調整 */
+  background:url('/images/trash-h.png');
+  overflow: hidden; /* はみ出したコンテンツを非表示にする */
+  background-size: cover; /* 画像をコンテナに合わせて表示 */
+}
+
+.icon-box-trash:hover {
+  background-image: url('/images/trash.png'); /* 別の画像のパスに実際の画像のパスを置き換えてください */
+  background-size: cover; /* 画像をコンテナに合わせて表示 */
+}
+/* 編集、削除用ボタン　終わり */
 
 
+/* モーダルのスタイル */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* 半透明の背景色 */
+}
 
+.modal__content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* モーダル内のフォームの追加スタイル */
+.modal_post {
+  width: 100%;
+  height: 100px; /* デザインに合わせて高さを調整 */
+}
+
+/* 必要に応じて他のフォーム要素のスタイルを追加 */
+
+/* モーダルの閉じるボタン */
+.js-modal-close {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+figure{
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 150px;
+  margin-inline-end: 40px;
+}
+
+figure img{
+  width: 70px;
+}
+
+li{
+  list-style:none;
+  /* border-bottom:1px solid #000; */
+  display:flex;
+}
+
+.post-content{
+  width:100%;
+  padding:15px;
+}
+
+.post-content > div {
+  display:flex;
+  justify-content: space-between;
+}
+
+.post-name{
+  margin-bottom:10px;
+}
+
+/* 編集、削除アイコン 開始*/
+.post{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-bottom:1px solid #000;
+  padding: 15px;
+}
+
+.icon-img{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px; /* ボタンと投稿内容の間隔を調整 */
+}
+
+
+.edit-img{
+  width: 60px; /* 画像のサイズに合わせて調整 */
+  height: 60px; /* 画像のサイズに合わせて調整 */
+  background: url('/images/edit.png') center/cover;
+  overflow: hidden;
+}
+
+.edit-img,
+.icon-delete {
+    width: 60px;
+    height: 60px;
+    background-position: center/cover;
+    overflow: hidden;
+}
+
+.icon-delete{
+  width: 60px;
+  height: 60px;
+  background: url('/images/trash-h.png') center/cover;
+  overflow: hidden;
+}
+.icon-delete:hover {
+  width: 40px;
+  height: 40px;
+  background-image: url('/images/trash.png');
+  overflow: hidden;
+}
+/* 編集、削除アイコン　終わり */
+
+/* フォローリスト 呟き　始まり*/
+.followList, .profile-detail{
+  display: flex;
+  font-family: arial;
+  padding: 20px;
+  margin-left: 100px;
+}
+
+.followList > h1{
+  margin-right: 50px;
+  font-size: 40px;
+}
+
+.followList img, .profile-detail img{
+  width: 60px;
+  display: flex;
+  height: 60px; /* 画像の高さを指定 */
+  object-fit: cover; /* 画像を保持比率を維持しながら表示エリアにフィットさせる */
+  border-radius: 50%; /* 画像を丸くするための丸い枠線を追加（必要に応じて）*/
+  margin-right: 10px; /* 画像間の隙間を設定（必要に応じて）*/
+}
+
+.followList > ul, .profile-detail{
+  display: flex;
+  margin-left: 20px;
+  flex-wrap: wrap; /* 画像が枠をはみ出した場合に次の行に移行 */
+  max-width: 700px; /* 枠の最大幅を指定 */
+}
+
+.line{
+  border-bottom:10px solid #ccc;
+}
+
+.post-follow-block{
+  border-bottom:1px solid #ccc;
+}
+
+.post-follow-content{
+  width:100%;
+  padding:15px;
+}
+
+.post-follow-content > div {
+  display:flex;
+  justify-content: space-between;
+}
+/* フォローリスト 呟き　終わり*/
