@@ -90,7 +90,7 @@ class User extends Authenticatable
         // アイコンが設定されている場合asset()ヘルパー関数を使用してアイコンのURLを生成して返している。
         
         // デフォルトのアイコンのURLをかえる
-        return asset('/images/icon1.png');
+        return asset('/storage/app/public/images/CqT6aWcJZkNYUfG8EovYNT3rZXCP4eWSCtxvD6qy.png');
     }
 
     
