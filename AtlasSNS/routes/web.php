@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth','verified']], function(){
     Route::get('/post/{id}/delete', 'PostsController@delete');
 
     //プロフィール画面
-    Route::get('/profile', 'UsersController@show')->name('profile');
+    Route::get('/profile/{user?}', 'UsersController@show')->name('profile');
     //プロフィール編集
     Route::put('/profile', 'UsersController@profileUpdate')->name('profile_edit');
 
