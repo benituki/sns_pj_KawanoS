@@ -68,8 +68,10 @@ Route::group(['middleware' => ['auth','verified']], function(){
 
     //検索
     Route::get('/search','UsersController@search')->name('posts.index');
-    Route::get('/users/{user_id}', 'UserController@show')->name('users.show');
-    
+    Route::get('/users/{user?}', 'UsersController@show')->name('users.show');
+    Route::post('/search_follow/{id}', 'FollowsController@search_follow')->name('search_follow');
+    Route::post('/search_un_follow/{id}', 'FollowsController@search_un_follow')->name('search_un_follow');
+
     // フォローボタン
     // ユーザーをフォローする
     Route::post('/follow/{id}', 'FollowsController@follow')->name('follow');
@@ -85,9 +87,6 @@ Route::group(['middleware' => ['auth','verified']], function(){
 
     //ログアウト機能（2022/12/26）
     Route::get('/logout', 'Auth\LoginController@logout');
-
-    //ルート定義（2022/12/25）追加
-    Route::post('sample', 'FormController@postValidates');
 
 
     Route::get('/followed-tweets', 'FollowsController@followedTweets')->name('followed.tweets');
