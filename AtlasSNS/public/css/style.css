@@ -145,7 +145,12 @@ h1 img{
 
 /* サイドバー */
 #side-bar {
+  flex: 0 0 20%; 
+  width: 20px;
+  float: right;
+  background: #ffffff;
   border-left: 1px solid #000; /* 左側に境界線を追加 */
+
   }
 
 .btn{
@@ -185,15 +190,6 @@ h1 img{
 
 #container{
     flex: 0 0 80%;
-}
-#side-bar{
-
-  flex: 0 0 20%; 
-  /* border-left: 2px solid #000000; */
-  /* position: fixed;
-  position: fixed;
-  right: 0%;
-  width: 20%; */
 }
 
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
@@ -437,7 +433,7 @@ li{
 }
 
 .edit-img,
-.icon-delete {
+.icon-delete{
     width: 60px;
     height: 60px;
     background-position: center/cover;
@@ -505,3 +501,113 @@ li{
   justify-content: space-between;
 }
 /* フォローリスト 呟き　終わり*/
+
+/* 検索フォーム 始まり*/
+/* スタイリング全体のコンテナ */
+.search-form-container {
+  display: flex;
+  align-items: center;
+  padding:80px;
+}
+
+/* 検索ボックスと検索ワードを包むコンテナ */
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+/* 検索ボックス */
+.search-box {
+  font-size: 25px;
+  padding: 15px;
+  border:2px solid #868686;
+  border-radius: 4px;
+  margin-right: 20px;
+  width: 400px; /* 必要に応じて幅を調整 */
+}
+
+/* 検索ワード */
+.search-word {
+  margin-left: 350px;
+  font-size: 25px;
+}
+
+/* ボタンのコンテナ */
+.button-container {
+  display: flex;
+}
+
+/* 検索ボタン */
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* 検索フォーム終わり */
+
+/* 検索結果　始まり */
+        /* ユーザーごとのコンテナ */
+        .user-container {
+          background-color: #ffffff;
+          /* ユーザーコンテナの背景色を指定 */
+          border: 1px solid #dee2e6;
+          /* ユーザーコンテナのボーダーを指定 */
+          border-radius: 5px;
+          /* ユーザーコンテナの角を丸める */
+          margin-bottom: 15px;
+          /* ユーザーコンテナ間の余白を指定 */
+          padding: 15px;
+          /* ユーザーコンテナの内側の余白を指定 */
+          display: flex;
+          /* 子要素を横に並べるように指定 */
+          align-items: center;
+          /* 子要素を縦方向に中央寄せに指定 */
+      }
+
+      /* ユーザー名のスタイル */
+      .username {
+          font-size: 18px;
+          /* ユーザー名のフォントサイズを指定 */
+          font-weight: bold;
+          /* ユーザー名の太さを指定 */
+          margin-bottom: 5px;
+          /* ユーザー名の下の余白を指定 */
+      }
+
+      /* ユーザー画像のスタイル */
+      .user-image {
+          max-width: 100px;
+          /* ユーザー画像の最大幅を指定 */
+          max-height: 100px;
+          /* ユーザー画像の最大高さを指定 */
+          border-radius: 50%;
+          /* 画像を円形にする */
+          margin-right: 15px;
+          /* 画像の右側の余白を指定 */
+      }
+
+      /* フォローボタン、フォロー解除ボタンのスタイル */
+      .follow-button, .unfollow-button {
+          padding: 8px 15px;
+          /* ボタンの内側の余白を指定 */
+          font-size: 14px;
+          /* ボタンのフォントサイズを指定 */
+          cursor: pointer;
+          /* カーソルをポインタに変更 */
+      }
+
+      /* フォロー解除ボタンのスタイル */
+      .unfollow-button {
+          background-color: #dc3545;
+          /* フォロー解除ボタンの背景色を指定 */
+          color: #ffffff;
+          /* フォロー解除ボタンの文字色を指定 */
+          border: 1px solid #dc3545;
+          /* フォロー解除ボタンのボーダーを指定 */
+      }
+
+/* 検索結果　終わり */
