@@ -150,7 +150,6 @@ h1 img{
   float: right;
   background: #ffffff;
   border-left: 1px solid #000; /* 左側に境界線を追加 */
-
   }
 
 .btn{
@@ -183,7 +182,7 @@ h1 img{
     line-height: 2.0; /* 上下間隔開け */
 }
 
-#row p{
+#row > p{
   font-size: 20px;
   font-weight: bold;
 }
@@ -486,6 +485,9 @@ li{
 .line{
   border-bottom:10px solid #ccc;
 }
+.line2{
+  border-bottom:1px solid #ccc;
+}
 
 .post-follow-block{
   border-bottom:1px solid #ccc;
@@ -539,75 +541,277 @@ li{
 
 /* 検索ボタン */
 .search-button {
-  background-color: #007bff;
-  color: #fff;
+
   border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  cursor: pointer;
+
 }
 
 /* 検索フォーム終わり */
 
 /* 検索結果　始まり */
-        /* ユーザーごとのコンテナ */
-        .user-container {
-          background-color: #ffffff;
-          /* ユーザーコンテナの背景色を指定 */
-          border: 1px solid #dee2e6;
-          /* ユーザーコンテナのボーダーを指定 */
-          border-radius: 5px;
-          /* ユーザーコンテナの角を丸める */
-          margin-bottom: 15px;
-          /* ユーザーコンテナ間の余白を指定 */
-          padding: 15px;
-          /* ユーザーコンテナの内側の余白を指定 */
-          display: flex;
-          /* 子要素を横に並べるように指定 */
-          align-items: center;
-          /* 子要素を縦方向に中央寄せに指定 */
-      }
 
-      /* ユーザー名のスタイル */
-      .username {
-          font-size: 18px;
-          /* ユーザー名のフォントサイズを指定 */
-          font-weight: bold;
-          /* ユーザー名の太さを指定 */
-          margin-bottom: 5px;
-          /* ユーザー名の下の余白を指定 */
-      }
+/* ユーザーごとのコンテナ */
+.user-container {
+  background-color: #ffffff;
+  /* ユーザーコンテナの背景色を指定 */
+  /* padding: 50px; */
+  /* ユーザーコンテナの内側の余白を指定 */
+  margin-top: 50px;
+  display: flex;
+  /* 子要素を横に並べるように指定 */
+  align-items: center;
+  /* 子要素を縦方向に中央寄せに指定 */
+  justify-content: center;
+}
 
-      /* ユーザー画像のスタイル */
-      .user-image {
-          max-width: 100px;
-          /* ユーザー画像の最大幅を指定 */
-          max-height: 100px;
-          /* ユーザー画像の最大高さを指定 */
-          border-radius: 50%;
-          /* 画像を円形にする */
-          margin-right: 15px;
-          /* 画像の右側の余白を指定 */
-      }
+.user-details{
+  display: flex;
+  align-items: center;
+  margin-right: 300px;
+}
 
-      /* フォローボタン、フォロー解除ボタンのスタイル */
-      .follow-button, .unfollow-button {
-          padding: 8px 15px;
-          /* ボタンの内側の余白を指定 */
-          font-size: 14px;
-          /* ボタンのフォントサイズを指定 */
-          cursor: pointer;
-          /* カーソルをポインタに変更 */
-      }
+/* ユーザー名のスタイル */
+.username {
+  font-size: 25px;
+  /* ユーザー名のフォントサイズを指定 */
+}
 
-      /* フォロー解除ボタンのスタイル */
-      .unfollow-button {
-          background-color: #dc3545;
-          /* フォロー解除ボタンの背景色を指定 */
-          color: #ffffff;
-          /* フォロー解除ボタンの文字色を指定 */
-          border: 1px solid #dc3545;
-          /* フォロー解除ボタンのボーダーを指定 */
-      }
+/* ユーザー画像のスタイル */
+.user-image {
+max-width: 100px;
+/* ユーザー画像の最大幅を指定 */
+max-height: 100px;
+/* ユーザー画像の最大高さを指定 */
+border-radius: 50%;
+/* 画像を円形にする */
+margin-right: 50px;
+/* 画像の右側の余白を指定 */
+}
+
+/* フォローボタン、フォロー解除ボタンのスタイル */
+.follow-button, .unfollow-button {
+padding: 8px 15px;
+/* ボタンの内側の余白を指定 */
+font-size: 14px;
+/* ボタンのフォントサイズを指定 */
+cursor: pointer;
+/* カーソルをポインタに変更 */
+border-radius: 10px;
+transition: 0.5s;
+}
+
+/* フォローボタン */
+.follow-button {
+background-color: #007bff;
+color: #fff;
+border: 1px solid #007bff;
+}
+
+.follow-button:hover {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+  }
+
+/* フォロー解除ボタンのスタイル */
+.unfollow-button {
+background-color: #dc3545;
+/* フォロー解除ボタンの背景色を指定 */
+color: #ffffff;
+/* フォロー解除ボタンの文字色を指定 */
+border: 1px solid #dc3545;
+/* フォロー解除ボタンのボーダーを指定 */
+}
+
+.unfollow-button:hover {
+  background-color: #fff;
+  /* フォロー解除ボタンの背景色を指定 */
+  color: #dc3545;
+  /* フォロー解除ボタンの文字色を指定 */
+  border: 1px solid #dc3545;
+  /* フォロー解除ボタンのボーダーを指定 */
+  }
 
 /* 検索結果　終わり */
+
+/* プロフィール全体　始まり */
+.profile_edit_group {
+  display: flex;
+  padding: 100px;
+  margin-left: 300px;
+}
+
+.profile_edit_group img{
+  width: 60px;
+  height: 60px;
+}
+
+/* プロフィール全体　終わり */
+
+/* プロフィール編集 始まり*/
+.profile_edit {
+  width: fit-content;
+  text-align: left;
+}
+
+/* フォームラベル */
+.profile_edit label {
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+}
+
+/* 変更フォーム */
+.profile_edit input{
+  width: 500px;
+  border:1px solid #868686;
+  background-color: #e4e4e4;
+}
+
+.profile_edit label, .profile_edit input {
+  font-size: 25px;
+  padding: 5px 0;
+  float: left;
+  clear: both;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-danger{
+  color: red;
+  margin-top: 5px;
+top: 10px;
+  text-align: center;
+}
+
+/* フォームグループ */
+.form-group, .form-group_img {
+  display: flex;
+  padding: 25px;
+}
+
+.form-group_img input[type="file"] {
+  width: 500px;
+  height: 150px;
+  background-color: #e4e4e4;
+  border: 1px solid #868686; /* ボーダーのスタイルを指定 */
+  padding: 10px; /* ボタンの内側の余白を追加 */
+  /* color: transparent; */
+}
+
+.form-group_img input[type="file"]::placeholder {
+  color: transparent;
+}
+
+/* エラーメッセージスタイル */
+.form-group_img .text-danger {
+  margin-top: 5px;
+  color: red;
+}
+
+/* 更新ボタン */
+.form-btn {
+  font-size: 25px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	width: 200px;
+  height: 50px;
+	margin: auto;
+	border: 2px solid #ED3A50;
+	background: #ED3A50;
+	color: #fff;
+	border-radius: 20px;
+  transition: 0.5s;
+}
+.form-btn:hover {
+  color: #ED3A50;
+	background: #fff;
+}
+/* プロフィール編集　終わり */
+
+/* プロフィール編集画面 始まり*/
+.profile_detail{
+  padding: 50px;
+  display: flex;
+}
+
+.profile_detail > img {
+  margin-left: 100px;
+  width: 60px;
+  height: 60px;
+}
+
+.profile_detail > ul > div {
+  margin-top: 20px;
+}
+
+.profile_name,
+.profile_bio {
+  display: flex;
+  margin-left: 20px; /* 適切なマージンに変更 */
+}
+
+.profile_name > li > h1,
+.profile_bio > li > h1 {
+  text-align: left;
+  font-size: 25px;
+}
+
+.profile_name > li > p,
+.profile_bio > li > p {
+  text-align: left;
+  font-size: 25px;
+  margin-left: 300px;
+}
+
+.newfollow-btn,
+.unfollow-btn {
+  margin-left: 400px;
+  padding: 8px 15px;
+  /* ボタンの内側の余白を指定 */
+  font-size: 14px;
+  /* ボタンのフォントサイズを指定 */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  border-radius: 10px;
+  transition: 0.5s;
+  }
+
+/* フォローボタン */
+.newfollow-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  }
+  
+  .newfollow-btn:hover {
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    }
+  
+  /* フォロー解除ボタンのスタイル */
+  .unfollow-btn {
+  background-color: #dc3545;
+  /* フォロー解除ボタンの背景色を指定 */
+  color: #ffffff;
+  /* フォロー解除ボタンの文字色を指定 */
+  border: 1px solid #dc3545;
+  /* フォロー解除ボタンのボーダーを指定 */
+  }
+  
+  .unfollow-btn:hover {
+    background-color: #fff;
+    /* フォロー解除ボタンの背景色を指定 */
+    color: #dc3545;
+    /* フォロー解除ボタンの文字色を指定 */
+    border: 1px solid #dc3545;
+    /* フォロー解除ボタンのボーダーを指定 */
+    }
+
+
+/* プロフィール編集画面　終わり */
