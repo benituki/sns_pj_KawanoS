@@ -21,14 +21,15 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- ユーザー一覧の表示とフォローボタン -->
     @foreach($users as $user)
     <div class="user-container">
         <div class="user-details">
-            <div class="username">{{ $user->username }}</div>
             <img src="/storage/{{$user->images}}" alt="User Icon" class="user-image">
+            <div class="username">{{ $user->username }}</div>
         </div>
         @if(Auth::user()->isFollowing($user->id))
             <!-- フォロー解除ボタン -->
