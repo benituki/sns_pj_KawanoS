@@ -41,11 +41,14 @@ class UsersController extends Controller
 
         $images = $request->images;
         // 
-        if($images->isValid()){
+        if ($images !== null && $images->isValid()) {
             $filePath = $images->store('public/images');
             $users->images = str_replace('public/', '', $filePath);
+        } else {
+            // エラー処理または適切な処理を追加
+            // 例: フォームが送信されていない場合やファイルがアップロードされていない場合の処理
         }
-        
+
         $users->save();
 
         return redirect()->route('top')->with('users', $users);
