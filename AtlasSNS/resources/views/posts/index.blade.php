@@ -10,11 +10,14 @@
         'class' => 'form-control',
         'cols' => '150',
         'rows' => '10',
+        'style' => 'white-space: pre-line;', // 改行対応のスタイルを追加
         'placeholder' => "投稿内容を入力してください。"
     ])}}
     <input type="image" src="{{ asset('images/post.png') }}" alt="投稿" class="custom-image-button">
     {{ Form::close() }}
 </div>
+
+
 {{-- 投稿フォーム終わり --}}
 
 <div class="form-divider"></div>
@@ -30,7 +33,7 @@
                             <div class="post-name">{{ $tweet->user->username }} さん</div>
                             <div>{{ $tweet->created_at }}</div>
                         </div>
-                        <div>{{ $tweet->post }}</div>
+                        <div>{!! nl2br(e($tweet->post)) !!}</div>
                     </div>
                 </li>
                 <div class="post">
