@@ -639,7 +639,7 @@ border: 1px solid #dc3545;
 .profile_edit_group {
   display: flex;
   padding: 100px;
-  margin-left: 300px;
+  margin-left: 20%;
 }
 
 .profile_edit_group img{
