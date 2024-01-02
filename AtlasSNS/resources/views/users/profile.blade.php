@@ -14,7 +14,15 @@
     <div class="profile">
         @if(Auth::check() && Auth::user()->id == $user->id)
         <div class="profile_edit_group">
-            <img src="/storage/{{$user->images}}">
+            
+            @if($user->images === 'images/icon1.png')
+            {{-- デフォルトのアイコン --}}
+            <img src="{{ asset($user->images) }}" alt="Default Avatar">
+            @else
+            {{-- プロフィール変更によるアイコン --}}
+            <img src="/storage/{{ $user->images }}" alt="User Avatar">
+            @endif
+
             {!! Form::open(['route' => ['profile_edit'], 'method' => 'PUT', "enctype" => "multipart/form-data"])!!}
             {!! Form::hidden('id', $user->id) !!}
             <div class="profile_edit">

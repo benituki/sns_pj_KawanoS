@@ -41,7 +41,13 @@
                     </ul>
                 </div>
                 <div id="usericon">
-                    <img src="/storage/{{$users->images}}">
+                    @if($users->images === 'images/icon1.png')
+                    {{-- デフォルトのアイコン --}}
+                    <img src="{{ asset($users->images) }}" alt="Default Avatar">
+                    @else
+                    {{-- プロフィール変更によるアイコン --}}
+                    <img src="/storage/{{ $users->images }}" alt="User Avatar">
+                    @endif
                 </div>
             </div>
         </div>

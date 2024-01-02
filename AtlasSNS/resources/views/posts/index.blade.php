@@ -3,7 +3,16 @@
 @section('content')
 {{-- 投稿フォーム --}}
 <div class="user-form-container">
-    <?php $users = Auth::user(); ?><img src="/storage/{{$users->images}}">
+    <?php $users = Auth::user(); ?>
+
+    @if($users->images === 'images/icon1.png')
+    {{-- デフォルトのアイコン --}}
+    <img src="{{ asset($users->images) }}" alt="Default Avatar">
+    @else
+    {{-- プロフィール変更によるアイコン --}}
+    <img src="/storage/{{ $users->images }}" alt="User Avatar">
+    @endif
+
     {{ Form::open(['url' => '/tweet']) }}
     @csrf {{-- CSRF保護 --}}
     {{ Form::textarea('newPost', null, [
@@ -27,7 +36,16 @@
             <ul>
                 @foreach ($list as $tweet)
                 <li class="post-block">
-                    <figure><img src="/storage/{{$tweet->user->images}}" alt="User Icon"></figure>
+                    <figure>
+                    <?php $users = Auth::user(); ?>
+                    @if($tweet->images === 'images/icon1.png')
+                    {{-- デフォルトのアイコン --}}
+                    <img src="{{ asset($tweet->user->images) }}" alt="Default Avatar">
+                    @else
+                    {{-- プロフィール変更によるアイコン --}}
+                    <img src="/storage/{{ $tweet->user->images }}" alt="User Avatar">
+                    @endif
+                </figure>
                     <div class="post-content">
                         <div>
                             <div class="post-name">{{ $tweet->user->username }} さん</div>

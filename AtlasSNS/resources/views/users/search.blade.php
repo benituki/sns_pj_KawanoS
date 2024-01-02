@@ -28,8 +28,17 @@
     @foreach($users as $user)
     <div class="user-container">
         <div class="user-details">
-            <img src="/storage/{{$user->images}}" alt="User Icon" class="user-image">
+
+            @if($user->images === 'images/icon1.png')
+            {{-- デフォルトのアイコン --}}
+            <img src="{{ asset($user->images) }}" alt="Default Avatar">
+            @else
+            {{-- プロフィール変更によるアイコン --}}
+            <img src="/storage/{{ $user->images }}" alt="User Avatar">
+            @endif
+            
             <div class="username">{{ $user->username }}</div>
+        
         </div>
         @if(Auth::user()->isFollowing($user->id))
             <!-- フォロー解除ボタン -->

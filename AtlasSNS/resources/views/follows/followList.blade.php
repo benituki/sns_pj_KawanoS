@@ -8,7 +8,13 @@
         @foreach($following as $follower)
             <li>
                 <a href="{{ route('profile', [$follower->id]) }}">
-                    <td><img src="/storage/{{$follower->images}}" alt="{{ $follower->username }}"></td>
+                    @if($follower->images === 'images/icon1.png')
+                    {{-- デフォルトのアイコン --}}
+                    <img src="{{ asset($follower->images) }}" alt="Default Avatar">
+                    @else
+                    {{-- プロフィール変更によるアイコン --}}
+                    <img src="/storage/{{ $follower->images }}" alt="User Avatar">
+                    @endif
                 </a>
             </li>
         @endforeach
@@ -16,9 +22,6 @@
 </div>
 
 <div class="line"></div>
-
-
-
 
 <!-- フォローユーザーのツイートを表示 -->
     <div class="container">
@@ -29,7 +32,13 @@
                 <li class="post-follow-block">
                     <figure>
                         <a href="{{ route('profile', [$tweet->user->id]) }}">
-                            <img src="/storage/{{ $tweet->user->images }}">
+                            @if($tweet->images === 'images/icon1.png')
+                            {{-- デフォルトのアイコン --}}
+                            <img src="{{ asset($tweet->user->images) }}" alt="Default Avatar">
+                            @else
+                            {{-- プロフィール変更によるアイコン --}}
+                            <img src="/storage/{{ $tweet->user->images }}" alt="User Avatar">
+                            @endif
                         </a>
                     </figure>
                     <div class="post-follow-content">
