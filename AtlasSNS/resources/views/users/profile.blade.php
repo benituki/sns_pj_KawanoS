@@ -86,7 +86,13 @@
 
         <div class="profiles">
             <div class="profile_detail">
-                <img src="/storage/{{$user->images}}">
+                @if($user->images === 'images/icon1.png')
+                {{-- デフォルトのアイコン --}}
+                <img src="{{ asset($user->images) }}" alt="Default Avatar">
+                @else
+                {{-- プロフィール変更によるアイコン --}}
+                <img src="/storage/{{ $user->images }}" alt="User Avatar">
+                @endif
                 <ul>
                     <div class="profile_name">
                         <li>
@@ -130,7 +136,15 @@
                         <li class="post-follow-block">
                             <figure>
                                 <a href="{{ route('profile', [$tweet->user->id]) }}">
-                                    <td><img src="/storage/{{ $tweet->user->images }}"></td>
+                                    <td>
+                                        @if($tweet->images === 'images/icon1.png')
+                                        {{-- デフォルトのアイコン --}}
+                                        <img src="{{ asset($tweet->user->images) }}" alt="Default Avatar">
+                                        @else
+                                        {{-- プロフィール変更によるアイコン --}}
+                                        <img src="/storage/{{ $tweet->user->images }}" alt="User Avatar">
+                                        @endif
+                                    </td>
                                 </a>
                             </figure>
                             <div class="post-follow-content">
