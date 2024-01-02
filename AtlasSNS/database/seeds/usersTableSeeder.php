@@ -16,8 +16,8 @@ class usersTableSeeder extends Seeder
         //ダミーユーザー
         DB::table('users')->insert([
             'username' => 'test',
-            'mail' => 'test@test',
-            'password' => bcrypt('test123'),
+            'mail' => 'test@test.com',
+            'password' => bcrypt('test1234'),
             'images' => 'images/icon1.png', // デフォルトアイコンのパス
         ]);
     }
