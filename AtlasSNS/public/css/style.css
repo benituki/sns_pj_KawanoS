@@ -261,6 +261,7 @@ input[type=text]:focus {
 
 /* フォームとユーザーアイコンの絶対位置指定 */
 .user-form-container img {
+  width: 60px;
   margin-right: 20px; /* ユーザーアイコンとフォームの間隔を調整 */
 }
 
