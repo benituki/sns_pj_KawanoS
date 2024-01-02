@@ -752,26 +752,37 @@ top: 10px;
 
 .profile_name,
 .profile_bio {
-  display: flex;
-  margin-left: 20px; /* 適切なマージンに変更 */
+  margin-left: 10%; /* 適切なマージンに変更 */
 }
+
+.profile_name > li,
+.profile_bio > li {
+  display: flex;
+  align-items: center; /* 垂直方向にセンター揃え */
+}
+
 
 .profile_name > li > h1,
 .profile_bio > li > h1 {
-  text-align: left;
   font-size: 25px;
+  margin-right: 50%; /* h1とpの間に適切な間隔を設定 */
 }
 
 .profile_name > li > p,
 .profile_bio > li > p {
   text-align: left;
   font-size: 25px;
-  margin-left: 300px;
+  white-space: nowrap; /* テキストが改行されないようにする */
+}
+
+.follow-btn{
+  margin-left: 50%;
+  white-space: nowrap; /* テキストが改行されないようにする */
 }
 
 .newfollow-btn,
 .unfollow-btn {
-  margin-left: 400px;
+  /* margin-left: 100%; */
   padding: 8px 15px;
   /* ボタンの内側の余白を指定 */
   font-size: 14px;
