@@ -26,8 +26,8 @@
                 </div>
                 <div class="form-container">
                     <div class="form-group">
-                        {{Form::label('username', 'user name')}}
-                        {{Form::text('username', $user->username, ['class' => 'form-control', 'id' => 'username'])}}
+                        {{Form::label('bio', 'bio')}}
+                        {{Form::text('bio', $user->bio, ['class' => 'form-control', 'id' => 'bio'])}}
                     </div>
                     <span class="text-danger">{{$errors->first('username')}}</span>
                 </div>
