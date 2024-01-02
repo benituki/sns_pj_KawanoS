@@ -36,8 +36,6 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-
-
     // ユーザーがフォローしている人のリレーション
     // ※修正する。
     // 多：多　→３テーブル
@@ -80,17 +78,15 @@ class User extends Authenticatable
     // boolean->真偽値,（真か偽か）
     // whereメソッド→DBクエリをフィルタリングするためのもの、特定の条件を設定するもの。
     
-    // ユーザーアイコン
-    public function getIconUrlAttribute()
-    // get接頭辞とAttribute接尾辞を持つ特定の構文に従って名前が付けられている。
+
+    protected static function boot()
     {
-        if($this->icon){
-            return asset($this->icon);
-        }
-        // アイコンが設定されている場合asset()ヘルパー関数を使用してアイコンのURLを生成して返している。
-        
-        // デフォルトのアイコンのURLをかえる
-        return asset('/storage/app/public/images/CqT6aWcJZkNYUfG8EovYNT3rZXCP4eWSCtxvD6qy.png');
+        parent::boot();
+
+        static::creating(function ($user) {
+            // ここでデフォルトのアイコンを設定
+            $user->images = 'images/icon1.png';
+        });
     }
 
     
