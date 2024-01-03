@@ -83,11 +83,13 @@
                 <form action="/update-form" method="POST">
                     <textarea name="upPost" class="modal_post"></textarea>
                     <input type="hidden" name="id" class="modal_id" value="">
-                    <input type="submit" value="更新">
+                    <button type="submit" class="modal__edit">
+                        <img src="{{ asset('images/edit.png') }}" alt="更新">
+                    </button>
                     {{ csrf_field() }}
                 </form>
                 {{-- 編集フォーム終わり --}}
-                <a class="js-modal-close" href="">閉じる</a>
+                {{-- <a class="js-modal-close" href="">閉じる</a> --}}
             </div>
         </div>
     </div>
