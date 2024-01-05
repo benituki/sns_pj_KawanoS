@@ -37,8 +37,7 @@
                 @foreach ($list as $tweet)
                 <li class="post-block">
                     <figure>
-                    <?php $users = Auth::user(); ?>
-                    @if($tweet->images === 'images/icon1.png')
+                    @if($tweet->user->images === 'images/icon1.png')
                     {{-- デフォルトのアイコン --}}
                     <img src="{{ asset($tweet->user->images) }}" alt="Default Avatar">
                     @else
