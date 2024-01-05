@@ -79,6 +79,7 @@
 
         <div class="profiles">
             <div class="profile_detail">
+                
                 @if($user->images === 'images/icon1.png')
                 {{-- デフォルトのアイコン --}}
                 <img src="{{ asset($user->images) }}" alt="Default Avatar">
@@ -130,7 +131,7 @@
                             <figure>
                                 <a href="{{ route('profile', [$tweet->user->id]) }}">
                                     <td>
-                                        @if($tweet->images === 'images/icon1.png')
+                                        @if($tweet->user->images === 'images/icon1.png')
                                         {{-- デフォルトのアイコン --}}
                                         <img src="{{ asset($tweet->user->images) }}" alt="Default Avatar">
                                         @else

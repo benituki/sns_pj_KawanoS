@@ -32,7 +32,7 @@
                 <li class="post-follow-block">
                     <figure>
                         <a href="{{ route('profile', [$tweet->user->id]) }}">
-                            @if($tweet->images === 'images/icon1.png')
+                            @if($tweet->user->images === 'images/icon1.png')
                             {{-- デフォルトのアイコン --}}
                             <img src="{{ asset($tweet->user->images) }}" alt="Default Avatar">
                             @else
