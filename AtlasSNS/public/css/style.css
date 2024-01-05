@@ -132,6 +132,7 @@ h1 img{
   max-width: 800px; /* デザインに合わせて幅を調整 */
   margin: 0 auto;
   padding: 40px;
+  white-space: nowrap;
 }
 
 /* ユーザー検索ボタンの設置（2023/01/18）*/
@@ -741,10 +742,13 @@ top: 10px;
 .profile_detail{
   padding: 50px;
   display: flex;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile_detail > img {
-  margin-left: 100px;
+  /* margin-left: 100px; */
   width: 60px;
   height: 60px;
 }
@@ -753,30 +757,49 @@ top: 10px;
   margin-top: 20px;
 }
 
+.profile_detail > ul {
+
+}
+
 .profile_name,
 .profile_bio {
-  margin-left: 10%; /* 適切なマージンに変更 */
+  /* margin-left: 10%; */
 }
 
 .profile_name > li,
 .profile_bio > li {
+  display: -webkit-flex;
   display: flex;
-  align-items: center; /* 垂直方向にセンター揃え */
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.profile_name > li,
+.profile_bio > li {
+  display: -webkit-flex;
+  display: flex;
+  /* -webkit-justify-content: space-between;
+  justify-content: space-between; */
 }
 
 
 .profile_name > li > h1,
 .profile_bio > li > h1 {
   font-size: 25px;
-  margin-right: 50%; /* h1とpの間に適切な間隔を設定 */
+  margin-right: 20%; 
 }
 
 .profile_name > li > p,
 .profile_bio > li > p {
+  display: -webkit-flex;
+  display: flex;
+
+
   text-align: left;
   font-size: 25px;
   white-space: nowrap; /* テキストが改行されないようにする */
 }
+
 
 .follow-btn{
   margin-left: 50%;
@@ -785,13 +808,9 @@ top: 10px;
 
 .newfollow-btn,
 .unfollow-btn {
-  /* margin-left: 100%; */
   padding: 8px 15px;
-  /* ボタンの内側の余白を指定 */
   font-size: 14px;
-  /* ボタンのフォントサイズを指定 */
   cursor: pointer;
-  /* カーソルをポインタに変更 */
   border-radius: 10px;
   transition: 0.5s;
   }
@@ -809,23 +828,16 @@ top: 10px;
     border: 1px solid #007bff;
     }
   
-  /* フォロー解除ボタンのスタイル */
   .unfollow-btn {
   background-color: #dc3545;
-  /* フォロー解除ボタンの背景色を指定 */
   color: #ffffff;
-  /* フォロー解除ボタンの文字色を指定 */
   border: 1px solid #dc3545;
-  /* フォロー解除ボタンのボーダーを指定 */
   }
   
   .unfollow-btn:hover {
     background-color: #fff;
-    /* フォロー解除ボタンの背景色を指定 */
     color: #dc3545;
-    /* フォロー解除ボタンの文字色を指定 */
     border: 1px solid #dc3545;
-    /* フォロー解除ボタンのボーダーを指定 */
     }
 
 
