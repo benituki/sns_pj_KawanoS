@@ -34,13 +34,6 @@
                 </div>
                 <div class="form-container">
                     <div class="form-group">
-                        {{Form::label('bio', 'bio')}}
-                        {{Form::text('bio', $user->bio, ['class' => 'form-control', 'id' => 'bio'])}}
-                    </div>
-                    <span class="text-danger">{{$errors->first('username')}}</span>
-                </div>
-                <div class="form-container">
-                    <div class="form-group">
                         {{Form::label('mail', 'adress mail')}}
                         {{Form::text('mail', $user->mail, ['class' => 'form-control', 'id' => 'mail'])}}
                     </div>
