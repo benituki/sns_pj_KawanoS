@@ -24,7 +24,7 @@
         <div class="header-wrap">
             <div id="head">
                 {{-- //イメージ画像ヘッダーロゴトップリンク遷移 --}}
-                <h1><a href="top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
+                <h1><a href="/top"><img src="{{ asset('/images/atlas.png') }}" ></a></h1>
             </div>
             <div id="users">
                 <div>
