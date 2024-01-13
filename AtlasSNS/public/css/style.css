@@ -575,6 +575,10 @@ li{
   margin-right: 300px;
 }
 
+.user-details img{
+  width: 60px;
+}
+
 /* ユーザー名のスタイル */
 .username {
   font-size: 25px;
