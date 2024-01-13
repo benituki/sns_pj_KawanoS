@@ -14,16 +14,14 @@ class CreateFollowsTable extends Migration
     public function up()
     {
         Schema::create('follows', function (Blueprint $table) {
-            $table->unsignedBigInteger('follower_id');
-            $table->unsignedBigInteger('following_id');
-            $table->timestamps();
-    
-            // 主キーが複合キーの場合、以下のように定義します
-            $table->primary(['follower_id', 'following_id']);
-    
-            // 外部キー制約の定義
-            $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('id')->autoIncrement();
+            $table->integer('following_id');
+            $table->integer('followed_id');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
+            //外部キー制約
             $table->foreign('following_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('followed_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
